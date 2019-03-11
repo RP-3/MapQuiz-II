@@ -153,7 +153,7 @@
                         <viewLayoutGuide key="safeArea" id="UVQ-bC-30o"/>
                     </view>
                     <connections>
-                        <segue destination="HTi-rs-NQX" kind="show" identifier="" id="AgK-rn-1Xi"/>
+                        <segue destination="HTi-rs-NQX" kind="show" identifier="selectPracticeMode" id="AgK-rn-1Xi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjk-lo-dAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -194,6 +194,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jpy-PY-L8X"/>
                     </view>
+                    <connections>
+                        <outlet property="worldMap" destination="Tqq-L2-JX4" id="F5A-tH-wUL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fm-4y-qxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

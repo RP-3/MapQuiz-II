@@ -16,9 +16,9 @@ class ChooseModeViewController: UIViewController {
         super.viewDidLoad()
     }
 
-
     @IBAction func selectPracticeMode(_ sender: Any) {
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "PracticeViewController")
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "PracticeViewController") as! PracticeViewController
+        vc.continent = continent
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

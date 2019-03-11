@@ -15,6 +15,11 @@
 		419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10A82236209A00243AB2 /* ChooseModeViewController.swift */; };
 		419F10AB2236246500243AB2 /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AA2236246500243AB2 /* Continent.swift */; };
 		419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AC223628A800243AB2 /* PracticeViewController.swift */; };
+		419F10AF22362A5700243AB2 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AE22362A5700243AB2 /* MapViewDelegate.swift */; };
+		419F10B122362A9500243AB2 /* CustomPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B022362A9500243AB2 /* CustomPolygon.swift */; };
+		419F10B322362BE500243AB2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B222362BE500243AB2 /* Country.swift */; };
+		419F10B522362F2400243AB2 /* countryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 419F10B422362F2400243AB2 /* countryData.json */; };
+		419F10B92236317A00243AB2 /* CountryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B82236317A00243AB2 /* CountryDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		419F10A82236209A00243AB2 /* ChooseModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeViewController.swift; sourceTree = "<group>"; };
 		419F10AA2236246500243AB2 /* Continent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
 		419F10AC223628A800243AB2 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
+		419F10AE22362A5700243AB2 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		419F10B022362A9500243AB2 /* CustomPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPolygon.swift; sourceTree = "<group>"; };
+		419F10B222362BE500243AB2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		419F10B422362F2400243AB2 /* countryData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countryData.json; sourceTree = "<group>"; };
+		419F10B82236317A00243AB2 /* CountryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +70,38 @@
 		419F10952235F79F00243AB2 /* MapQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				419F10B72236316500243AB2 /* countryDb */,
+				419F10B62236310800243AB2 /* domainDefinitions */,
 				419F10962235F79F00243AB2 /* AppDelegate.swift */,
 				419F10982235F7A000243AB2 /* ContinentViewController.swift */,
 				419F109A2235F7A000243AB2 /* Main.storyboard */,
+				419F10AE22362A5700243AB2 /* MapViewDelegate.swift */,
 				419F10A82236209A00243AB2 /* ChooseModeViewController.swift */,
 				419F109D2235F7A100243AB2 /* Assets.xcassets */,
 				419F109F2235F7A100243AB2 /* LaunchScreen.storyboard */,
 				419F10A22235F7A100243AB2 /* Info.plist */,
-				419F10AA2236246500243AB2 /* Continent.swift */,
 				419F10AC223628A800243AB2 /* PracticeViewController.swift */,
+				419F10B022362A9500243AB2 /* CustomPolygon.swift */,
 			);
 			path = MapQuiz;
+			sourceTree = "<group>";
+		};
+		419F10B62236310800243AB2 /* domainDefinitions */ = {
+			isa = PBXGroup;
+			children = (
+				419F10B222362BE500243AB2 /* Country.swift */,
+				419F10AA2236246500243AB2 /* Continent.swift */,
+			);
+			path = domainDefinitions;
+			sourceTree = "<group>";
+		};
+		419F10B72236316500243AB2 /* countryDb */ = {
+			isa = PBXGroup;
+			children = (
+				419F10B422362F2400243AB2 /* countryData.json */,
+				419F10B82236317A00243AB2 /* CountryDB.swift */,
+			);
+			path = countryDb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +164,7 @@
 			files = (
 				419F10A12235F7A100243AB2 /* LaunchScreen.storyboard in Resources */,
 				419F109E2235F7A100243AB2 /* Assets.xcassets in Resources */,
+				419F10B522362F2400243AB2 /* countryData.json in Resources */,
 				419F109C2235F7A000243AB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,10 +176,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419F10AF22362A5700243AB2 /* MapViewDelegate.swift in Sources */,
+				419F10B322362BE500243AB2 /* Country.swift in Sources */,
 				419F10AB2236246500243AB2 /* Continent.swift in Sources */,
 				419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */,
+				419F10B122362A9500243AB2 /* CustomPolygon.swift in Sources */,
 				419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */,
 				419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */,
+				419F10B92236317A00243AB2 /* CountryDB.swift in Sources */,
 				419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
