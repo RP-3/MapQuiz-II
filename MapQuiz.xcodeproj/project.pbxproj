@@ -14,6 +14,7 @@
 		419F10A12235F7A100243AB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419F109F2235F7A100243AB2 /* LaunchScreen.storyboard */; };
 		419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10A82236209A00243AB2 /* ChooseModeViewController.swift */; };
 		419F10AB2236246500243AB2 /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AA2236246500243AB2 /* Continent.swift */; };
+		419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AC223628A800243AB2 /* PracticeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		419F10A22235F7A100243AB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419F10A82236209A00243AB2 /* ChooseModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeViewController.swift; sourceTree = "<group>"; };
 		419F10AA2236246500243AB2 /* Continent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
+		419F10AC223628A800243AB2 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				419F109F2235F7A100243AB2 /* LaunchScreen.storyboard */,
 				419F10A22235F7A100243AB2 /* Info.plist */,
 				419F10AA2236246500243AB2 /* Continent.swift */,
+				419F10AC223628A800243AB2 /* PracticeViewController.swift */,
 			);
 			path = MapQuiz;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				419F10AB2236246500243AB2 /* Continent.swift in Sources */,
 				419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */,
 				419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */,
+				419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */,
 				419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

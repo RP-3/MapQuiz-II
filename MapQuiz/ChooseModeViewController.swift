@@ -15,4 +15,10 @@ class ChooseModeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+
+    @IBAction func selectPracticeMode(_ sender: Any) {
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "PracticeViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

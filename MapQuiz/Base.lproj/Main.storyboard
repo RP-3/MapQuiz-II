@@ -125,6 +125,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
                                         <rect key="frame" x="91.5" y="93" width="57" height="30"/>
                                         <state key="normal" title="Practice"/>
+                                        <connections>
+                                            <action selector="selectPracticeMode:" destination="SJW-zq-dgp" eventType="touchUpInside" id="7Sr-vE-QIM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHa-kO-OGB">
                                         <rect key="frame" x="85.5" y="5" width="69" height="30"/>
@@ -149,10 +152,52 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UVQ-bC-30o"/>
                     </view>
+                    <connections>
+                        <segue destination="HTi-rs-NQX" kind="show" identifier="" id="AgK-rn-1Xi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjk-lo-dAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1834" y="133"/>
+        </scene>
+        <!--Practice View Controller-->
+        <scene sceneID="4Tu-Vf-paq">
+            <objects>
+                <viewController storyboardIdentifier="PracticeViewController" id="HTi-rs-NQX" customClass="PracticeViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ula-Im-O5e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Tqq-L2-JX4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-72-6uE">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xty-vh-mWi"/>
+                                    <barButtonItem title="Reveal" id="v8e-Zp-f3K"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Fru-9W-92g"/>
+                                    <barButtonItem title="Show All" id="iaT-fp-tW5"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1qy-HP-Zks"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BBf-72-6uE" firstAttribute="leading" secondItem="jpy-PY-L8X" secondAttribute="leading" id="6a1-29-5yd"/>
+                            <constraint firstItem="Tqq-L2-JX4" firstAttribute="top" secondItem="jpy-PY-L8X" secondAttribute="top" id="JtB-Dn-0Go"/>
+                            <constraint firstItem="jpy-PY-L8X" firstAttribute="trailing" secondItem="Tqq-L2-JX4" secondAttribute="trailing" id="MJo-BT-I5G"/>
+                            <constraint firstItem="Tqq-L2-JX4" firstAttribute="leading" secondItem="jpy-PY-L8X" secondAttribute="leading" id="PVT-OH-U2E"/>
+                            <constraint firstItem="jpy-PY-L8X" firstAttribute="bottom" secondItem="BBf-72-6uE" secondAttribute="bottom" id="f3Y-1W-5D8"/>
+                            <constraint firstItem="BBf-72-6uE" firstAttribute="top" secondItem="Tqq-L2-JX4" secondAttribute="bottom" id="m7o-wG-EKP"/>
+                            <constraint firstItem="jpy-PY-L8X" firstAttribute="trailing" secondItem="BBf-72-6uE" secondAttribute="trailing" id="zBp-Nv-h6x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jpy-PY-L8X"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fm-4y-qxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2622" y="537"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pd5-vX-Qke">
