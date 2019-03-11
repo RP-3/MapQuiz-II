@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pick a Continent-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Pick a Continent" id="BYZ-38-t0r" customClass="ContinentViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,6 +25,9 @@
                                     <constraint firstAttribute="width" secondItem="Sra-ZD-Nvc" secondAttribute="height" multiplier="85:97" id="eM7-bM-dmC"/>
                                 </constraints>
                                 <state key="normal" image="northAmerica"/>
+                                <connections>
+                                    <action selector="selectNorthAmerica:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Yl-OE-us1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR3-L4-2Ty" userLabel="southAmerica">
                                 <rect key="frame" x="212.5" y="114" width="112.5" height="128.5"/>
@@ -32,6 +35,9 @@
                                     <constraint firstAttribute="width" secondItem="GR3-L4-2Ty" secondAttribute="height" multiplier="85:97" id="C9a-HG-TM8"/>
                                 </constraints>
                                 <state key="normal" image="southAmerica"/>
+                                <connections>
+                                    <action selector="selectSouthAmerica:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ezf-xA-ngr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFr-mz-Rna" userLabel="africa">
                                 <rect key="frame" x="50" y="301.5" width="112.5" height="128"/>
@@ -39,6 +45,9 @@
                                     <constraint firstAttribute="width" secondItem="AFr-mz-Rna" secondAttribute="height" multiplier="85:97" id="M5d-IK-gtu"/>
                                 </constraints>
                                 <state key="normal" image="africa"/>
+                                <connections>
+                                    <action selector="selectAfrica:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ew-aE-PCl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWb-5D-BEm" userLabel="asia">
                                 <rect key="frame" x="212.5" y="301.5" width="112.5" height="128"/>
@@ -46,6 +55,9 @@
                                     <constraint firstAttribute="width" secondItem="eWb-5D-BEm" secondAttribute="height" multiplier="85:97" id="Cdg-hM-w58"/>
                                 </constraints>
                                 <state key="normal" image="asia"/>
+                                <connections>
+                                    <action selector="selectAsia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhB-CF-o50"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICH-vY-mde" userLabel="oceania">
                                 <rect key="frame" x="50" y="488.5" width="112.5" height="128.5"/>
@@ -53,6 +65,9 @@
                                     <constraint firstAttribute="width" secondItem="ICH-vY-mde" secondAttribute="height" multiplier="85:97" id="BXz-SL-eYE"/>
                                 </constraints>
                                 <state key="normal" image="oceania"/>
+                                <connections>
+                                    <action selector="selectOceania:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6M7-nI-sgs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8L-oU-ngB" userLabel="europe">
                                 <rect key="frame" x="212.5" y="488.5" width="112.5" height="128.5"/>
@@ -60,6 +75,9 @@
                                     <constraint firstAttribute="width" secondItem="O8L-oU-ngB" secondAttribute="height" multiplier="85:97" id="Tyr-Ej-qAa"/>
                                 </constraints>
                                 <state key="normal" image="europe"/>
+                                <connections>
+                                    <action selector="selectEurope:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tHZ-dx-qya"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.83921568627450982" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,9 +104,55 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="s2O-EJ-sD7"/>
+                    <connections>
+                        <segue destination="SJW-zq-dgp" kind="show" identifier="chooseMode" id="KtQ-B5-WiE"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1084" y="132.68365817091455"/>
+        </scene>
+        <!--Choose Mode View Controller-->
+        <scene sceneID="s7U-8R-NDt">
+            <objects>
+                <viewController storyboardIdentifier="ChooseModeViewController" id="SJW-zq-dgp" customClass="ChooseModeViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t4Y-mK-abd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-N6-I8J">
+                                <rect key="frame" x="67.5" y="301.5" width="240" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
+                                        <rect key="frame" x="91.5" y="93" width="57" height="30"/>
+                                        <state key="normal" title="Practice"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHa-kO-OGB">
+                                        <rect key="frame" x="85.5" y="5" width="69" height="30"/>
+                                        <state key="normal" title="Challenge"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="c8X-R2-daD" firstAttribute="centerX" secondItem="0Zg-N6-I8J" secondAttribute="centerX" id="AWb-6a-fVW"/>
+                                    <constraint firstAttribute="height" constant="128" id="ZGu-l1-qbD"/>
+                                    <constraint firstItem="xHa-kO-OGB" firstAttribute="top" secondItem="0Zg-N6-I8J" secondAttribute="top" constant="5" id="btr-qT-cS5"/>
+                                    <constraint firstAttribute="width" constant="240" id="fhT-vd-rsd"/>
+                                    <constraint firstItem="xHa-kO-OGB" firstAttribute="centerX" secondItem="0Zg-N6-I8J" secondAttribute="centerX" id="pZJ-db-tLi"/>
+                                    <constraint firstAttribute="bottom" secondItem="c8X-R2-daD" secondAttribute="bottom" constant="5" id="uSZ-eN-9iX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.83921568627450982" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0Zg-N6-I8J" firstAttribute="centerX" secondItem="UVQ-bC-30o" secondAttribute="centerX" id="YnE-T2-Pmr"/>
+                            <constraint firstItem="0Zg-N6-I8J" firstAttribute="centerY" secondItem="UVQ-bC-30o" secondAttribute="centerY" id="Zcw-RD-5bf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UVQ-bC-30o"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fjk-lo-dAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pd5-vX-Qke">

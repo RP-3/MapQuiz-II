@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ChooseModeViewController.swift
 //  MapQuiz
 //
 //  Created by Rohan Pethiyagoda on 11/3/19.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ChooseModeViewController: UIViewController {
+
+    public var continent: Continent!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
 }
-

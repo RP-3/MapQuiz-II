@@ -1,0 +1,16 @@
+//
+//  Continent.swift
+//  MapQuiz
+//
+//  Created by Rohan Pethiyagoda on 11/3/19.
+//  Copyright © 2019 Phosphorous Labs. All rights reserved.
+//
+
+enum Continent {
+    case northAmerica
+    case southAmerica
+    case asia
+    case europe
+    case oceania
+    case africa
+}
