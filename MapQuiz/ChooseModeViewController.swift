@@ -34,7 +34,7 @@ class ChooseModeViewController: UIViewController {
 
     @IBAction func selectChallengeMode(_ sender: Any) {
         let backItem = UIBarButtonItem()
-        backItem.title = "Pause"
+        backItem.title = "Quit"
         navigationItem.backBarButtonItem = backItem
         setFont()
 
