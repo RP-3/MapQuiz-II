@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */; };
 		419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10962235F79F00243AB2 /* AppDelegate.swift */; };
 		419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10982235F7A000243AB2 /* ContinentViewController.swift */; };
 		419F109C2235F7A000243AB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419F109A2235F7A000243AB2 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeScoreViewController.swift; sourceTree = "<group>"; };
 		419F10932235F79F00243AB2 /* MapQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		419F10962235F79F00243AB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		419F10982235F7A000243AB2 /* ContinentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				419F10AC223628A800243AB2 /* PracticeViewController.swift */,
 				419F10BB223656F600243AB2 /* PracticeSession.swift */,
 				419F10BF2237240D00243AB2 /* PracticeSessionRegistry.swift */,
+				4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */,
 			);
 			path = practiceGame;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */,
 				419F10AF22362A5700243AB2 /* MapViewDelegate.swift in Sources */,
 				419F10B322362BE500243AB2 /* Country.swift in Sources */,
 				419F10AB2236246500243AB2 /* Continent.swift in Sources */,

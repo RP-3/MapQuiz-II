@@ -69,7 +69,9 @@ class PracticeViewController: UIViewController {
 
         // TODO: Segue to next view controller!
         if session.finished() {
-            navigationController?.popViewController(animated: true)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PracticeScoreViewController") as! PracticeScoreViewController
+            vc.session = session
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 
