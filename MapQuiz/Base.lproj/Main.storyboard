@@ -175,12 +175,29 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xty-vh-mWi"/>
-                                    <barButtonItem title="Reveal" id="v8e-Zp-f3K"/>
+                                    <barButtonItem title="Reveal" id="v8e-Zp-f3K">
+                                        <connections>
+                                            <action selector="reveal:" destination="HTi-rs-NQX" id="JZP-IH-gYx"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Fru-9W-92g"/>
-                                    <barButtonItem title="Show All" id="iaT-fp-tW5"/>
+                                    <barButtonItem title="Skip" id="iaT-fp-tW5" userLabel="Skip">
+                                        <connections>
+                                            <action selector="skip:" destination="HTi-rs-NQX" id="bIK-Go-Eqd"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1qy-HP-Zks"/>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNk-an-mKy" userLabel="instructionLabel">
+                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eza-6X-NJ3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -188,6 +205,9 @@
                             <constraint firstItem="Tqq-L2-JX4" firstAttribute="top" secondItem="jpy-PY-L8X" secondAttribute="top" id="JtB-Dn-0Go"/>
                             <constraint firstItem="jpy-PY-L8X" firstAttribute="trailing" secondItem="Tqq-L2-JX4" secondAttribute="trailing" id="MJo-BT-I5G"/>
                             <constraint firstItem="Tqq-L2-JX4" firstAttribute="leading" secondItem="jpy-PY-L8X" secondAttribute="leading" id="PVT-OH-U2E"/>
+                            <constraint firstItem="jpy-PY-L8X" firstAttribute="trailing" secondItem="JNk-an-mKy" secondAttribute="trailing" id="ama-jG-GPy"/>
+                            <constraint firstItem="JNk-an-mKy" firstAttribute="leading" secondItem="jpy-PY-L8X" secondAttribute="leading" id="erg-jB-PaF"/>
+                            <constraint firstItem="JNk-an-mKy" firstAttribute="top" secondItem="jpy-PY-L8X" secondAttribute="top" id="etC-ym-cIs"/>
                             <constraint firstItem="jpy-PY-L8X" firstAttribute="bottom" secondItem="BBf-72-6uE" secondAttribute="bottom" id="f3Y-1W-5D8"/>
                             <constraint firstItem="BBf-72-6uE" firstAttribute="top" secondItem="Tqq-L2-JX4" secondAttribute="bottom" id="m7o-wG-EKP"/>
                             <constraint firstItem="jpy-PY-L8X" firstAttribute="trailing" secondItem="BBf-72-6uE" secondAttribute="trailing" id="zBp-Nv-h6x"/>
@@ -195,6 +215,7 @@
                         <viewLayoutGuide key="safeArea" id="jpy-PY-L8X"/>
                     </view>
                     <connections>
+                        <outlet property="instructionLabel" destination="JNk-an-mKy" id="LF3-Ot-QvG"/>
                         <outlet property="worldMap" destination="Tqq-L2-JX4" id="F5A-tH-wUL"/>
                     </connections>
                 </viewController>
