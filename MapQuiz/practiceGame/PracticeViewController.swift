@@ -77,11 +77,13 @@ class PracticeViewController: UIViewController {
     @IBAction func reveal(_ sender: Any) {
         removeOverlayFor(countryName: session.currentGameState().currentCountryName ?? "")
         session.reveal()
+        SoundBoard.play(.reveal)
         renderGameState()
     }
 
     @IBAction func skip(_ sender: Any) {
         session.skip()
+        SoundBoard.play(.skip)
         renderGameState()
     }
 
@@ -90,9 +92,9 @@ class PracticeViewController: UIViewController {
 
         if let country = session.guess(coords: coords) {
             removeOverlayFor(countryName: country.name)
-            // play sound
+            SoundBoard.play(.yep)
         } else {
-            // play other sound
+            SoundBoard.play(.nope)
         }
         renderGameState()
     }

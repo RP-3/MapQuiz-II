@@ -23,6 +23,11 @@
 		419F10BC223656F600243AB2 /* PracticeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10BB223656F600243AB2 /* PracticeSession.swift */; };
 		419F10BE22371F4700243AB2 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10BD22371F4700243AB2 /* World.swift */; };
 		419F10C02237240D00243AB2 /* PracticeSessionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10BF2237240D00243AB2 /* PracticeSessionRegistry.swift */; };
+		419F10C322373D8D00243AB2 /* SoundBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10C222373D8D00243AB2 /* SoundBoard.swift */; };
+		419F10C522373DE700243AB2 /* bounce.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10C422373DE700243AB2 /* bounce.wav */; };
+		419F10C722373DED00243AB2 /* plop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10C622373DED00243AB2 /* plop.wav */; };
+		419F10C922373DF300243AB2 /* right.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10C822373DF300243AB2 /* right.wav */; };
+		419F10CB22373DF800243AB2 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10CA22373DF800243AB2 /* wrong.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		419F10BB223656F600243AB2 /* PracticeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSession.swift; sourceTree = "<group>"; };
 		419F10BD22371F4700243AB2 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		419F10BF2237240D00243AB2 /* PracticeSessionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSessionRegistry.swift; sourceTree = "<group>"; };
+		419F10C222373D8D00243AB2 /* SoundBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoard.swift; sourceTree = "<group>"; };
+		419F10C422373DE700243AB2 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
+		419F10C622373DED00243AB2 /* plop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = plop.wav; sourceTree = "<group>"; };
+		419F10C822373DF300243AB2 /* right.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = right.wav; sourceTree = "<group>"; };
+		419F10CA22373DF800243AB2 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 		419F10952235F79F00243AB2 /* MapQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				419F10C122373D6C00243AB2 /* soundBoard */,
 				419F10BA223656D500243AB2 /* practiceGame */,
 				419F10B72236316500243AB2 /* countryDb */,
 				419F10B62236310800243AB2 /* models */,
@@ -119,6 +130,18 @@
 				419F10BF2237240D00243AB2 /* PracticeSessionRegistry.swift */,
 			);
 			path = practiceGame;
+			sourceTree = "<group>";
+		};
+		419F10C122373D6C00243AB2 /* soundBoard */ = {
+			isa = PBXGroup;
+			children = (
+				419F10C222373D8D00243AB2 /* SoundBoard.swift */,
+				419F10C422373DE700243AB2 /* bounce.wav */,
+				419F10C622373DED00243AB2 /* plop.wav */,
+				419F10C822373DF300243AB2 /* right.wav */,
+				419F10CA22373DF800243AB2 /* wrong.wav */,
+			);
+			path = soundBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,8 +204,12 @@
 			files = (
 				419F10A12235F7A100243AB2 /* LaunchScreen.storyboard in Resources */,
 				419F109E2235F7A100243AB2 /* Assets.xcassets in Resources */,
+				419F10CB22373DF800243AB2 /* wrong.wav in Resources */,
 				419F10B522362F2400243AB2 /* countryData.json in Resources */,
+				419F10C722373DED00243AB2 /* plop.wav in Resources */,
+				419F10C922373DF300243AB2 /* right.wav in Resources */,
 				419F109C2235F7A000243AB2 /* Main.storyboard in Resources */,
+				419F10C522373DE700243AB2 /* bounce.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +232,7 @@
 				419F10BC223656F600243AB2 /* PracticeSession.swift in Sources */,
 				419F10B92236317A00243AB2 /* CountryDB.swift in Sources */,
 				419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */,
+				419F10C322373D8D00243AB2 /* SoundBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
