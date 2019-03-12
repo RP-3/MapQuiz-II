@@ -17,6 +17,10 @@ class PracticeViewController: UIViewController {
     private let mapDelegate = MapViewDelegate()
     private var gestureRecognizer: UITapGestureRecognizer?
 
+    private let BLUE = UIColor(red: 0.3, green: 0.5, blue: 1, alpha: 1)
+    private let GREEN = UIColor(red: 0.3, green: 0.9, blue: 0.5, alpha: 1.0)
+    private let RED = UIColor(red: 0.8, green: 0.2, blue: 0.5, alpha: 1.0)
+
     @IBOutlet weak var worldMap: MKMapView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var revealButton: UIBarButtonItem!
@@ -54,6 +58,7 @@ class PracticeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         worldMap.setRegion(World.regionFor(continent: continent), animated: true)
+        instructionLabel.backgroundColor = BLUE
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,7 +75,6 @@ class PracticeViewController: UIViewController {
 
         if let countryToFind = gameState.currentCountryName {
             instructionLabel.text = "Find \(countryToFind)"
-            instructionLabel.backgroundColor = UIColor(red: 0.3, green: 0.5, blue: 1, alpha: 1)
         }
 
         if session.finished() {
@@ -100,10 +104,13 @@ class PracticeViewController: UIViewController {
         if let country = session.guess(coords: coords) {
             removeOverlayFor(countryName: country.name)
             SoundBoard.play(.yep)
+            instructionLabel.backgroundColor = GREEN
         } else {
             SoundBoard.play(.nope)
+            instructionLabel.backgroundColor = RED
         }
         renderGameState()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { self.instructionLabel.backgroundColor = self.BLUE }
     }
 
     // MARK: Overlays
