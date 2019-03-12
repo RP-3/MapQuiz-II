@@ -15,6 +15,7 @@ class PracticeViewController: UIViewController {
 
     private weak var session: PracticeSession!
     private let mapDelegate = MapViewDelegate()
+    private var gestureRecognizer: UITapGestureRecognizer?
 
     @IBOutlet weak var worldMap: MKMapView!
     @IBOutlet weak var instructionLabel: UILabel!
@@ -37,6 +38,10 @@ class PracticeViewController: UIViewController {
                 worldMap.addOverlay(overlay)
             }
         }
+
+        gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapMap))
+        self.view.addGestureRecognizer(gestureRecognizer!)
+
         renderGameState()
     }
 
@@ -48,6 +53,7 @@ class PracticeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         worldMap.overlays.forEach(worldMap.removeOverlay)
+        if let gr = gestureRecognizer { self.view.removeGestureRecognizer(gr) }
     }
 
     // MARK: Rendering
@@ -69,7 +75,7 @@ class PracticeViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func reveal(_ sender: Any) {
-        removeOverlayForCurrentCountry()
+        removeOverlayFor(countryName: session.currentGameState().currentCountryName ?? "")
         session.reveal()
         renderGameState()
     }
@@ -79,11 +85,22 @@ class PracticeViewController: UIViewController {
         renderGameState()
     }
 
+    @objc func tapMap(gestureRecognizer: UIGestureRecognizer){
+        let coords = worldMap.convert(gestureRecognizer.location(in: worldMap), toCoordinateFrom: worldMap)
+
+        if let country = session.guess(coords: coords) {
+            removeOverlayFor(countryName: country.name)
+            // play sound
+        } else {
+            // play other sound
+        }
+        renderGameState()
+    }
+
     // MARK: Overlays
-    private func removeOverlayForCurrentCountry(){
-        let currentCountryName = session.currentGameState().currentCountryName
+    private func removeOverlayFor(countryName: String){
         worldMap.overlays
-            .filter { $0.title == currentCountryName }
+            .filter { $0.title == countryName }
             .forEach(worldMap.removeOverlay)
     }
 }
