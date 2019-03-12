@@ -99,11 +99,10 @@ class ChallengeViewController: UIViewController {
         if gameState.livesRemaining < 2 { heartTwo.alpha = 0.2 }
         if gameState.livesRemaining < 1 { heartOne.alpha = 0.2 }
 
-        if session.finished() {
-            navigationController?.popViewController(animated: true)
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PracticeScoreViewController") as! PracticeScoreViewController
-//            vc.session = session
-//            navigationController?.pushViewController(vc, animated: true)
+        if session.gameOver() {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChallengeScoreViewController") as! ChallengeScoreViewController
+            vc.session = session
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 
@@ -113,7 +112,7 @@ class ChallengeViewController: UIViewController {
         let secondsRemaining = Int(timeLimit - elapsedTime)
 
         if secondsRemaining < 0 {
-            session.timeout()
+            session.finish()
             timer?.invalidate()
             let alert = UIAlertController(title: "Boo", message: "You ran out of time!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Try again", style: .default) { _ in
@@ -121,9 +120,7 @@ class ChallengeViewController: UIViewController {
             })
             self.present(alert, animated: true, completion: nil)
         } else {
-            let minutes = secondsRemaining/60
-            let seconds = (secondsRemaining%60) > 9 ? "\(secondsRemaining%60)" : "0\(secondsRemaining%60)"
-            timeRemaining.text = "\(minutes):\(seconds)"
+            timeRemaining.text = UIConstants.format(time: secondsRemaining)
         }
     }
 

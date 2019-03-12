@@ -160,7 +160,7 @@
                         <outlet property="challengeButton" destination="xHa-kO-OGB" id="wtr-5y-nHd"/>
                         <outlet property="practiceButton" destination="c8X-R2-daD" id="xkk-wD-J5c"/>
                         <segue destination="HTi-rs-NQX" kind="show" identifier="selectPracticeMode" id="AgK-rn-1Xi"/>
-                        <segue destination="Yvl-w5-oMd" kind="show" id="QVQ-zF-nCc"/>
+                        <segue destination="Yvl-w5-oMd" kind="show" identifier="showChallengeViewController" id="QVQ-zF-nCc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjk-lo-dAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,11 +254,54 @@
                         <outlet property="instructionLabel" destination="KQZ-e4-97G" id="wMw-Y8-CZb"/>
                         <outlet property="timeRemaining" destination="Ip3-HO-qFP" id="Qay-dC-rPJ"/>
                         <outlet property="worldMap" destination="rmy-bw-iZX" id="IQI-U2-DB8"/>
+                        <segue destination="bde-3d-EjS" kind="show" identifier="showChallengeScoreViewController" id="JIk-Ca-E2Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIJ-uA-Jab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2617" y="-199"/>
+        </scene>
+        <!--Challenge Score View Controller-->
+        <scene sceneID="fDr-ac-An3">
+            <objects>
+                <viewController storyboardIdentifier="ChallengeScoreViewController" id="bde-3d-EjS" customClass="ChallengeScoreViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yWL-4o-qvY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-I2-fuh" userLabel="winLoseImage">
+                                <rect key="frame" x="97.5" y="275.5" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="Y7v-zE-abw"/>
+                                    <constraint firstAttribute="width" constant="180" id="pWv-U3-FmR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99F-Wq-8Nz" userLabel="winLoseMessage">
+                                <rect key="frame" x="30" y="210.5" width="315" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="99F-Wq-8Nz" firstAttribute="centerX" secondItem="kGt-PI-hey" secondAttribute="centerX" id="0qB-Ud-3Vi"/>
+                            <constraint firstItem="dWi-I2-fuh" firstAttribute="centerX" secondItem="kGt-PI-hey" secondAttribute="centerX" id="EBc-FB-4ls"/>
+                            <constraint firstItem="99F-Wq-8Nz" firstAttribute="leading" secondItem="kGt-PI-hey" secondAttribute="leading" constant="30" id="EQY-a3-Iqg"/>
+                            <constraint firstItem="dWi-I2-fuh" firstAttribute="top" secondItem="99F-Wq-8Nz" secondAttribute="bottom" constant="44.5" id="Hl1-V9-CZO"/>
+                            <constraint firstItem="kGt-PI-hey" firstAttribute="trailing" secondItem="99F-Wq-8Nz" secondAttribute="trailing" constant="30" id="eaD-dj-Ehi"/>
+                            <constraint firstItem="dWi-I2-fuh" firstAttribute="centerY" secondItem="kGt-PI-hey" secondAttribute="centerY" id="guV-Xj-SKS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kGt-PI-hey"/>
+                    </view>
+                    <connections>
+                        <outlet property="winLoseImage" destination="dWi-I2-fuh" id="XYU-fh-gDY"/>
+                        <outlet property="winLoseMessage" destination="99F-Wq-8Nz" id="zX2-6u-Bug"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wtn-LS-GiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3406" y="-195"/>
         </scene>
         <!--Practice View Controller-->
         <scene sceneID="4Tu-Vf-paq">

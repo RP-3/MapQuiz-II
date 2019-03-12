@@ -103,14 +103,20 @@ class PracticeViewController: UIViewController {
     @objc func tapMap(gestureRecognizer: UIGestureRecognizer){
         let coords = worldMap.convert(gestureRecognizer.location(in: worldMap), toCoordinateFrom: worldMap)
 
-        if let country = session.guess(coords: coords) {
-            removeOverlayFor(countryName: country.name)
+        let (country, guessOutcome) = session.guess(coords: coords)
+
+        switch guessOutcome {
+        case .correct:
+            removeOverlayFor(countryName: country!.name)
             SoundBoard.play(.yep)
             instructionLabel.backgroundColor = GREEN
-        } else {
+        case .wrong:
             SoundBoard.play(.nope)
             instructionLabel.backgroundColor = RED
+        case .fatFingered:
+            break
         }
+
         renderGameState()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { self.instructionLabel.backgroundColor = self.BLUE }
     }

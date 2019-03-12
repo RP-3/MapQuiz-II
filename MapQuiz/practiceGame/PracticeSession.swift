@@ -48,18 +48,21 @@ class PracticeSession {
 
     public func finished() -> Bool { return countriesRemaining.count == 0 }
 
-    public func guess(coords: CLLocationCoordinate2D) -> Country? {
-        guard let currentCountry = countriesRemaining.last else { return nil }
+    public func guess(coords: CLLocationCoordinate2D) -> (Country?, GuessOutcome) {
+        guard let currentCountry = countriesRemaining.last else { return (nil, .fatFingered) }
         // guessed correctly
         if World.coordinates(coords, inCountry: currentCountry) {
             countriesHandled.append(countriesRemaining.popLast()!)
-            return currentCountry
+            return (currentCountry, .correct)
         }
         // guessed incorrectly
         for country in countriesRemaining {
-            if World.coordinates(coords, inCountry: country) { misses += 1 }
+            if World.coordinates(coords, inCountry: country) {
+                misses += 1
+                return (nil, .wrong)
+            }
         }
-        return nil // fat fingered
+        return (nil, .fatFingered) // fat fingered
     }
 
     public func skip(){
