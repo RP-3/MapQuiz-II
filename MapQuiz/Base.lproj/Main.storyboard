@@ -133,6 +133,9 @@
                                         <rect key="frame" x="82" y="5" width="76" height="32"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="Challenge"/>
+                                        <connections>
+                                            <action selector="selectChallengeMode:" destination="SJW-zq-dgp" eventType="touchUpInside" id="Ure-Ty-j6L"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,11 +160,105 @@
                         <outlet property="challengeButton" destination="xHa-kO-OGB" id="wtr-5y-nHd"/>
                         <outlet property="practiceButton" destination="c8X-R2-daD" id="xkk-wD-J5c"/>
                         <segue destination="HTi-rs-NQX" kind="show" identifier="selectPracticeMode" id="AgK-rn-1Xi"/>
+                        <segue destination="Yvl-w5-oMd" kind="show" id="QVQ-zF-nCc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjk-lo-dAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828" y="133"/>
+        </scene>
+        <!--Challenge View Controller-->
+        <scene sceneID="fvd-R3-NYr">
+            <objects>
+                <viewController storyboardIdentifier="ChallengeViewController" id="Yvl-w5-oMd" customClass="ChallengeViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cy2-SI-eY4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmy-bw-iZX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-e4-97G">
+                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="b7h-wp-Cvu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-31-QZG">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ip3-HO-qFP">
+                                        <rect key="frame" x="8" y="11.5" width="36" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-am-VCK">
+                                        <rect key="frame" x="309" y="8" width="24" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="FfK-hy-9VU"/>
+                                            <constraint firstAttribute="width" constant="24" id="oJk-Hm-PRZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-HT-KD1">
+                                        <rect key="frame" x="343" y="8" width="24" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="8AU-kt-lW9"/>
+                                            <constraint firstAttribute="height" constant="28" id="W6f-Zr-fdd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="I90-Xo-tjb">
+                                        <rect key="frame" x="275" y="8" width="24" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="s3D-fF-Hrm"/>
+                                            <constraint firstAttribute="height" constant="28" id="t7n-Fl-POP"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ox0-HT-KD1" firstAttribute="centerY" secondItem="rbU-31-QZG" secondAttribute="centerY" id="2KT-cB-TMg"/>
+                                    <constraint firstAttribute="height" constant="44" id="8CR-VF-tuJ"/>
+                                    <constraint firstItem="I90-Xo-tjb" firstAttribute="centerY" secondItem="rbU-31-QZG" secondAttribute="centerY" id="HYb-Uy-12z"/>
+                                    <constraint firstItem="ox0-HT-KD1" firstAttribute="leading" secondItem="u2Y-am-VCK" secondAttribute="trailing" constant="10" id="Jys-yL-Z4z"/>
+                                    <constraint firstItem="u2Y-am-VCK" firstAttribute="centerY" secondItem="rbU-31-QZG" secondAttribute="centerY" id="R39-kr-thv"/>
+                                    <constraint firstItem="Ip3-HO-qFP" firstAttribute="centerY" secondItem="rbU-31-QZG" secondAttribute="centerY" id="Y7J-V6-Zeh"/>
+                                    <constraint firstItem="u2Y-am-VCK" firstAttribute="leading" secondItem="I90-Xo-tjb" secondAttribute="trailing" constant="10" id="lt5-DA-Zcw"/>
+                                    <constraint firstAttribute="trailing" secondItem="ox0-HT-KD1" secondAttribute="trailing" constant="8" id="pb7-dh-2MO"/>
+                                    <constraint firstItem="Ip3-HO-qFP" firstAttribute="leading" secondItem="rbU-31-QZG" secondAttribute="leading" constant="8" id="sCZ-Ur-r9h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rbU-31-QZG" firstAttribute="top" secondItem="rmy-bw-iZX" secondAttribute="bottom" id="Ab5-Ii-mtA"/>
+                            <constraint firstItem="rbU-31-QZG" firstAttribute="leading" secondItem="slU-ym-c8z" secondAttribute="leading" id="LIL-Ix-Aaa"/>
+                            <constraint firstItem="slU-ym-c8z" firstAttribute="trailing" secondItem="rmy-bw-iZX" secondAttribute="trailing" id="NV8-gd-PfB"/>
+                            <constraint firstItem="rmy-bw-iZX" firstAttribute="leading" secondItem="slU-ym-c8z" secondAttribute="leading" id="NvF-uL-BUB"/>
+                            <constraint firstItem="KQZ-e4-97G" firstAttribute="leading" secondItem="slU-ym-c8z" secondAttribute="leading" id="PLr-Py-Gpw"/>
+                            <constraint firstItem="KQZ-e4-97G" firstAttribute="top" secondItem="slU-ym-c8z" secondAttribute="top" id="RbL-Pi-gZY"/>
+                            <constraint firstItem="rmy-bw-iZX" firstAttribute="top" secondItem="slU-ym-c8z" secondAttribute="top" id="ScR-t5-BpC"/>
+                            <constraint firstItem="slU-ym-c8z" firstAttribute="trailing" secondItem="rbU-31-QZG" secondAttribute="trailing" id="a67-nB-Z32"/>
+                            <constraint firstItem="slU-ym-c8z" firstAttribute="trailing" secondItem="KQZ-e4-97G" secondAttribute="trailing" id="ehg-lK-VL7"/>
+                            <constraint firstItem="slU-ym-c8z" firstAttribute="bottom" secondItem="rbU-31-QZG" secondAttribute="bottom" id="nJd-Gw-ftY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="slU-ym-c8z"/>
+                    </view>
+                    <connections>
+                        <outlet property="heartOne" destination="I90-Xo-tjb" id="7DO-yl-3k6"/>
+                        <outlet property="heartThree" destination="ox0-HT-KD1" id="xXN-3Y-UYu"/>
+                        <outlet property="heartTwo" destination="u2Y-am-VCK" id="rXw-zt-Sli"/>
+                        <outlet property="instructionLabel" destination="KQZ-e4-97G" id="wMw-Y8-CZb"/>
+                        <outlet property="timeRemaining" destination="Ip3-HO-qFP" id="Qay-dC-rPJ"/>
+                        <outlet property="worldMap" destination="rmy-bw-iZX" id="IQI-U2-DB8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIJ-uA-Jab" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="-199"/>
         </scene>
         <!--Practice View Controller-->
         <scene sceneID="4Tu-Vf-paq">
@@ -227,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fm-4y-qxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="537"/>
+            <point key="canvasLocation" x="2618" y="537"/>
         </scene>
         <!--Practice Score View Controller-->
         <scene sceneID="ahT-TW-vlB">
@@ -388,6 +485,7 @@
         <image name="asia" width="85.680000305175781" height="97.199996948242188"/>
         <image name="correct" width="126.5" height="126.5"/>
         <image name="europe" width="85.680000305175781" height="97.199996948242188"/>
+        <image name="life" width="39.5" height="47"/>
         <image name="northAmerica" width="85.680000305175781" height="97.199996948242188"/>
         <image name="oceania" width="85.680000305175781" height="97.199996948242188"/>
         <image name="revealed" width="126.5" height="126.5"/>

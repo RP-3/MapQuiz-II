@@ -1,45 +1,47 @@
 //
-//  PracticeViewController.swift
+//  ChallengeViewController.swift
 //  MapQuiz
 //
-//  Created by Rohan Pethiyagoda on 11/3/19.
+//  Created by Rohan Pethiyagoda on 12/3/19.
 //  Copyright © 2019 Phosphorous Labs. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
-class PracticeViewController: UIViewController {
+class ChallengeViewController: UIViewController {
 
     public var continent: Continent!
 
-    private weak var session: PracticeSession!
+    private var session: ChallengeSession!
     private let mapDelegate = MapViewDelegate()
     private var gestureRecognizer: UITapGestureRecognizer?
+    private weak var timer: Timer?
 
     private let BLUE = UIColor(red: 0.3, green: 0.5, blue: 1, alpha: 1)
     private let GREEN = UIColor(red: 0.3, green: 0.9, blue: 0.5, alpha: 1.0)
     private let RED = UIColor(red: 0.8, green: 0.2, blue: 0.5, alpha: 1.0)
 
+    @IBOutlet weak var heartOne: UIImageView!
+    @IBOutlet weak var heartTwo: UIImageView!
+    @IBOutlet weak var heartThree: UIImageView!
+    @IBOutlet weak var timeRemaining: UILabel! // TODO: Check if this should trigger an end game
     @IBOutlet weak var worldMap: MKMapView!
     @IBOutlet weak var instructionLabel: UILabel!
-    @IBOutlet weak var revealButton: UIBarButtonItem!
-    @IBOutlet weak var skipButton: UIBarButtonItem!
 
     // MARK: Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         worldMap.delegate = mapDelegate
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
-        revealButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
-        skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
         instructionLabel.font = UIConstants.amaticBold(size: 24)
+        timeRemaining.font = UIConstants.amaticBold(size: 24)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        session = PracticeSessionRegistry.shared.sessionFor(continent: continent)
+        session = ChallengeSession(continent: continent)
 
         session.remainingCountries().forEach { (country: Country) -> Void in
             for landArea in (country.boundary) {
@@ -60,12 +62,26 @@ class PracticeViewController: UIViewController {
         worldMap.setRegion(World.regionFor(continent: continent), animated: true)
         instructionLabel.backgroundColor = BLUE
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false // disable popViewController by swiping
+        let alert = UIAlertController(title: "Ready?", message: "Hit go to start the game", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "GO", style: .default) { _ in
+            self.session.start()
+            self.timer?.invalidate()
+            self.timer = Timer.scheduledTimer(
+                timeInterval: 1.0,
+                target: self,
+                selector: #selector(self.tickGameClock),
+                userInfo: nil,
+                repeats: true
+            )
+        })
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         worldMap.overlays.forEach(worldMap.removeOverlay)
         if let gr = gestureRecognizer { self.view.removeGestureRecognizer(gr) }
+        timer?.invalidate()
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
 
@@ -79,38 +95,55 @@ class PracticeViewController: UIViewController {
             instructionLabel.text = "Find \(countryToFind)"
         }
 
+        if gameState.livesRemaining < 3 { heartThree.alpha = 0.2 }
+        if gameState.livesRemaining < 2 { heartTwo.alpha = 0.2 }
+        if gameState.livesRemaining < 1 { heartOne.alpha = 0.2 }
+
         if session.finished() {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PracticeScoreViewController") as! PracticeScoreViewController
-            vc.session = session
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.popViewController(animated: true)
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PracticeScoreViewController") as! PracticeScoreViewController
+//            vc.session = session
+//            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    @objc func tickGameClock(){
+        let elapsedTime = Date.init().timeIntervalSince(session.startTime!)
+        let timeLimit = World.timeLimitFor(continent: continent)
+        let secondsRemaining = Int(timeLimit - elapsedTime)
+
+        if secondsRemaining < 0 {
+            session.timeout()
+            timer?.invalidate()
+            let alert = UIAlertController(title: "Boo", message: "You ran out of time!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try again", style: .default) { _ in
+                self.navigationController?.popViewController(animated: true)
+            })
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let minutes = secondsRemaining/60
+            let seconds = (secondsRemaining%60) > 9 ? "\(secondsRemaining%60)" : "0\(secondsRemaining%60)"
+            timeRemaining.text = "\(minutes):\(seconds)"
         }
     }
 
     // MARK: Actions
-    @IBAction func reveal(_ sender: Any) {
-        removeOverlayFor(countryName: session.currentGameState().currentCountryName ?? "")
-        session.reveal()
-        SoundBoard.play(.reveal)
-        renderGameState()
-    }
-
-    @IBAction func skip(_ sender: Any) {
-        session.skip()
-        SoundBoard.play(.skip)
-        renderGameState()
-    }
-
     @objc func tapMap(gestureRecognizer: UIGestureRecognizer){
         let coords = worldMap.convert(gestureRecognizer.location(in: worldMap), toCoordinateFrom: worldMap)
+        let (country, outcome) = session.guess(coords: coords)
 
-        if let country = session.guess(coords: coords) {
-            removeOverlayFor(countryName: country.name)
+        switch outcome {
+        case .correct:
+            removeOverlayFor(countryName: country!.name)
             SoundBoard.play(.yep)
             instructionLabel.backgroundColor = GREEN
-        } else {
+        case .wrong:
             SoundBoard.play(.nope)
             instructionLabel.backgroundColor = RED
+        case .fatFingered:
+            break
         }
+
         renderGameState()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { self.instructionLabel.backgroundColor = self.BLUE }
     }

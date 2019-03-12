@@ -22,15 +22,31 @@ class ChooseModeViewController: UIViewController {
 
     @IBAction func selectPracticeMode(_ sender: Any) {
         let backItem = UIBarButtonItem()
-        backItem.title = "Pause"
+        backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
-        navigationItem.backBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
-            for: .normal
-        )
+        setFont()
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "PracticeViewController") as! PracticeViewController
         vc.continent = continent
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+
+    @IBAction func selectChallengeMode(_ sender: Any) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Pause"
+        navigationItem.backBarButtonItem = backItem
+        setFont()
+
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChallengeViewController") as! ChallengeViewController
+        vc.continent = continent
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func setFont(){
+        navigationItem.backBarButtonItem?.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
+            for: .normal
+        )
     }
 }

@@ -43,6 +43,17 @@ class World {
         return MKCoordinateRegion(center: coords, span: span)
     }
 
+    public static func timeLimitFor(continent: Continent) -> Double {
+        switch continent {
+        case .northAmerica: return (3*60) + 12
+        case .southAmerica: return (1*60) + 36
+        case .europe: return (6*60) + 0
+        case .africa: return (7*60) + 20
+        case .asia: return (5*60) + 52
+        case .oceania: return (2*60) + 16
+        }
+    }
+
     public static func coordinates(_ coords: CLLocationCoordinate2D, inCountry country: Country) -> Bool {
         if World.smallIslandNames.contains(country.name) {
             // perform match based on proximity
