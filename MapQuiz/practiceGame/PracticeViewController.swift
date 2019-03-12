@@ -19,11 +19,17 @@ class PracticeViewController: UIViewController {
 
     @IBOutlet weak var worldMap: MKMapView!
     @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var revealButton: UIBarButtonItem!
+    @IBOutlet weak var skipButton: UIBarButtonItem!
 
     // MARK: Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         worldMap.delegate = mapDelegate
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
+        revealButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
+        skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
+        instructionLabel.font = UIConstants.amaticBold(size: 24)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +73,6 @@ class PracticeViewController: UIViewController {
             instructionLabel.backgroundColor = UIColor(red: 0.3, green: 0.5, blue: 1, alpha: 1)
         }
 
-        // TODO: Segue to next view controller!
         if session.finished() {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PracticeScoreViewController") as! PracticeScoreViewController
             vc.session = session

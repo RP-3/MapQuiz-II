@@ -29,6 +29,9 @@
 		419F10C722373DED00243AB2 /* plop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10C622373DED00243AB2 /* plop.wav */; };
 		419F10C922373DF300243AB2 /* right.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10C822373DF300243AB2 /* right.wav */; };
 		419F10CB22373DF800243AB2 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10CA22373DF800243AB2 /* wrong.wav */; };
+		41AC8451223759A00052AA78 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC8450223759A00052AA78 /* UIConstants.swift */; };
+		41AC845222375AAB0052AA78 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41AC844E223759380052AA78 /* AmaticSC-Bold.ttf */; };
+		41AC845322375AAB0052AA78 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41AC844F223759380052AA78 /* AmaticSC-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		419F10C622373DED00243AB2 /* plop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = plop.wav; sourceTree = "<group>"; };
 		419F10C822373DF300243AB2 /* right.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = right.wav; sourceTree = "<group>"; };
 		419F10CA22373DF800243AB2 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		41AC844E223759380052AA78 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
+		41AC844F223759380052AA78 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		41AC8450223759A00052AA78 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 		419F10952235F79F00243AB2 /* MapQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				41AC844D223759290052AA78 /* UIConstants */,
 				419F10C122373D6C00243AB2 /* soundBoard */,
 				419F10BA223656D500243AB2 /* practiceGame */,
 				419F10B72236316500243AB2 /* countryDb */,
@@ -145,6 +152,16 @@
 				419F10CA22373DF800243AB2 /* wrong.wav */,
 			);
 			path = soundBoard;
+			sourceTree = "<group>";
+		};
+		41AC844D223759290052AA78 /* UIConstants */ = {
+			isa = PBXGroup;
+			children = (
+				41AC844E223759380052AA78 /* AmaticSC-Bold.ttf */,
+				41AC844F223759380052AA78 /* AmaticSC-Regular.ttf */,
+				41AC8450223759A00052AA78 /* UIConstants.swift */,
+			);
+			path = UIConstants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +222,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41AC845222375AAB0052AA78 /* AmaticSC-Bold.ttf in Resources */,
+				41AC845322375AAB0052AA78 /* AmaticSC-Regular.ttf in Resources */,
 				419F10A12235F7A100243AB2 /* LaunchScreen.storyboard in Resources */,
 				419F109E2235F7A100243AB2 /* Assets.xcassets in Resources */,
 				419F10CB22373DF800243AB2 /* wrong.wav in Resources */,
@@ -225,6 +244,7 @@
 			files = (
 				4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */,
 				419F10AF22362A5700243AB2 /* MapViewDelegate.swift in Sources */,
+				41AC8451223759A00052AA78 /* UIConstants.swift in Sources */,
 				419F10B322362BE500243AB2 /* Country.swift in Sources */,
 				419F10AB2236246500243AB2 /* Continent.swift in Sources */,
 				419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */,

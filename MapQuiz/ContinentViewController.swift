@@ -12,9 +12,8 @@ class ContinentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        TODO: Add AmaticSC-Bold to project
-//        self.navigationController?.navigationBar.titleTextAttributes = [
-//            NSAttributedString.Key.font: UIFont(name: "AmaticSC-Bold", size: 28)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
         self.title = "Pick a continent"
     }
 
@@ -31,6 +30,14 @@ class ContinentViewController: UIViewController {
     @IBAction func selectEurope(_ sender: Any) { pushViewController(continent: .europe) }
 
     private func pushViewController(continent: Continent){
+        let backItem = UIBarButtonItem()
+        backItem.title = "Continent"
+        navigationItem.backBarButtonItem = backItem
+        navigationItem.backBarButtonItem?.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
+            for: .normal
+        )
+
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
         vc.continent = continent
         self.navigationController?.pushViewController(vc, animated: true)
