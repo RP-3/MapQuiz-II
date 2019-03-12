@@ -108,8 +108,11 @@ class PracticeViewController: UIViewController {
 
     // MARK: Overlays
     private func removeOverlayFor(countryName: String){
-        worldMap.overlays
-            .filter { $0.title == countryName }
-            .forEach(worldMap.removeOverlay)
+        let overlays = worldMap.overlays.filter({ $0.title == countryName })
+        overlays.forEach(worldMap.removeOverlay)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = (overlays.first! as! CustomPolygon).annotation_point
+        annotation.title = overlays.first!.title!
+        worldMap.addAnnotation(annotation)
     }
 }
