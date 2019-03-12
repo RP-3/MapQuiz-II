@@ -22,7 +22,7 @@ class PracticeScoreViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let state = session.currentGameState()
-        correctCount.text = "\(state.countriesHandled)"
+        correctCount.text = "\(state.countriesHandled - state.revealed)"
         wrongCount.text = "\(state.misses)"
         revealedCount.text = "\(state.revealed)"
         summaryLabel.text = "Out of \(state.countryCount) countries, you got:"
@@ -39,7 +39,7 @@ class PracticeScoreViewController: UIViewController {
             for: .normal
         )
 
-        [correctCount, wrongCount, revealedCount].forEach { $0?.font = UIConstants.amaticBold(size: 35) }
+        [correctCount, wrongCount, revealedCount].forEach { $0?.font = UIConstants.amaticBold(size: 40) }
         [correct, wrong, revealed].forEach { $0.font = UIConstants.amaticBold(size: 28) }
         summaryLabel.font = UIConstants.amaticBold(size: 28)
     }
