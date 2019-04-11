@@ -15,6 +15,8 @@ class ContinentViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
         self.title = "Pick a continent"
+
+        ScoreAPIClient.registerDevice()
     }
 
     @IBAction func selectNorthAmerica(_ sender: Any) { pushViewController(continent: .northAmerica) }

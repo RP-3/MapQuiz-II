@@ -18,6 +18,7 @@ struct ChallengeSessionGameState {
 class ChallengeSession {
 
     private let totalCountries: Int
+    public let continent: Continent
     public var startTime: Date?
     public var endTime: Date?
 
@@ -25,11 +26,14 @@ class ChallengeSession {
     private var countriesRemaining: [Country]
     private var livesRemaining: Int
     private var finished = false
+    public var attempts: [ChallengeSessionAttempt]
 
     init(continent: Continent){
         let countryList = CountryDB.countries(inContinent: continent)
+        self.continent = continent
         totalCountries = countryList.count
         countriesHandled = []
+        attempts = []
         countriesRemaining = World.shuffle(countries: countryList)
         livesRemaining = 3
     }
@@ -43,6 +47,10 @@ class ChallengeSession {
         )
     }
 
+    public func dangerousElapsedTimeInMs() -> TimeInterval{
+        return endTime!.timeIntervalSince(startTime!) * 1000
+    }
+
     public func remainingCountries() -> [Country] { return self.countriesRemaining }
 
     public func gameOver() -> Bool { return countriesRemaining.count == 0 || livesRemaining == 0 || finished }
@@ -50,9 +58,11 @@ class ChallengeSession {
     public func guess(coords: CLLocationCoordinate2D) -> (Country?, GuessOutcome) {
         guard let currentCountry = countriesRemaining.last else { return (nil, .fatFingered) }
         // guessed correctly
+        let now = NSDate().timeIntervalSince1970
         if World.coordinates(coords, inCountry: currentCountry) {
             countriesHandled.append(countriesRemaining.popLast()!)
             if countriesRemaining.count == 0 { finish() }
+            attempts.append(ChallengeSessionAttempt(countryToFind: currentCountry, countryGuessed: currentCountry, attemptedAt: now))
             return (currentCountry, .correct)
         }
         // guessed incorrectly
@@ -60,6 +70,7 @@ class ChallengeSession {
             if World.coordinates(coords, inCountry: country) {
                 livesRemaining -= 1
                 if livesRemaining == 0 { finish() }
+                attempts.append(ChallengeSessionAttempt(countryToFind: currentCountry, countryGuessed: country, attemptedAt: now))
                 return (nil, .wrong)
             }
         }
@@ -71,5 +82,6 @@ class ChallengeSession {
     public func finish() {
         finished = true
         endTime = endTime ?? Date.init()
+        ChallengeSessionRegistry.shared.enqueue(session: self)
     }
 }

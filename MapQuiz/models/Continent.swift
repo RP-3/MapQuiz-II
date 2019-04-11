@@ -13,4 +13,6 @@ enum Continent: String {
     case europe = "EU"
     case oceania = "OC"
     case africa = "AF"
+
+    func str() -> String { return self.rawValue }
 }

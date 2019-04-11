@@ -6,18 +6,39 @@
 //  Copyright © 2019 Phosphorous Labs. All rights reserved.
 //
 
+import Foundation
+
 class ChallengeSessionRegistry {
 
     public static let shared = ChallengeSessionRegistry()
-    private init(){} // enforced singleton
+    private var finishedSessions = [ChallengeSession]()
+    private var timer: Timer?
 
-    private var finishedSessions = [(Continent, ChallengeSession)]()
+    private init(){ // private to enforce singleton
+        self.timer = Timer.scheduledTimer(
+            timeInterval: 30.0,
+            target: self,
+            selector: #selector(self.uploadSessions),
+            userInfo: nil,
+            repeats: true
+        )
+    }
 
-    /*
-     TODO: Add a method to finish a session, following which attempt
-     to upload the attempts. If that fails, retry on a regular
-     schedule. When we eventually succeed, clear the sessions out
-     of the finishedSessions array.
-     */
+    deinit { self.timer?.invalidate() }
+
+    public func enqueue(session: ChallengeSession){
+        finishedSessions.append(session)
+        self.uploadSessions()
+    }
+
+    @objc func uploadSessions(){
+        if let session = finishedSessions.last {
+            ScoreAPIClient.save(challengeSession: session, andExecute: { success in
+                guard success else { return }
+                self.finishedSessions.removeLast()
+                self.uploadSessions()
+            })
+        }
+    }
 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41027E28225EF89100937EE7 /* ChallengeSessionAttempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41027E27225EF89100937EE7 /* ChallengeSessionAttempt.swift */; };
 		4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */; };
 		419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10962235F79F00243AB2 /* AppDelegate.swift */; };
 		419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10982235F7A000243AB2 /* ContinentViewController.swift */; };
@@ -37,9 +38,11 @@
 		41AC845A22377E850052AA78 /* ChallengeSessionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC845922377E850052AA78 /* ChallengeSessionRegistry.swift */; };
 		41AC845C22377E9C0052AA78 /* ChallengeScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC845B22377E9C0052AA78 /* ChallengeScoreViewController.swift */; };
 		41AC845E223868630052AA78 /* GuessOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC845D223868630052AA78 /* GuessOutcome.swift */; };
+		41AC846222387ADA0052AA78 /* ScoreAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC846122387ADA0052AA78 /* ScoreAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41027E27225EF89100937EE7 /* ChallengeSessionAttempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSessionAttempt.swift; sourceTree = "<group>"; };
 		4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeScoreViewController.swift; sourceTree = "<group>"; };
 		419F10932235F79F00243AB2 /* MapQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		419F10962235F79F00243AB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		41AC845922377E850052AA78 /* ChallengeSessionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSessionRegistry.swift; sourceTree = "<group>"; };
 		41AC845B22377E9C0052AA78 /* ChallengeScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeScoreViewController.swift; sourceTree = "<group>"; };
 		41AC845D223868630052AA78 /* GuessOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessOutcome.swift; sourceTree = "<group>"; };
+		41AC846122387ADA0052AA78 /* ScoreAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		419F10952235F79F00243AB2 /* MapQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				41AC846022387AC50052AA78 /* scoreKeeping */,
 				41AC845F2238796E0052AA78 /* navigationVCs */,
 				419F10BA223656D500243AB2 /* practiceGame */,
 				41AC845422377DBF0052AA78 /* challengeGame */,
@@ -182,6 +187,7 @@
 				41AC845722377E6A0052AA78 /* ChallengeSession.swift */,
 				41AC845922377E850052AA78 /* ChallengeSessionRegistry.swift */,
 				41AC845B22377E9C0052AA78 /* ChallengeScoreViewController.swift */,
+				41027E27225EF89100937EE7 /* ChallengeSessionAttempt.swift */,
 			);
 			path = challengeGame;
 			sourceTree = "<group>";
@@ -193,6 +199,14 @@
 				419F10A82236209A00243AB2 /* ChooseModeViewController.swift */,
 			);
 			path = navigationVCs;
+			sourceTree = "<group>";
+		};
+		41AC846022387AC50052AA78 /* scoreKeeping */ = {
+			isa = PBXGroup;
+			children = (
+				41AC846122387ADA0052AA78 /* ScoreAPIClient.swift */,
+			);
+			path = scoreKeeping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +291,7 @@
 				4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */,
 				419F10AF22362A5700243AB2 /* MapViewDelegate.swift in Sources */,
 				41AC8451223759A00052AA78 /* UIConstants.swift in Sources */,
+				41AC846222387ADA0052AA78 /* ScoreAPIClient.swift in Sources */,
 				419F10B322362BE500243AB2 /* Country.swift in Sources */,
 				41AC845C22377E9C0052AA78 /* ChallengeScoreViewController.swift in Sources */,
 				419F10AB2236246500243AB2 /* Continent.swift in Sources */,
@@ -286,6 +301,7 @@
 				419F10C02237240D00243AB2 /* PracticeSessionRegistry.swift in Sources */,
 				419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */,
 				419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */,
+				41027E28225EF89100937EE7 /* ChallengeSessionAttempt.swift in Sources */,
 				41AC845A22377E850052AA78 /* ChallengeSessionRegistry.swift in Sources */,
 				41AC845622377DF00052AA78 /* ChallengeViewController.swift in Sources */,
 				419F10BE22371F4700243AB2 /* World.swift in Sources */,
