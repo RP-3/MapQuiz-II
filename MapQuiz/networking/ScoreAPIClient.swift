@@ -10,20 +10,15 @@ import Foundation
 
 class ScoreAPIClient {
     // MARK: Network Constants
-    private static let SessionUrl: URL! = URL(string: "http://52.53.164.87/api/users/games")
     private static let deviceRegistrationUrl: URL! = URL(string: "https://us-central1-phosphorous.cloudfunctions.net/mapquiz-register-device")
     private static let saveChallengeSessionUrl: URL! = URL(string: "https://us-central1-phosphorous.cloudfunctions.net/mapquiz-save-game")
+    private static let fetchGameScoresUrl: URL! = URL(string: "https://us-central1-phosphorous.cloudfunctions.net/mapquiz-game-scores")
 
     // MARK: Local Constants
     private static let deviceRegisteredKey = "deviceRegisteredKey"
     private static let deviceSecretKey = "deviceSecretKey"
 
-    private static func deviceIsRegistered() -> Bool {
-        guard UserDefaults.standard.string(forKey: deviceRegisteredKey) != nil else { return false }
-        guard UserDefaults.standard.string(forKey: deviceSecretKey) != nil else { return false }
-        return true
-    }
-
+    // MARK: Public Interface
     public static func registerDevice(){
         if ScoreAPIClient.deviceIsRegistered() { return print("Device already registered") }
         let body = ["deviceId": UUID().uuidString]
@@ -36,11 +31,35 @@ class ScoreAPIClient {
         }
     }
 
-    public static func save(challengeSession: ChallengeSession, andExecute callback: @escaping (_ success: Bool) -> Void){
-        guard ScoreAPIClient.deviceIsRegistered() else {
-            ScoreAPIClient.registerDevice()
-            return callback(false)
+    public static func fetchScores(andExecute cb: @escaping (_: [Continent: [Ranking]]?, _: String?) -> Void ){
+        guard ScoreAPIClient.deviceIsRegistered() else { return cb(nil, nil) }
+
+        let body = [
+            "deviceId": UserDefaults.standard.string(forKey: deviceRegisteredKey)!,
+            "deviceSecret": UserDefaults.standard.string(forKey: deviceSecretKey)!
+        ]
+        makeRequest(url: ScoreAPIClient.fetchGameScoresUrl, body: body, method: .post) { dict in
+            guard let dict = dict else { return cb(nil, nil) }
+            guard let month = dict["month"] as? String else { return cb(nil, nil) }
+            guard let rankings = dict["rankings"] as? [[String: Any]] else { return cb(nil, nil) }
+
+            var rtn: [Continent: [Ranking]] = [:]
+            for ranking in rankings {
+                guard let continent = Continent.from(str: (ranking["code"] as? String)) else { return cb(nil, nil) }
+                var scores: [Ranking] = []
+                guard let dictScores = ranking["scores"] as? [[String: Any]] else { return cb(nil, nil) }
+                for dictScore in dictScores {
+                    guard let score = Ranking.from(dict: dictScore) else { return cb(nil, nil) }
+                    scores.append(score)
+                }
+                rtn[continent] = scores
+            }
+            return cb(rtn, month)
         }
+    }
+
+    public static func save(challengeSession: ChallengeSession, andExecute callback: @escaping (_ success: Bool) -> Void){
+        guard ScoreAPIClient.deviceIsRegistered() else { ScoreAPIClient.registerDevice(); return callback(false) }
 
         var body = ScoreAPIClient.convertToJson(challengeSession: challengeSession)
         body["deviceId"] = UserDefaults.standard.string(forKey: deviceRegisteredKey)!
@@ -49,6 +68,12 @@ class ScoreAPIClient {
     }
 
     // MARK: Private helpers
+    private static func deviceIsRegistered() -> Bool {
+        guard UserDefaults.standard.string(forKey: deviceRegisteredKey) != nil else { return false }
+        guard UserDefaults.standard.string(forKey: deviceSecretKey) != nil else { return false }
+        return true
+    }
+
     private static func makeRequest(url: URL, body: [String: Any], method: HttpMethod, completion: @escaping (_ data: [String: Any]?) -> Void){
         var request = URLRequest(url: url)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -85,7 +110,8 @@ class ScoreAPIClient {
                 }else{
                     if let data = data {
                         let str = String(bytes: data, encoding: String.Encoding.utf8)
-                        return completion(ScoreAPIClient.convertToDictionary(text: str))
+                        let result = ScoreAPIClient.convertToDictionary(text: str)
+                        return completion(result)
                     }else {
                         print("Recieved 200-399 response but with no data")
                         return completion(nil)

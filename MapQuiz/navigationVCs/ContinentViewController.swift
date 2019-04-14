@@ -12,24 +12,21 @@ class ContinentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
         self.title = "Pick a continent"
-
         ScoreAPIClient.registerDevice()
     }
 
     @IBAction func selectNorthAmerica(_ sender: Any) { pushViewController(continent: .northAmerica) }
-
     @IBAction func selectSouthAmerica(_ sender: Any) { pushViewController(continent: .southAmerica) }
-
     @IBAction func selectAfrica(_ sender: Any) { pushViewController(continent: .africa) }
-
     @IBAction func selectAsia(_ sender: Any) { pushViewController(continent: .asia) }
-
     @IBAction func selectOceania(_ sender: Any) { pushViewController(continent: .oceania) }
-
     @IBAction func selectEurope(_ sender: Any) { pushViewController(continent: .europe) }
+    @IBAction func showScores(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+        self.present(vc, animated: true, completion: nil)
+    }
 
     private func pushViewController(continent: Continent){
         let backItem = UIBarButtonItem()

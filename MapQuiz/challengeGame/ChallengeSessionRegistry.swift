@@ -13,6 +13,7 @@ class ChallengeSessionRegistry {
     public static let shared = ChallengeSessionRegistry()
     private var finishedSessions = [ChallengeSession]()
     private var timer: Timer?
+    private var requestInFlight = false
 
     private init(){ // private to enforce singleton
         self.timer = Timer.scheduledTimer(
@@ -32,13 +33,21 @@ class ChallengeSessionRegistry {
     }
 
     @objc func uploadSessions(){
-        if let session = finishedSessions.last {
-            ScoreAPIClient.save(challengeSession: session, andExecute: { success in
-                guard success else { return }
+        guard !requestInFlight else { return }
+        guard let session = finishedSessions.last else { return }
+
+        requestInFlight = true
+
+        ScoreAPIClient.save(challengeSession: session, andExecute: { success in
+            self.requestInFlight = false
+            guard success else { return }
+            if self.finishedSessions.isEmpty {
+                print("Warning: ChallengeSessionRegistry attempted to remove element from empty array.")
+            } else {
                 self.finishedSessions.removeLast()
                 self.uploadSessions()
-            })
-        }
+            }
+        })
     }
 
 }
