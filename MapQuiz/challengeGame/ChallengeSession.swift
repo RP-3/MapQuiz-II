@@ -79,6 +79,10 @@ class ChallengeSession {
 
     public func start(){ startTime = startTime ?? Date.init() }
 
+    public func skip(){
+        countriesRemaining.insert(countriesRemaining.popLast()!, at: 0)
+    }
+
     public func finish() {
         finished = true
         endTime = endTime ?? Date.init()

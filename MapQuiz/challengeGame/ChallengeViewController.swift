@@ -36,6 +36,9 @@ class ChallengeViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
         instructionLabel.font = UIConstants.amaticBold(size: 24)
         timeRemaining.font = UIConstants.amaticBold(size: 24)
+        let skipButton = UIBarButtonItem(title: "Skip", style: .plain, target: self, action: #selector(skip))
+        skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
+        self.navigationItem.rightBarButtonItem = skipButton
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -143,6 +146,12 @@ class ChallengeViewController: UIViewController {
 
         renderGameState()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { self.instructionLabel.backgroundColor = self.BLUE }
+    }
+
+    @objc func skip(){
+        session.skip()
+        renderGameState()
+        SoundBoard.play(.skip)
     }
 
     // MARK: Overlays
