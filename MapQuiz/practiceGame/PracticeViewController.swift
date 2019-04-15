@@ -88,7 +88,10 @@ class PracticeViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func reveal(_ sender: Any) {
-        removeOverlayFor(countryName: session.currentGameState().currentCountryName ?? "")
+        let currentCountryName = session.currentGameState().currentCountryName ?? ""
+        guard let overlap = worldMap.overlays.filter({ $0.title == currentCountryName }).first else { return }
+        worldMap.setRegion(MKCoordinateRegion(overlap.boundingMapRect), animated: true)
+        removeOverlayFor(countryName: currentCountryName)
         session.reveal()
         SoundBoard.play(.reveal)
         renderGameState()
