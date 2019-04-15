@@ -14,12 +14,6 @@ class ChooseModeViewController: UIViewController {
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var practiceButton: UIButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        challengeButton.titleLabel?.font = UIConstants.amaticBold(size: 28)
-        practiceButton.titleLabel?.font = UIConstants.amaticBold(size: 28)
-    }
-
     @IBAction func selectPracticeMode(_ sender: Any) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"

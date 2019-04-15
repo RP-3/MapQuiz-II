@@ -196,19 +196,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-N6-I8J">
-                                <rect key="frame" x="67.5" y="301.5" width="240" height="128"/>
+                                <rect key="frame" x="67.5" y="240.5" width="240" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
-                                        <rect key="frame" x="91.5" y="93" width="57" height="30"/>
-                                        <state key="normal" title="Practice"/>
+                                        <rect key="frame" x="81" y="5" width="78" height="57"/>
+                                        <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
+                                        <state key="normal" title="Practice">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="selectPracticeMode:" destination="SJW-zq-dgp" eventType="touchUpInside" id="7Sr-vE-QIM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHa-kO-OGB">
-                                        <rect key="frame" x="82" y="5" width="76" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Challenge"/>
+                                        <rect key="frame" x="73" y="188" width="94" height="57"/>
+                                        <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
+                                        <state key="normal" title="Challenge">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="selectChallengeMode:" destination="SJW-zq-dgp" eventType="touchUpInside" id="Ure-Ty-j6L"/>
                                         </connections>
@@ -216,12 +221,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="c8X-R2-daD" firstAttribute="centerX" secondItem="0Zg-N6-I8J" secondAttribute="centerX" id="AWb-6a-fVW"/>
-                                    <constraint firstAttribute="height" constant="128" id="ZGu-l1-qbD"/>
-                                    <constraint firstItem="xHa-kO-OGB" firstAttribute="top" secondItem="0Zg-N6-I8J" secondAttribute="top" constant="5" id="btr-qT-cS5"/>
+                                    <constraint firstItem="xHa-kO-OGB" firstAttribute="centerX" secondItem="0Zg-N6-I8J" secondAttribute="centerX" id="LK7-E8-Qq4"/>
+                                    <constraint firstAttribute="bottom" secondItem="xHa-kO-OGB" secondAttribute="bottom" constant="5" id="MPc-pU-okU"/>
+                                    <constraint firstItem="c8X-R2-daD" firstAttribute="top" secondItem="0Zg-N6-I8J" secondAttribute="top" constant="5" id="Ob6-PS-ffk"/>
+                                    <constraint firstAttribute="height" constant="250" id="ZGu-l1-qbD"/>
                                     <constraint firstAttribute="width" constant="240" id="fhT-vd-rsd"/>
-                                    <constraint firstItem="xHa-kO-OGB" firstAttribute="centerX" secondItem="0Zg-N6-I8J" secondAttribute="centerX" id="pZJ-db-tLi"/>
-                                    <constraint firstAttribute="bottom" secondItem="c8X-R2-daD" secondAttribute="bottom" constant="5" id="uSZ-eN-9iX"/>
+                                    <constraint firstItem="c8X-R2-daD" firstAttribute="centerX" secondItem="0Zg-N6-I8J" secondAttribute="centerX" id="nm9-JR-Z0t"/>
                                 </constraints>
                             </view>
                         </subviews>

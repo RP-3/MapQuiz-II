@@ -50,7 +50,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         lbl.layer.cornerRadius = 4
         lbl.textAlignment = .center
         lbl.text = " \(annotation.title!!) "
-        lbl.font = UIFont(name: "AmaticSC-Regular", size: 16)
+        lbl.font = UIConstants.amatic(size: 16)
         lbl.backgroundColor = beigeColor
         lbl.sizeToFit()
         return aView

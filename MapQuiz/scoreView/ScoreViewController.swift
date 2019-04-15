@@ -75,7 +75,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
             width:tableView.bounds.size.width,
             height: tableView.bounds.size.height
         ))
-        headerLabel.font = UIFont(name: "AmaticSC-Regular", size: 22)
+        headerLabel.font = UIConstants.amatic(size: 22)
         headerLabel.textColor = UIColor.black
         headerLabel.text = "\(continentName) (\(RankCache.shared.ranking[section].1[0].total) games played world-wide)"
         headerLabel.sizeToFit()
