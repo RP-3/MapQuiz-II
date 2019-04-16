@@ -12,6 +12,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var coverView: UIView!
 
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -40,6 +41,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
+        if RankCache.shared.ranking.count > 0 { coverView.isHidden = true }
         return RankCache.shared.ranking.count
     }
 
