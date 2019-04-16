@@ -10,9 +10,9 @@ import Foundation
 
 class ScoreAPIClient {
     // MARK: Network Constants
-    private static let deviceRegistrationUrl: URL! = URL(string: "https://us-central1-phosphorous.cloudfunctions.net/mapquiz-register-device")
-    private static let saveChallengeSessionUrl: URL! = URL(string: "https://us-central1-phosphorous.cloudfunctions.net/mapquiz-save-game")
-    private static let fetchGameScoresUrl: URL! = URL(string: "https://us-central1-phosphorous.cloudfunctions.net/mapquiz-game-scores")
+    private static let deviceRegistrationUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-register-device")
+    private static let saveChallengeSessionUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-save-game")
+    private static let fetchGameScoresUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-game-scores")
 
     // MARK: Local Constants
     private static let deviceRegisteredKey = "deviceRegisteredKey"
