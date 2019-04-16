@@ -10,6 +10,8 @@ import UIKit
 
 class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    private let refreshControl = UIRefreshControl()
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var coverView: UIView!
@@ -24,10 +26,23 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         let nib = UINib(nibName: "ScoreTableViewCell", bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: "ScoreTableViewCell")
+
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+            refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
+            refreshControl.attributedTitle = NSAttributedString(string: "Fetching latest scores ...", attributes: [:])
+        }
+        else {
+            tableView.addSubview(refreshControl)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        refreshTableData(self)
+    }
+
+    @objc func refreshTableData(_ sender: Any){
         self.headerLabel.text = "Top Scores for \(RankCache.shared.monthString)"
 
         RankCache.shared.fetchLatestScores(andExecute: { success in
@@ -35,6 +50,9 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if success {
                     self.tableView.reloadData()
                     self.headerLabel.text = "Top Scores for \(RankCache.shared.monthString)"
+                }
+                if self.refreshControl.isRefreshing {
+                    self.refreshControl.endRefreshing()
                 }
             }
         })
