@@ -24,6 +24,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 44
         let nib = UINib(nibName: "ScoreTableViewCell", bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: "ScoreTableViewCell")
 

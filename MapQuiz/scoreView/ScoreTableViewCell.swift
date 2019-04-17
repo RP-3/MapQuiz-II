@@ -15,17 +15,6 @@ class ScoreTableViewCell: UITableViewCell {
     @IBOutlet weak var thirdLife: UIImageView!
     @IBOutlet weak var secondLife: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     public func setup(ranking: Ranking){
         thirdLife.alpha = ranking.livesRemaining < 3 ? 0.2 : 1.0
         secondLife.alpha = ranking.livesRemaining < 2 ? 0.2 : 1.0
