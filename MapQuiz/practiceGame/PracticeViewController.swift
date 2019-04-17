@@ -16,6 +16,7 @@ class PracticeViewController: UIViewController {
     private weak var session: PracticeSession!
     private let mapDelegate = MapViewDelegate()
     private var gestureRecognizer: UITapGestureRecognizer?
+    private var allRevealed = false
 
     private let BLUE = UIColor(red: 0.3, green: 0.5, blue: 1, alpha: 1)
     private let GREEN = UIColor(red: 0.3, green: 0.9, blue: 0.5, alpha: 1.0)
@@ -32,8 +33,14 @@ class PracticeViewController: UIViewController {
         worldMap.delegate = mapDelegate
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
         revealButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
+        revealButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .disabled)
         skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
+        skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .disabled)
         instructionLabel.font = UIConstants.amaticBold(size: 24)
+        let revealAllButton = UIBarButtonItem(title: "Reveal All", style: .plain, target: self, action: #selector(revealAll))
+        revealAllButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
+        revealAllButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .disabled)
+        self.navigationItem.rightBarButtonItem = revealAllButton
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,8 +85,11 @@ class PracticeViewController: UIViewController {
         if let countryToFind = gameState.currentCountryName {
             instructionLabel.text = "Find \(countryToFind)"
         }
+        else if allRevealed {
+            instructionLabel.text = "All countries revealed"
+        }
 
-        if session.finished() {
+        if session.finished() && !allRevealed {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PracticeScoreViewController") as! PracticeScoreViewController
             vc.session = session
             navigationController?.pushViewController(vc, animated: true)
@@ -100,6 +110,19 @@ class PracticeViewController: UIViewController {
     @IBAction func skip(_ sender: Any) {
         session.skip()
         SoundBoard.play(.skip)
+        renderGameState()
+    }
+
+    @objc func revealAll(){
+        session.remainingCountries().forEach { country in
+            removeOverlayFor(countryName: country.name)
+            session.reveal()
+        }
+        SoundBoard.play(.reveal)
+        allRevealed = true
+        skipButton.isEnabled = false
+        revealButton.isEnabled = false
+        navigationItem.rightBarButtonItem?.isEnabled = false
         renderGameState()
     }
 

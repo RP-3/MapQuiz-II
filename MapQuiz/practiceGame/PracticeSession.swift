@@ -66,11 +66,13 @@ class PracticeSession {
     }
 
     public func skip(){
-        countriesRemaining.insert(countriesRemaining.popLast()!, at: 0)
+        guard let countryToRemove = countriesRemaining.popLast() else { return }
+        countriesRemaining.insert(countryToRemove, at: 0)
     }
 
     public func reveal(){
-        countriesHandled.append(countriesRemaining.popLast()!)
+        guard let countryToReveal = countriesRemaining.popLast() else { return }
+        countriesHandled.append(countryToReveal)
         revealed += 1
     }
 
