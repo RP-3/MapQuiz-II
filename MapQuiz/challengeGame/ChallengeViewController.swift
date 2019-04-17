@@ -157,7 +157,11 @@ class ChallengeViewController: UIViewController {
     // MARK: Overlays
     private func removeOverlayFor(countryName: String){
         let overlays = worldMap.overlays.filter({ $0.title == countryName })
-        overlays.forEach(worldMap.removeOverlay)
+        overlays.forEach({ overlay in
+            worldMap.removeOverlay(overlay)
+            (overlay as! CustomPolygon).userGuessed = true
+            worldMap.addOverlay(overlay)
+        })
         let annotation = MKPointAnnotation()
         annotation.coordinate = (overlays.first! as! CustomPolygon).annotation_point
         annotation.title = overlays.first!.title!
