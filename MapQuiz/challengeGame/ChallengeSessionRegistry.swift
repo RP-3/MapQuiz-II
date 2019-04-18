@@ -28,6 +28,7 @@ class ChallengeSessionRegistry {
     deinit { self.timer?.invalidate() }
 
     public func enqueue(session: ChallengeSession){
+        guard session.currentGameState().livesRemaining > 0 else { return }
         finishedSessions.append(session)
         self.uploadSessions()
     }
