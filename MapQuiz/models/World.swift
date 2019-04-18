@@ -58,8 +58,8 @@ class World {
         if World.smallIslandNames.contains(country.name) {
             // perform match based on proximity
             let givenLocation = CLLocation(latitude: coords.latitude, longitude: coords.longitude)
-            let arbitraryIslandPoint = country.boundary.first!.first!
-            let approxIslandLocation = CLLocation(latitude: arbitraryIslandPoint.latitude, longitude: arbitraryIslandPoint.longitude)
+            let atnPoint = country.annotation_point
+            let approxIslandLocation = CLLocation(latitude: atnPoint.latitude, longitude: atnPoint.longitude)
             return givenLocation.distance(from: approxIslandLocation)/1000 < 500 // less than 500km
         } else {
             // perform match based on containment
