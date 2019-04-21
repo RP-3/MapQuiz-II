@@ -110,6 +110,26 @@
 			path = scoreView;
 			sourceTree = "<group>";
 		};
+		411192AD226D19E200C80642 /* games */ = {
+			isa = PBXGroup;
+			children = (
+				419F10AE22362A5700243AB2 /* MapViewDelegate.swift */,
+				41AC845422377DBF0052AA78 /* challengeGame */,
+				419F10BA223656D500243AB2 /* practiceGame */,
+			);
+			path = games;
+			sourceTree = "<group>";
+		};
+		411192AE226D1A0200C80642 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				41027E2B226002CA00937EE7 /* scoreView */,
+				41AC845F2238796E0052AA78 /* navigationVCs */,
+				411192AD226D19E200C80642 /* games */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		419F108A2235F79F00243AB2 = {
 			isa = PBXGroup;
 			children = (
@@ -129,18 +149,14 @@
 		419F10952235F79F00243AB2 /* MapQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				41027E2B226002CA00937EE7 /* scoreView */,
+				411192AE226D1A0200C80642 /* views */,
 				41AC846022387AC50052AA78 /* networking */,
-				41AC845F2238796E0052AA78 /* navigationVCs */,
-				419F10BA223656D500243AB2 /* practiceGame */,
-				41AC845422377DBF0052AA78 /* challengeGame */,
 				41AC844D223759290052AA78 /* UI */,
 				419F10C122373D6C00243AB2 /* soundBoard */,
 				419F10B72236316500243AB2 /* countryDb */,
 				419F10B62236310800243AB2 /* models */,
 				419F10962235F79F00243AB2 /* AppDelegate.swift */,
 				419F109A2235F7A000243AB2 /* Main.storyboard */,
-				419F10AE22362A5700243AB2 /* MapViewDelegate.swift */,
 				419F109D2235F7A100243AB2 /* Assets.xcassets */,
 				419F109F2235F7A100243AB2 /* LaunchScreen.storyboard */,
 				419F10A22235F7A100243AB2 /* Info.plist */,
