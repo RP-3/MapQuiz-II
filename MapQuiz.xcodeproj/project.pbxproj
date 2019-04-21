@@ -42,6 +42,7 @@
 		41AC845C22377E9C0052AA78 /* ChallengeScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC845B22377E9C0052AA78 /* ChallengeScoreViewController.swift */; };
 		41AC845E223868630052AA78 /* GuessOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC845D223868630052AA78 /* GuessOutcome.swift */; };
 		41AC846222387ADA0052AA78 /* ScoreAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC846122387ADA0052AA78 /* ScoreAPIClient.swift */; };
+		41B39371226D25DD0079D57C /* StoreReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B39370226D25DD0079D57C /* StoreReviewController.swift */; };
 		41DC571B22607FA0004FB17F /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC571A22607FA0004FB17F /* ScoreViewController.swift */; };
 		41DC571E226080A4004FB17F /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC571C226080A4004FB17F /* ScoreTableViewCell.swift */; };
 		41DC571F226080A4004FB17F /* ScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */; };
@@ -87,6 +88,7 @@
 		41AC845B22377E9C0052AA78 /* ChallengeScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeScoreViewController.swift; sourceTree = "<group>"; };
 		41AC845D223868630052AA78 /* GuessOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessOutcome.swift; sourceTree = "<group>"; };
 		41AC846122387ADA0052AA78 /* ScoreAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAPIClient.swift; sourceTree = "<group>"; };
+		41B39370226D25DD0079D57C /* StoreReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewController.swift; sourceTree = "<group>"; };
 		41DC571A22607FA0004FB17F /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		41DC571C226080A4004FB17F /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableViewCell.xib; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				419F109D2235F7A100243AB2 /* Assets.xcassets */,
 				419F109F2235F7A100243AB2 /* LaunchScreen.storyboard */,
 				419F10A22235F7A100243AB2 /* Info.plist */,
+				41B39370226D25DD0079D57C /* StoreReviewController.swift */,
 			);
 			path = MapQuiz;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				41AC845822377E6A0052AA78 /* ChallengeSession.swift in Sources */,
 				419F10B122362A9500243AB2 /* CustomPolygon.swift in Sources */,
 				419F10C02237240D00243AB2 /* PracticeSessionRegistry.swift in Sources */,
+				41B39371226D25DD0079D57C /* StoreReviewController.swift in Sources */,
 				419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */,
 				419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */,
 				41027E28225EF89100937EE7 /* ChallengeSessionAttempt.swift in Sources */,

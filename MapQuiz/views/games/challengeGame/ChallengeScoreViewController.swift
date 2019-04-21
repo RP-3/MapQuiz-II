@@ -39,6 +39,7 @@ class ChallengeScoreViewController: UIViewController {
         if endState.countriesHandled == endState.countryCount {
             winLoseImage.image = UIImage(named: "mountain")
             winLoseMessage.text = "You made it! You got all \(countryCount) countries in \(timing)!"
+            StoreReviewController.markChallengeCompleted()
         }
         else if endState.livesRemaining <= 0 { // ran out of lives
             winLoseImage.image = UIImage(named: "wrong")
