@@ -28,21 +28,8 @@ class StoreReviewController {
         // if they've just finished a challenge
         let challengeTime = UserDefaults.standard.double(forKey: StoreReviewController.LAST_GAME_TIMESTAMP)
         let elapsedSeconds = Date().timeIntervalSince(Date(timeIntervalSince1970: challengeTime))
-        if elapsedSeconds < (5 * 60) {
-            StoreReviewController.requestReview()
-        }
-        else { // else if they're regulars
-            let appOpenCount = UserDefaults.standard.integer(forKey: StoreReviewController.APP_OPEN_COUNT)
-            switch appOpenCount {
-            case 5:
-                StoreReviewController.requestReview()
-            case _ where appOpenCount%10 == 0 :
-                StoreReviewController.requestReview()
-            default:
-                print("App run count is : \(appOpenCount)")
-                break;
-            }
-        }
+        let appOpenCount = UserDefaults.standard.integer(forKey: StoreReviewController.APP_OPEN_COUNT)
+        if elapsedSeconds < 90 && appOpenCount%5 == 0 { StoreReviewController.requestReview() }
     }
 
     private static func requestReview() {
