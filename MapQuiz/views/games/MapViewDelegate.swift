@@ -51,6 +51,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         lbl.textAlignment = .center
         lbl.text = " \(annotation.title!!) "
         lbl.font = UIConstants.amatic(size: 16)
+        lbl.textColor = .black
         lbl.backgroundColor = beigeColor
         lbl.sizeToFit()
         return aView

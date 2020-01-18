@@ -18,6 +18,10 @@ class UIConstants {
         return UIFont(name: "AmaticSC-Bold", size: size)!
     }
 
+    public static func josefinSans(size: CGFloat) -> UIFont {
+        return UIFont(name: "JosefinSans-Light", size: size)!
+    }
+
     public static func format(time: Int) -> String {
         let minutes = time / 60
         let seconds = time % 60

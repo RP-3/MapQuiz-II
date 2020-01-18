@@ -27,6 +27,10 @@ class ContinentViewController: UIViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
         self.present(vc, animated: true, completion: nil)
     }
+    @IBAction func showProfile(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        self.present(vc, animated: true, completion: nil)
+    }
 
     private func pushViewController(continent: Continent){
         let backItem = UIBarButtonItem()

@@ -22,6 +22,7 @@ class ChallengeScoreViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = newBackButton
 
         winLoseMessage.font = UIConstants.amaticBold(size: 28)
+        winLoseMessage.textColor = .black
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(
             [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
             for: .normal

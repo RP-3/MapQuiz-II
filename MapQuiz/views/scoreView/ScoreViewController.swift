@@ -30,8 +30,11 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
+            refreshControl.tintColor = .black
             refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
-            refreshControl.attributedTitle = NSAttributedString(string: "Fetching latest scores ...", attributes: [:])
+            refreshControl.attributedTitle = NSAttributedString(string: "Fetching latest scores ...", attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black
+            ])
         }
         else {
             tableView.addSubview(refreshControl)
