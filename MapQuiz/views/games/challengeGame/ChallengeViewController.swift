@@ -136,10 +136,10 @@ class ChallengeViewController: UIViewController {
         switch outcome {
         case .correct:
             removeOverlayFor(countryName: country!.name)
-            SoundBoard.play(.yep)
+            EffectsBoard.play(.yep)
             instructionLabel.backgroundColor = GREEN
         case .wrong:
-            SoundBoard.play(.nope)
+            EffectsBoard.play(.nope)
             instructionLabel.backgroundColor = RED
         case .fatFingered:
             break
@@ -152,7 +152,7 @@ class ChallengeViewController: UIViewController {
     @objc func skip(){
         session.skip()
         renderGameState()
-        SoundBoard.play(.skip)
+        EffectsBoard.play(.skip)
     }
 
     // MARK: Overlays

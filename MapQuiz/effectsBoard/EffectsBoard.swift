@@ -17,7 +17,7 @@ enum Sound: String {
     case reveal = "plop"
 }
 
-class SoundBoard {
+class EffectsBoard {
 
     private static var player: AVAudioPlayer?
     private static let muteKey = "soundboard_muted"

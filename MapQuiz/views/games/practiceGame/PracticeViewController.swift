@@ -103,13 +103,13 @@ class PracticeViewController: UIViewController {
         worldMap.setCenter(overlap.coordinate, animated: true)
         removeOverlayFor(countryName: currentCountryName)
         session.reveal()
-        SoundBoard.play(.reveal)
+        EffectsBoard.play(.reveal)
         renderGameState()
     }
 
     @IBAction func skip(_ sender: Any) {
         session.skip()
-        SoundBoard.play(.skip)
+        EffectsBoard.play(.skip)
         renderGameState()
     }
 
@@ -118,7 +118,7 @@ class PracticeViewController: UIViewController {
             removeOverlayFor(countryName: country.name)
             session.reveal()
         }
-        SoundBoard.play(.reveal)
+        EffectsBoard.play(.reveal)
         allRevealed = true
         skipButton.isEnabled = false
         revealButton.isEnabled = false
@@ -134,10 +134,10 @@ class PracticeViewController: UIViewController {
         switch guessOutcome {
         case .correct:
             removeOverlayFor(countryName: country!.name)
-            SoundBoard.play(.yep)
+            EffectsBoard.play(.yep)
             instructionLabel.backgroundColor = GREEN
         case .wrong:
-            SoundBoard.play(.nope)
+            EffectsBoard.play(.nope)
             instructionLabel.backgroundColor = RED
         case .fatFingered:
             break

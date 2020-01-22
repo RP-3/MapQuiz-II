@@ -18,10 +18,10 @@ class ProfileViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func muteSwitchToggled(_ sender: Any) {
-        SoundBoard.set(muted: muteSwitch.isOn)
+        EffectsBoard.set(muted: muteSwitch.isOn)
     }
     @IBAction func vibrationSwitchToggled(_ sender: Any) {
-        SoundBoard.set(vibrationDisabled: vibrationSwitch.isOn)
+        EffectsBoard.set(vibrationDisabled: vibrationSwitch.isOn)
     }
 
     // MARK: Lifecycle Methods
@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
         bluredView.frame = UIScreen.main.bounds
         bluredView.tag = BLUR_VIEW_TAG
         view.insertSubview(bluredView, at: 0)
-        muteSwitch.isOn = SoundBoard.isMuted()
+        muteSwitch.isOn = EffectsBoard.isMuted()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
