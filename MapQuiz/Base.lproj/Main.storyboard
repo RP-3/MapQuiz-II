@@ -30,8 +30,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-lD-nMA">
+                                <rect key="frame" x="329" y="33" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="LYP-qc-JeN"/>
+                                    <constraint firstAttribute="height" constant="30" id="o5k-au-vqT"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqq-6U-vsZ" userLabel="nameContainer">
-                                <rect key="frame" x="18" y="99" width="339" height="40"/>
+                                <rect key="frame" x="18" y="149" width="339" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTi-Bz-E3T" userLabel="overline">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="1"/>
@@ -52,6 +59,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="27"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" textContentType="name"/>
+                                        <connections>
+                                            <action selector="nameUpdated:" destination="xos-ow-lAQ" eventType="primaryActionTriggered" id="w3h-Y7-hj4"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,13 +78,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will appear on the public leaderboard" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-b7-Zfw">
-                                <rect key="frame" x="18" y="144" width="339" height="20"/>
+                                <rect key="frame" x="18" y="194" width="339" height="20"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WT1-A7-xNm" userLabel="muteContainer">
-                                <rect key="frame" x="18" y="194" width="339" height="40"/>
+                                <rect key="frame" x="18" y="244" width="339" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mute Sound Effects:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdu-Qz-xwj">
                                         <rect key="frame" x="0.0" y="2" width="156" height="38"/>
@@ -110,13 +120,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prevent the app from making any sound" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UG-mh-kib">
-                                <rect key="frame" x="18" y="239" width="339" height="20"/>
+                                <rect key="frame" x="18" y="289" width="339" height="20"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAy-SD-7BN" userLabel="buzzContainer">
-                                <rect key="frame" x="18" y="289" width="339" height="40"/>
+                                <rect key="frame" x="18" y="339" width="339" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop Vibrations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF5-C4-Sxj">
                                         <rect key="frame" x="0.0" y="2" width="132.5" height="38"/>
@@ -153,7 +163,31 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prevent the app from vibrating your phone" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOq-9A-JIn">
-                                <rect key="frame" x="18" y="334" width="339" height="20"/>
+                                <rect key="frame" x="18" y="384" width="339" height="20"/>
+                                <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-yA-Dc0">
+                                <rect key="frame" x="117.5" y="422" width="140" height="39"/>
+                                <color key="backgroundColor" red="1" green="0.27843137254901962" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="BR7-hr-dyh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="21"/>
+                                <state key="normal" title="Go Anonymous"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goAnonymousTapped:" destination="xos-ow-lAQ" eventType="touchUpInside" id="Bff-CO-78C"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are anonymous. If you enter your name below, your scores will appear on the public global leaderboard" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUe-or-VR4">
+                                <rect key="frame" x="18" y="79" width="339" height="60"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -168,24 +202,36 @@
                             <constraint firstItem="SOq-9A-JIn" firstAttribute="leading" secondItem="YhB-Tl-IXf" secondAttribute="leading" constant="18" id="B9i-a7-KBv"/>
                             <constraint firstItem="GEf-YL-qjj" firstAttribute="centerX" secondItem="YhB-Tl-IXf" secondAttribute="centerX" id="BQy-7Q-3Y6"/>
                             <constraint firstItem="HAy-SD-7BN" firstAttribute="leading" secondItem="YhB-Tl-IXf" secondAttribute="leading" constant="18" id="DOP-ZO-UiT"/>
+                            <constraint firstItem="CUe-or-VR4" firstAttribute="top" secondItem="GEf-YL-qjj" secondAttribute="bottom" constant="10" id="KlV-s3-anw"/>
                             <constraint firstItem="4UG-mh-kib" firstAttribute="leading" secondItem="YhB-Tl-IXf" secondAttribute="leading" constant="18" id="LtQ-uh-1mf"/>
-                            <constraint firstItem="aqq-6U-vsZ" firstAttribute="top" secondItem="GEf-YL-qjj" secondAttribute="bottom" constant="30" id="MQJ-hr-aWa"/>
+                            <constraint firstItem="YhB-Tl-IXf" firstAttribute="trailing" secondItem="5rQ-lD-nMA" secondAttribute="trailing" constant="16" id="MbG-eP-VIY"/>
                             <constraint firstItem="4UG-mh-kib" firstAttribute="top" secondItem="WT1-A7-xNm" secondAttribute="bottom" constant="5" id="N6w-oQ-Hec"/>
                             <constraint firstItem="YhB-Tl-IXf" firstAttribute="trailing" secondItem="SOq-9A-JIn" secondAttribute="trailing" constant="18" id="PAO-Vz-0hz"/>
+                            <constraint firstItem="aqq-6U-vsZ" firstAttribute="top" secondItem="CUe-or-VR4" secondAttribute="bottom" constant="10" id="S9o-MU-IlA"/>
                             <constraint firstItem="01j-b7-Zfw" firstAttribute="top" secondItem="aqq-6U-vsZ" secondAttribute="bottom" constant="5" id="UFY-4V-ryD"/>
+                            <constraint firstItem="5rQ-lD-nMA" firstAttribute="top" secondItem="YhB-Tl-IXf" secondAttribute="top" constant="33" id="WDH-3J-d1h"/>
                             <constraint firstItem="GEf-YL-qjj" firstAttribute="top" secondItem="YhB-Tl-IXf" secondAttribute="top" constant="18" id="YyL-i9-Xwl"/>
                             <constraint firstItem="SOq-9A-JIn" firstAttribute="top" secondItem="HAy-SD-7BN" secondAttribute="bottom" constant="5" id="eI7-G4-XHc"/>
                             <constraint firstItem="WT1-A7-xNm" firstAttribute="top" secondItem="01j-b7-Zfw" secondAttribute="bottom" constant="30" id="eYH-ep-fNG"/>
                             <constraint firstItem="YhB-Tl-IXf" firstAttribute="trailing" secondItem="WT1-A7-xNm" secondAttribute="trailing" constant="18" id="fjP-G0-qAa"/>
+                            <constraint firstItem="YhB-Tl-IXf" firstAttribute="trailing" secondItem="CUe-or-VR4" secondAttribute="trailing" constant="18" id="gfm-fg-tpG"/>
                             <constraint firstItem="YhB-Tl-IXf" firstAttribute="trailing" secondItem="aqq-6U-vsZ" secondAttribute="trailing" constant="18" id="k8Q-KO-wtW"/>
+                            <constraint firstItem="CUe-or-VR4" firstAttribute="leading" secondItem="YhB-Tl-IXf" secondAttribute="leading" constant="18" id="mn3-ld-Hgc"/>
                             <constraint firstItem="aqq-6U-vsZ" firstAttribute="leading" secondItem="YhB-Tl-IXf" secondAttribute="leading" constant="18" id="ooi-gH-MJf"/>
+                            <constraint firstItem="YaC-yA-Dc0" firstAttribute="top" secondItem="SOq-9A-JIn" secondAttribute="bottom" constant="18" id="rda-YU-fa5"/>
                             <constraint firstItem="HAy-SD-7BN" firstAttribute="top" secondItem="4UG-mh-kib" secondAttribute="bottom" constant="30" id="wf6-nU-Hfb"/>
+                            <constraint firstItem="YaC-yA-Dc0" firstAttribute="centerX" secondItem="YhB-Tl-IXf" secondAttribute="centerX" id="xTR-hF-6qw"/>
                             <constraint firstItem="YhB-Tl-IXf" firstAttribute="trailing" secondItem="HAy-SD-7BN" secondAttribute="trailing" constant="18" id="yze-92-4Du"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YhB-Tl-IXf"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="5rQ-lD-nMA" id="lNi-dz-qVn"/>
+                        <outlet property="goAnonymousButton" destination="YaC-yA-Dc0" id="Hr9-Lo-WCG"/>
                         <outlet property="muteSwitch" destination="OFh-DI-Fmc" id="YUr-Fl-0gm"/>
+                        <outlet property="nameField" destination="R7U-EY-DF5" id="1tD-gK-7MN"/>
+                        <outlet property="pageTitle" destination="GEf-YL-qjj" id="J96-nb-Pb7"/>
+                        <outlet property="subheading" destination="CUe-or-VR4" id="zAQ-H3-hnv"/>
                         <outlet property="vibrationSwitch" destination="ItU-mf-5rF" id="Gc0-q0-vFP"/>
                     </connections>
                 </viewController>
@@ -681,7 +727,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="173" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct" translatesAutoresizingMaskIntoConstraints="NO" id="vbs-0f-fpk" userLabel="correctImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vbs-0f-fpk" secondAttribute="height" multiplier="1:1" id="1in-fV-nxD"/>
                                             <constraint firstAttribute="width" secondItem="vbs-0f-fpk" secondAttribute="height" multiplier="1:1" id="9lc-Hu-QoM"/>
@@ -718,7 +764,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="473" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="revealed" translatesAutoresizingMaskIntoConstraints="NO" id="vvl-IF-2PJ" userLabel="revealedImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vvl-IF-2PJ" secondAttribute="height" multiplier="1:1" id="NDY-Hf-fw8"/>
                                         </constraints>
@@ -754,7 +800,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="323" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong" translatesAutoresizingMaskIntoConstraints="NO" id="DxR-y4-qga" userLabel="wrongImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="DxR-y4-qga" secondAttribute="height" multiplier="1:1" id="QlY-L4-OwS"/>
                                         </constraints>
