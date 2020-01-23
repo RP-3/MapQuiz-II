@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
 
     private let BLUR_VIEW_TAG = 500 // arbitrary
     private let nameKey = "ProfileViewController:username"
-    private let subheadingText = "You are anonymous. If you enter your name below, your scores will appear on the public global leaderboard"
+    private let subheadingText = "You are anonymous. Enter your name below if you want it to appear on the public leaderboard"
 
     // MARK: Outlets
     @IBOutlet weak var muteSwitch: UISwitch!
@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController {
     // MARK: Private Helpers
     private func updateUsername(to newName: String){
         showSpinner()
-        ProfileAPIClient.save(username: newName) { data in
+        RegistrationClient.save(username: newName) { data in
             self.hideSpinner()
             if let savedName = data {
                 self.setName(to: savedName)
@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController {
 
     private func goAnonymous(){
         showSpinner()
-        ProfileAPIClient.save(username: "") { data in
+        RegistrationClient.save(username: "") { data in
             self.hideSpinner()
             if let savedName = data {
                 self.setName(to: savedName)
@@ -94,6 +94,7 @@ class ProfileViewController: UIViewController {
             goAnonymousButton.isHidden = false
             animateHideSubheading()
         } else {
+            nameField.text = "Anonymous \(RegistrationClient.defaultName() ?? "")"
             goAnonymousButton.isHidden = true
             animateShowSubheading()
         }

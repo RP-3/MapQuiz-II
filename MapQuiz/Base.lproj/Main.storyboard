@@ -77,7 +77,7 @@
                                     <constraint firstItem="GTi-Bz-E3T" firstAttribute="top" secondItem="aqq-6U-vsZ" secondAttribute="top" id="zbm-Zo-K3n"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will appear on the public leaderboard" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-b7-Zfw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This appears on the public leaderboard" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-b7-Zfw">
                                 <rect key="frame" x="18" y="194" width="339" height="20"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
