@@ -48,6 +48,9 @@
 		41DC571B22607FA0004FB17F /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC571A22607FA0004FB17F /* ScoreViewController.swift */; };
 		41DC571E226080A4004FB17F /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC571C226080A4004FB17F /* ScoreTableViewCell.swift */; };
 		41DC571F226080A4004FB17F /* ScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */; };
+		41FA3A1A23DA492500889AED /* ProfileAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1923DA492500889AED /* ProfileAPIClient.swift */; };
+		41FA3A1C23DA4A2800889AED /* RegistrationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */; };
+		41FA3A1E23DA4A8F00889AED /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1D23DA4A8E00889AED /* HTTP.swift */; };
 		EAE1F841E2A2375959433B21 /* Pods_MapQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E4B9120C3480237437DFB9 /* Pods_MapQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,9 @@
 		41DC571A22607FA0004FB17F /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		41DC571C226080A4004FB17F /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableViewCell.xib; sourceTree = "<group>"; };
+		41FA3A1923DA492500889AED /* ProfileAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIClient.swift; sourceTree = "<group>"; };
+		41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationClient.swift; sourceTree = "<group>"; };
+		41FA3A1D23DA4A8E00889AED /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		8D6F02849D3FA941F326F4EC /* Pods-MapQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapQuiz/Pods-MapQuiz.release.xcconfig"; sourceTree = "<group>"; };
 		F7E4B9120C3480237437DFB9 /* Pods_MapQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -271,6 +277,9 @@
 			isa = PBXGroup;
 			children = (
 				41AC846122387ADA0052AA78 /* ScoreAPIClient.swift */,
+				41FA3A1923DA492500889AED /* ProfileAPIClient.swift */,
+				41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */,
+				41FA3A1D23DA4A8E00889AED /* HTTP.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -452,6 +461,8 @@
 				41AC845822377E6A0052AA78 /* ChallengeSession.swift in Sources */,
 				419F10B122362A9500243AB2 /* CustomPolygon.swift in Sources */,
 				419F10C02237240D00243AB2 /* PracticeSessionRegistry.swift in Sources */,
+				41FA3A1E23DA4A8F00889AED /* HTTP.swift in Sources */,
+				41FA3A1A23DA492500889AED /* ProfileAPIClient.swift in Sources */,
 				41B39371226D25DD0079D57C /* StoreReviewController.swift in Sources */,
 				419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */,
 				419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */,
@@ -459,6 +470,7 @@
 				41027E28225EF89100937EE7 /* ChallengeSessionAttempt.swift in Sources */,
 				41AC845A22377E850052AA78 /* ChallengeSessionRegistry.swift in Sources */,
 				41AC845622377DF00052AA78 /* ChallengeViewController.swift in Sources */,
+				41FA3A1C23DA4A2800889AED /* RegistrationClient.swift in Sources */,
 				41027E2D2260038B00937EE7 /* RankCache.swift in Sources */,
 				419F10BE22371F4700243AB2 /* World.swift in Sources */,
 				419F10BC223656F600243AB2 /* PracticeSession.swift in Sources */,

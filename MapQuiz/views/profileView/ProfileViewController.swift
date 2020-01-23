@@ -61,28 +61,31 @@ class ProfileViewController: UIViewController {
     // MARK: Private Helpers
     private func updateUsername(to newName: String){
         showSpinner()
-        // send request to server
-        // if success
-            hideSpinner()
-            setName(to: newName)
-            updateUIForNameState()
-            // offer to go to leaderboard now
-        // if failure
-            // stop animating
-            // show error
+        ProfileAPIClient.save(username: newName) { data in
+            self.hideSpinner()
+            if let savedName = data {
+                self.setName(to: savedName)
+                self.updateUIForNameState()
+                // offer to go to leaderboard now
+            }else{
+                self.showError(message: "I'm sorry—something went wrong. Maybe try again later?")
+                self.updateUIForNameState()
+            }
+        }
     }
 
     private func goAnonymous(){
         showSpinner()
-        // send request to server
-        // if success
-            hideSpinner()
-            setName(to: nil)
-            updateUIForNameState()
-            // offer to go to leaderboard now
-        // if failure
-            // stop animating
-            // show error
+        ProfileAPIClient.save(username: "") { data in
+            self.hideSpinner()
+            if let savedName = data {
+                self.setName(to: savedName)
+                self.updateUIForNameState()
+            }else{
+                self.showError(message: "I'm sorry—something went wrong. Maybe try again later?")
+                self.updateUIForNameState()
+            }
+        }
     }
 
     private func updateUIForNameState(){
