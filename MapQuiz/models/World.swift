@@ -10,21 +10,37 @@ import MapKit
 
 class World {
 
-    private static let smallIslandNames: Set<String> = [
-        "Marshall Islands",
-        "Kiribati",
-        "Maldives",
-        "Tonga",
-        "Micronesia",
-        "Niue",
-        "Nauru",
-        "Tuvalu",
-        "Samoa",
-        "Cook Islands",
-        "Palau",
-        "Mauritius",
-        "Comoros",
-        "Seychelles",
+    private static let smallIslandNames: [String:CLLocationDistance] = [
+        // oceania
+        "Marshall Islands": 500_000,
+        "Kiribati": 500_000,
+        "Tonga": 400_000,
+        "Micronesia": 500_000,
+        "Niue": 300_000,
+        "Nauru": 500_000,
+        "Tuvalu": 500_000,
+        "Samoa": 400_000,
+        "Cook Islands": 500_000,
+        "Palau": 500_000,
+
+        // africa
+        "Mauritius": 500_000,
+        "Comoros": 500_000,
+        "Seychelles": 500_000,
+
+        // asia
+        "Maldives": 200_000,
+        "Singapore": 200_000,
+
+        // north america
+        "The Bahamas": 200_000,
+        "Barbados": 100_000,
+        "Dominica": 100_000,
+        "Saint Kitts and Nevis": 50_000,
+        "Saint Vincent and the Grenadines": 50_000,
+        "Antigua and Barbuda": 60_000,
+        "Grenada": 90_000,
+        "Saint Lucia": 80_000,
     ]
 
     public static func regionFor(continent: Continent) -> MKCoordinateRegion {
@@ -54,13 +70,17 @@ class World {
         }
     }
 
+    public static func smallIsland(name: String) -> CLLocationDistance? {
+        return World.smallIslandNames[name]
+    }
+
     public static func coordinates(_ coords: CLLocationCoordinate2D, inCountry country: Country) -> Bool {
-        if World.smallIslandNames.contains(country.name) {
+        if let radius = smallIsland(name: country.name) {
             // perform match based on proximity
             let givenLocation = CLLocation(latitude: coords.latitude, longitude: coords.longitude)
             let atnPoint = country.annotation_point
             let approxIslandLocation = CLLocation(latitude: atnPoint.latitude, longitude: atnPoint.longitude)
-            return givenLocation.distance(from: approxIslandLocation)/1000 < 500 // less than 500km
+            return givenLocation.distance(from: approxIslandLocation) < radius
         } else {
             // perform match based on containment
             for polygon in country.boundary {

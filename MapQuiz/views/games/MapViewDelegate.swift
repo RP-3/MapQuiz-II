@@ -14,6 +14,15 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
 
     //render the polygon to the map
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+
+        if overlay is MKCircle {
+            let circle = overlay as! MKCircle
+            let renderer = MKCircleRenderer(circle: circle)
+            renderer.fillColor = beigeColor
+            renderer.alpha = 0.1
+            return renderer
+        }
+
         if overlay is MKPolygon {
             let custom = (overlay as! CustomPolygon)
             let polygonView = MKPolygonRenderer(overlay: custom)

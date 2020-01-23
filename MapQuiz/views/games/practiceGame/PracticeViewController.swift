@@ -54,6 +54,10 @@ class PracticeViewController: UIViewController {
                 overlay.title = country.name
                 worldMap.addOverlay(overlay)
             }
+            if let radius = World.smallIsland(name: country.name) {
+                let circle = MKCircle(center: country.annotation_point, radius: radius)
+                worldMap.addOverlay(circle)
+            }
         }
 
         gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapMap))
