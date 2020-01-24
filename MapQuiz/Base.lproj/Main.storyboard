@@ -30,7 +30,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-lD-nMA">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-lD-nMA">
                                 <rect key="frame" x="329" y="33" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="LYP-qc-JeN"/>
@@ -473,7 +473,7 @@ have a chance to win!</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2wv-Dh-hLz">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2wv-Dh-hLz">
                                         <rect key="frame" x="325" y="10" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="VVi-b0-GDr"/>
@@ -878,7 +878,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="173" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct" translatesAutoresizingMaskIntoConstraints="NO" id="vbs-0f-fpk" userLabel="correctImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vbs-0f-fpk" secondAttribute="height" multiplier="1:1" id="1in-fV-nxD"/>
                                             <constraint firstAttribute="width" secondItem="vbs-0f-fpk" secondAttribute="height" multiplier="1:1" id="9lc-Hu-QoM"/>
@@ -915,7 +915,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="473" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="revealed" translatesAutoresizingMaskIntoConstraints="NO" id="vvl-IF-2PJ" userLabel="revealedImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vvl-IF-2PJ" secondAttribute="height" multiplier="1:1" id="NDY-Hf-fw8"/>
                                         </constraints>
@@ -951,7 +951,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="323" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong" translatesAutoresizingMaskIntoConstraints="NO" id="DxR-y4-qga" userLabel="wrongImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="DxR-y4-qga" secondAttribute="height" multiplier="1:1" id="QlY-L4-OwS"/>
                                         </constraints>
