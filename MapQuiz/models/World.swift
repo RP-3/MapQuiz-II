@@ -31,6 +31,7 @@ class World {
         // asia
         "Maldives": 200_000,
         "Singapore": 200_000,
+        "Bahrain": 30_000,
 
         // north america
         "The Bahamas": 200_000,
