@@ -27,6 +27,7 @@ class World {
         "Mauritius": 500_000,
         "Comoros": 500_000,
         "Seychelles": 500_000,
+        "São Tomé and Príncipe": 500_000,
 
         // asia
         "Maldives": 200_000,
