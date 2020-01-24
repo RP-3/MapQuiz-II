@@ -47,13 +47,13 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     @objc func refreshTableData(_ sender: Any){
-        self.headerLabel.text = "Top Scores for \(RankCache.shared.monthString)"
+        self.headerLabel.text = "Your Scores for \(RankCache.shared.monthString)"
 
         RankCache.shared.fetchLatestScores(andExecute: { success in
             DispatchQueue.main.async {
                 if success {
                     self.tableView.reloadData()
-                    self.headerLabel.text = "Top Scores for \(RankCache.shared.monthString)"
+                    self.headerLabel.text = "Your Scores for \(RankCache.shared.monthString)"
                 }
                 if self.refreshControl.isRefreshing {
                     self.refreshControl.endRefreshing()
