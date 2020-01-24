@@ -353,7 +353,7 @@
             </objects>
             <point key="canvasLocation" x="1084" y="132.68365817091455"/>
         </scene>
-        <!--Score View Controller-->
+        <!--My Top Scores-->
         <scene sceneID="EsT-Ng-pvh">
             <objects>
                 <viewController storyboardIdentifier="ScoreViewController" id="Tsq-cL-OpK" customClass="ScoreViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -362,7 +362,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="16H-Iz-Oqa">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="538"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -387,10 +387,10 @@
                                 </constraints>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLk-fq-6fG" userLabel="CoverView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5o-Fd-0Ec">
-                                        <rect key="frame" x="41" y="157" width="293" height="353.5"/>
+                                        <rect key="frame" x="41" y="133" width="293" height="353.5"/>
                                         <string key="text">Whenever you complete
 a game in Challenge mode
 your score will appear here.
@@ -439,6 +439,7 @@ have a chance to win!</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e5f-eO-RSa"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="My Top Scores" image="person.fill" catalog="system" selectedImage="person.fill" id="T2L-iB-syc"/>
                     <connections>
                         <outlet property="coverView" destination="XLk-fq-6fG" id="hw6-H3-o1D"/>
                         <outlet property="headerLabel" destination="S6b-qN-Xye" id="R83-Ha-qkH"/>
@@ -447,7 +448,49 @@ have a chance to win!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNO-9u-4kN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085.5999999999999" y="827.13643178410803"/>
+            <point key="canvasLocation" x="721" y="1591"/>
+        </scene>
+        <!--Global Leaderboard-->
+        <scene sceneID="Yj8-3G-NFn">
+            <objects>
+                <viewController id="UQ0-xK-PbO" customClass="LeaderboardViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0vE-4V-7bP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kP-kq-77K" userLabel="headerContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tf-7a-fcp">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="9Tf-7a-fcp" firstAttribute="top" secondItem="7kP-kq-77K" secondAttribute="top" id="7aw-lA-jd4"/>
+                                    <constraint firstAttribute="height" constant="150" id="8Rh-hY-wOh"/>
+                                    <constraint firstItem="9Tf-7a-fcp" firstAttribute="leading" secondItem="7kP-kq-77K" secondAttribute="leading" id="HUf-3Y-jcm"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Tf-7a-fcp" secondAttribute="bottom" id="LHY-Tn-ZRl"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Tf-7a-fcp" secondAttribute="trailing" id="jmW-yd-nN2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7kP-kq-77K" firstAttribute="top" secondItem="z3D-g5-DQc" secondAttribute="top" id="BaN-bG-wMV"/>
+                            <constraint firstItem="7kP-kq-77K" firstAttribute="leading" secondItem="z3D-g5-DQc" secondAttribute="leading" id="qCX-Ze-pmN"/>
+                            <constraint firstItem="z3D-g5-DQc" firstAttribute="trailing" secondItem="7kP-kq-77K" secondAttribute="trailing" id="sRc-Uu-yon"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="z3D-g5-DQc"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Global Leaderboard" image="globe" catalog="system" id="viJ-Qs-LnR"/>
+                    <connections>
+                        <outlet property="pickerView" destination="9Tf-7a-fcp" id="2FN-NB-XuL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NIQ-9R-bz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421.5999999999999" y="1590.8545727136434"/>
         </scene>
         <!--Choose Mode View Controller-->
         <scene sceneID="s7U-8R-NDt">
@@ -727,7 +770,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="173" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct" translatesAutoresizingMaskIntoConstraints="NO" id="vbs-0f-fpk" userLabel="correctImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vbs-0f-fpk" secondAttribute="height" multiplier="1:1" id="1in-fV-nxD"/>
                                             <constraint firstAttribute="width" secondItem="vbs-0f-fpk" secondAttribute="height" multiplier="1:1" id="9lc-Hu-QoM"/>
@@ -764,7 +807,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="473" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="revealed" translatesAutoresizingMaskIntoConstraints="NO" id="vvl-IF-2PJ" userLabel="revealedImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vvl-IF-2PJ" secondAttribute="height" multiplier="1:1" id="NDY-Hf-fw8"/>
                                         </constraints>
@@ -800,7 +843,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="50" y="323" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong" translatesAutoresizingMaskIntoConstraints="NO" id="DxR-y4-qga" userLabel="wrongImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120.00000000000003" height="120.00000000000003"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="DxR-y4-qga" secondAttribute="height" multiplier="1:1" id="QlY-L4-OwS"/>
                                         </constraints>
@@ -890,6 +933,26 @@ have a chance to win!</string>
             </objects>
             <point key="canvasLocation" x="266" y="133"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pkh-sb-mk2">
+            <objects>
+                <tabBarController storyboardIdentifier="ScoreTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="qzD-zx-wdi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Ca-Zx-dIM">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Tsq-cL-OpK" kind="relationship" relationship="viewControllers" id="3U8-vD-MgG"/>
+                        <segue destination="UQ0-xK-PbO" kind="relationship" relationship="viewControllers" id="wh0-No-XIr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uk8-OA-FpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="815"/>
+        </scene>
     </scenes>
     <resources>
         <image name="africa" width="178.5" height="202.5"/>
@@ -897,10 +960,12 @@ have a chance to win!</string>
         <image name="close" width="21" height="21"/>
         <image name="correct" width="126.5" height="126.5"/>
         <image name="europe" width="178.5" height="202.5"/>
+        <image name="globe" catalog="system" width="64" height="60"/>
         <image name="life" width="39.5" height="47"/>
         <image name="northAmerica" width="178.5" height="202.5"/>
         <image name="oceania" width="178.5" height="202.5"/>
         <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="revealed" width="126.5" height="126.5"/>
         <image name="southAmerica" width="178.5" height="202.5"/>
         <image name="star" width="25.5" height="25.5"/>

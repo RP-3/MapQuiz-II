@@ -50,6 +50,7 @@
 		41DC571F226080A4004FB17F /* ScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */; };
 		41FA3A1C23DA4A2800889AED /* RegistrationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */; };
 		41FA3A1E23DA4A8F00889AED /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1D23DA4A8E00889AED /* HTTP.swift */; };
+		41FA3A2123DA6F1900889AED /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */; };
 		EAE1F841E2A2375959433B21 /* Pods_MapQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E4B9120C3480237437DFB9 /* Pods_MapQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableViewCell.xib; sourceTree = "<group>"; };
 		41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationClient.swift; sourceTree = "<group>"; };
 		41FA3A1D23DA4A8E00889AED /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		8D6F02849D3FA941F326F4EC /* Pods-MapQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapQuiz/Pods-MapQuiz.release.xcconfig"; sourceTree = "<group>"; };
 		F7E4B9120C3480237437DFB9 /* Pods_MapQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 		411192AE226D1A0200C80642 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				41FA3A1F23DA6C5100889AED /* leaderboardView */,
 				414A646523D2BB6F00D01383 /* profileView */,
 				41027E2B226002CA00937EE7 /* scoreView */,
 				41AC845F2238796E0052AA78 /* navigationVCs */,
@@ -279,6 +282,14 @@
 				41FA3A1D23DA4A8E00889AED /* HTTP.swift */,
 			);
 			path = networking;
+			sourceTree = "<group>";
+		};
+		41FA3A1F23DA6C5100889AED /* leaderboardView */ = {
+			isa = PBXGroup;
+			children = (
+				41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */,
+			);
+			path = leaderboardView;
 			sourceTree = "<group>";
 		};
 		8D2B958DB3C94022935640C7 /* Frameworks */ = {
@@ -452,6 +463,7 @@
 				419F10B322362BE500243AB2 /* Country.swift in Sources */,
 				41AC845C22377E9C0052AA78 /* ChallengeScoreViewController.swift in Sources */,
 				419F10AB2236246500243AB2 /* Continent.swift in Sources */,
+				41FA3A2123DA6F1900889AED /* LeaderboardViewController.swift in Sources */,
 				419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */,
 				41DC571E226080A4004FB17F /* ScoreTableViewCell.swift in Sources */,
 				41027E2F226009BF00937EE7 /* Ranking.swift in Sources */,

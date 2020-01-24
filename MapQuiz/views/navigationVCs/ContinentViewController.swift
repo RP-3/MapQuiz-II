@@ -24,7 +24,7 @@ class ContinentViewController: UIViewController {
     @IBAction func selectOceania(_ sender: Any) { pushViewController(continent: .oceania) }
     @IBAction func selectEurope(_ sender: Any) { pushViewController(continent: .europe) }
     @IBAction func showScores(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreTabBarController") as! UITabBarController
         self.present(vc, animated: true, completion: nil)
     }
     @IBAction func showProfile(_ sender: Any) {
