@@ -41,11 +41,20 @@ class LeaderboardViewController: UIViewController {
         minMonth = startOfMonth(year: 2019, month: 4) // we didn't collect stats before this
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        pickerView.selectRow(3, inComponent: 0, animated: false) // min month
+        pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: false) // min year
+        pickerView.selectRow(continentPicks.count - 1, inComponent: 2, animated: false)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = yearPicks[0]
-        let currentContinent = continentPicks[pickerView.selectedRow(inComponent: 2)]
+        let currentContinent = continentPicks[0]
+        pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
+        pickerView.selectRow(0, inComponent: 1, animated: true) // most recent year
+        pickerView.selectRow(0, inComponent: 2, animated: true)
         showActivity(true)
         LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: currentContinent) { success in
             self.showActivity(false)
