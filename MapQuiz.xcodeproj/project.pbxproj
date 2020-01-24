@@ -51,6 +51,9 @@
 		41FA3A1C23DA4A2800889AED /* RegistrationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */; };
 		41FA3A1E23DA4A8F00889AED /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1D23DA4A8E00889AED /* HTTP.swift */; };
 		41FA3A2123DA6F1900889AED /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */; };
+		41FA3A2323DA9C2D00889AED /* LeaderboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A2223DA9C2D00889AED /* LeaderboardCell.swift */; };
+		41FA3A2523DAA4BC00889AED /* LeaderboardAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A2423DAA4BC00889AED /* LeaderboardAPIClient.swift */; };
+		41FA3A2723DAB32400889AED /* LeaderboardDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A2623DAB32400889AED /* LeaderboardDataCache.swift */; };
 		EAE1F841E2A2375959433B21 /* Pods_MapQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E4B9120C3480237437DFB9 /* Pods_MapQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +105,9 @@
 		41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationClient.swift; sourceTree = "<group>"; };
 		41FA3A1D23DA4A8E00889AED /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		41FA3A2223DA9C2D00889AED /* LeaderboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCell.swift; sourceTree = "<group>"; };
+		41FA3A2423DAA4BC00889AED /* LeaderboardAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardAPIClient.swift; sourceTree = "<group>"; };
+		41FA3A2623DAB32400889AED /* LeaderboardDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardDataCache.swift; sourceTree = "<group>"; };
 		8D6F02849D3FA941F326F4EC /* Pods-MapQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapQuiz/Pods-MapQuiz.release.xcconfig"; sourceTree = "<group>"; };
 		F7E4B9120C3480237437DFB9 /* Pods_MapQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -280,6 +286,7 @@
 				41AC846122387ADA0052AA78 /* ScoreAPIClient.swift */,
 				41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */,
 				41FA3A1D23DA4A8E00889AED /* HTTP.swift */,
+				41FA3A2423DAA4BC00889AED /* LeaderboardAPIClient.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -288,6 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */,
+				41FA3A2223DA9C2D00889AED /* LeaderboardCell.swift */,
+				41FA3A2623DAB32400889AED /* LeaderboardDataCache.swift */,
 			);
 			path = leaderboardView;
 			sourceTree = "<group>";
@@ -459,6 +468,7 @@
 				41DC571B22607FA0004FB17F /* ScoreViewController.swift in Sources */,
 				419F10AF22362A5700243AB2 /* MapViewDelegate.swift in Sources */,
 				41AC8451223759A00052AA78 /* UIConstants.swift in Sources */,
+				41FA3A2323DA9C2D00889AED /* LeaderboardCell.swift in Sources */,
 				41AC846222387ADA0052AA78 /* ScoreAPIClient.swift in Sources */,
 				419F10B322362BE500243AB2 /* Country.swift in Sources */,
 				41AC845C22377E9C0052AA78 /* ChallengeScoreViewController.swift in Sources */,
@@ -475,9 +485,11 @@
 				419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */,
 				419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */,
 				414A646723D2BBB800D01383 /* ProfileViewController.swift in Sources */,
+				41FA3A2723DAB32400889AED /* LeaderboardDataCache.swift in Sources */,
 				41027E28225EF89100937EE7 /* ChallengeSessionAttempt.swift in Sources */,
 				41AC845A22377E850052AA78 /* ChallengeSessionRegistry.swift in Sources */,
 				41AC845622377DF00052AA78 /* ChallengeViewController.swift in Sources */,
+				41FA3A2523DAA4BC00889AED /* LeaderboardAPIClient.swift in Sources */,
 				41FA3A1C23DA4A2800889AED /* RegistrationClient.swift in Sources */,
 				41027E2D2260038B00937EE7 /* RankCache.swift in Sources */,
 				419F10BE22371F4700243AB2 /* World.swift in Sources */,

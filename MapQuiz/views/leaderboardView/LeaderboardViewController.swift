@@ -11,7 +11,10 @@ import UIKit
 class LeaderboardViewController: UIViewController {
 
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
 
+    // picker constants
     let continentPicks: [Continent] = [.northAmerica, .southAmerica, .africa, .asia, .oceania, .europe]
     let monthPicks: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     let yearPicks: [Int] = {
@@ -22,12 +25,70 @@ class LeaderboardViewController: UIViewController {
     }()
 
     var minMonth: Date!
+    private var activitiesInFlight = 0
 
+    // tableview constants
+    let cellReuseIdentifier = "leaderboardCell"
+
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.delegate = self
         pickerView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 90
         minMonth = startOfMonth(year: 2019, month: 4) // we didn't collect stats before this
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let currentMonth = Calendar.current.component(.month, from: Date())
+        let currentYear = yearPicks[0]
+        let currentContinent = continentPicks[pickerView.selectedRow(inComponent: 2)]
+        showActivity(true)
+        LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: currentContinent) { success in
+            self.showActivity(false)
+            self.tableView.reloadData()
+        }
+    }
+
+    private func showActivity(_ active: Bool){
+        activitiesInFlight = activitiesInFlight + ( active ? 1 : -1 )
+        let animate = activitiesInFlight > 0
+        activityMonitor.isHidden = !animate
+        animate ? activityMonitor.startAnimating() : activityMonitor.stopAnimating()
+    }
+}
+
+// MARK: TableViewDelegate
+extension LeaderboardViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        LeaderboardDataCache.shared.data.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! LeaderboardCell
+        cell.set(scoreRow: LeaderboardDataCache.shared.data[indexPath.row])
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = tableView.frame.size.height
+        let contentYoffset = tableView.contentOffset.y
+        let distanceFromBottom = tableView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            showActivity(true)
+            LeaderboardDataCache.shared.fetchNextPage() { success in
+                self.showActivity(false)
+                guard success else { return }
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -38,6 +99,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let monthIndex = pickerView.selectedRow(inComponent: 0)
         let year = yearPicks[pickerView.selectedRow(inComponent: 1)]
         let selected = startOfMonth(year: year, month: monthIndex + 1)
+        let continent = continentPicks[pickerView.selectedRow(inComponent: 2)]
 
         let currentYear = Calendar.current.component(.year, from: Date())
         let currentMonth = Calendar.current.component(.month, from: Date())
@@ -45,11 +107,27 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
 
         guard selected < maxAllowed else {
             pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
-            return pickerView.selectRow(0, inComponent: 1, animated: true) // most recent year
+            pickerView.selectRow(0, inComponent: 1, animated: true) // most recent year
+            showActivity(true)
+            return LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: continent) { success in
+                self.showActivity(false)
+                self.tableView.reloadData()
+            }
         }
         guard selected >= minMonth else {
             pickerView.selectRow(3, inComponent: 0, animated: true) // min month
-            return pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // min year
+            pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // min year
+            showActivity(true)
+            return LeaderboardDataCache.shared.fetch(month: 4, year: 2019, continent: continent) { success in
+                self.showActivity(false)
+                self.tableView.reloadData()
+            }
+        }
+
+        showActivity(true)
+        LeaderboardDataCache.shared.fetch(month: monthIndex+1, year: year, continent: continent) { success in
+            self.showActivity(false)
+            self.tableView.reloadData()
         }
     }
 
@@ -67,7 +145,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         switch component {
         case 0: return monthPicks[row]
         case 1: return String(yearPicks[row])
-        default: return continentPicks[row].toString()
+        default: return continentPicks[row].rawValue
         }
     }
 

@@ -47,7 +47,7 @@ class HTTPClient {
                     }else{
                         if let data = data {
                             let str = String(bytes: data, encoding: String.Encoding.utf8)
-                            let result = HTTPClient.convertToDictionary(text: str)
+                            let result = HTTPClient.convertToDictionary(text: str) ?? HTTPClient.convertFromList(text: str)
                             return completion(result)
                         }else {
                             print("Recieved 200-399 response but with no data")
@@ -70,7 +70,20 @@ class HTTPClient {
         do {
             return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         } catch {
-            print("Error parsing response:")
+            print("Error parsing response as dict:")
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+
+    private static func convertFromList(text: String?) -> [String: Any]? {
+        guard let text = text else { print("Could not parse response into string"); return nil }
+        guard let data = text.data(using: .utf8) else { print("Error parsing response string to UTF8"); return nil }
+        do {
+            let list = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]
+            return ["results" : list as Any ]
+        } catch {
+            print("Error parsing response as list:")
             print(error.localizedDescription)
             return nil
         }

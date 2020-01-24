@@ -31,17 +31,6 @@ enum Continent: String {
         }
     }
 
-    func toString() -> String {
-        switch self {
-        case .northAmerica: return "North\nAmerica"
-        case .southAmerica: return "S.A."
-        case .asia: return "ASIA"
-        case .europe: return "EU"
-        case .oceania: return "OC"
-        case .africa: return "AF"
-        }
-    }
-
     func toPickerImage() -> UIImage {
         switch self {
         case .northAmerica: return UIImage(named: "pickNorthAmerica")!

@@ -34,3 +34,31 @@ struct Ranking {
         )
     }
 }
+
+struct NamedRanking {
+    let livesRemaining: Int
+    let lengthInMs: Int
+    let rank: Int
+    let startedAt: Date
+    let name: String
+
+    static func from(dict: [String: Any]) -> NamedRanking? {
+        guard let livesRemaining = dict["livesRemaining"] as? Int else { return nil }
+        guard let lengthInMs = dict["lengthInMs"] as? Int else { return nil }
+        guard let rank = dict["rank"] as? Int else { return nil }
+        guard let dateString = dict["startedAt"] as? String else { return nil }
+        guard let name = dict["name"] as? String else { return nil }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ"
+        guard let startedAt = dateFormatter.date(from: dateString) else { return nil }
+
+        return NamedRanking(
+            livesRemaining: livesRemaining,
+            lengthInMs: lengthInMs,
+            rank: rank,
+            startedAt: startedAt,
+            name: name
+        )
+    }
+}
