@@ -23,6 +23,9 @@ class World {
         "Cook Islands": 500_000,
         "Palau": 500_000,
 
+        // europe
+        "Malta": 50_000,
+
         // africa
         "Mauritius": 500_000,
         "Comoros": 500_000,
