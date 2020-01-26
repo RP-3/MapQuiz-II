@@ -16,10 +16,6 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var coverView: UIView!
 
-    @IBAction func close(_ sender: Any) {
-        self.dismiss(animated: true, completion: StoreReviewController.safelyRequestReview)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
