@@ -166,6 +166,7 @@ class ProfileViewController: UIViewController {
         bluredView.tag = BLUR_VIEW_TAG
         view.insertSubview(bluredView, at: 0)
         muteSwitch.isOn = EffectsBoard.isMuted()
+        vibrationSwitch.isOn = EffectsBoard.vibrationDisabled()
         hideSpinner()
         updateUIForNameState()
     }
