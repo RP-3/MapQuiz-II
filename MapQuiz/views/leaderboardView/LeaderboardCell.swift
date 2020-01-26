@@ -13,11 +13,13 @@ class LeaderboardCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var position: UILabel!
     @IBOutlet weak var timing: UILabel!
+    @IBOutlet weak var heart1: UIImageView!
     @IBOutlet weak var heart2: UIImageView!
     @IBOutlet weak var heart3: UIImageView!
 
     public func set(scoreRow: NamedRanking) {
-        name.text = scoreRow.name
+        name.text = scoreRow.anonymous ? "\(scoreRow.name) (Anonymous)" : scoreRow.name
+        name.alpha = scoreRow.anonymous ? 0.5 : 1
 
         let formatter = NumberFormatter()
         formatter.numberStyle = .ordinal
@@ -29,7 +31,8 @@ class LeaderboardCell: UITableViewCell {
         let remainingMilliseconds = milliseconds % 1000
         timing.text = "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds)).\(String(format: "%03d", remainingMilliseconds))"
 
-        heart3.alpha = scoreRow.livesRemaining < 3 ? 0.2 : 1.0
-        heart2.alpha = scoreRow.livesRemaining < 2 ? 0.2 : 1.0
+        heart3.alpha = scoreRow.livesRemaining < 3 ? 0.2 : 0.7
+        heart2.alpha = scoreRow.livesRemaining < 2 ? 0.2 : 0.7
+        heart1.alpha = 0.7
     }
 }

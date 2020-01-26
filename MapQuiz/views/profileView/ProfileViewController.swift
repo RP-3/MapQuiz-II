@@ -89,12 +89,15 @@ class ProfileViewController: UIViewController {
     }
 
     private func updateUIForNameState(){
-        nameField.text = savedName()
-        if savedName() != nil {
+        if let name = savedName() {
+            nameField.text = name
             goAnonymousButton.isHidden = false
             animateHideSubheading()
         } else {
-            nameField.text = "Anonymous \(RegistrationClient.defaultName() ?? "")"
+            nameField.text = nil
+            let placeHolderAttrs = [NSAttributedString.Key.foregroundColor: UIColor.gray]
+            let placeHolderText = "Anonymous \(RegistrationClient.defaultName() ?? "")"
+            nameField.attributedPlaceholder = NSAttributedString(string: placeHolderText, attributes: placeHolderAttrs)
             goAnonymousButton.isHidden = true
             animateShowSubheading()
         }

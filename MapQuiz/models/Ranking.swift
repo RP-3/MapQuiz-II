@@ -41,6 +41,7 @@ struct NamedRanking {
     let rank: Int
     let startedAt: Date
     let name: String
+    let anonymous: Bool
 
     static func from(dict: [String: Any]) -> NamedRanking? {
         guard let livesRemaining = dict["livesRemaining"] as? Int else { return nil }
@@ -48,6 +49,7 @@ struct NamedRanking {
         guard let rank = dict["rank"] as? Int else { return nil }
         guard let dateString = dict["startedAt"] as? String else { return nil }
         guard let name = dict["name"] as? String else { return nil }
+        guard let anonymous = dict["anonymous"] as? Bool else { return nil }
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ"
@@ -58,7 +60,8 @@ struct NamedRanking {
             lengthInMs: lengthInMs,
             rank: rank,
             startedAt: startedAt,
-            name: name
+            name: name,
+            anonymous: anonymous
         )
     }
 }

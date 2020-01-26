@@ -525,19 +525,19 @@ have a chance to win!</string>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okl-0G-XPR" userLabel="heartStack">
                                                     <rect key="frame" x="261" y="49" width="99" height="33"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-M6-AC3" userLabel="heart3">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLife" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-M6-AC3" userLabel="heart3">
                                                             <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="EOD-M6-AC3" secondAttribute="height" multiplier="1:1" id="LYS-5C-5nq"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-SG-oJc" userLabel="heart2">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLife" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-SG-oJc" userLabel="heart2">
                                                             <rect key="frame" x="33" y="0.0" width="33" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="fDo-SG-oJc" secondAttribute="height" multiplier="1:1" id="dXP-uf-KkR"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="Dnt-N4-WEl" userLabel="heart1">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLife" translatesAutoresizingMaskIntoConstraints="NO" id="Dnt-N4-WEl" userLabel="heart1">
                                                             <rect key="frame" x="66" y="0.0" width="33" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Dnt-N4-WEl" secondAttribute="height" multiplier="1:1" id="RLd-Th-i4y"/>
@@ -571,7 +571,8 @@ have a chance to win!</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="heart2" destination="fDo-SG-oJc" id="9xn-35-Uez"/>
+                                            <outlet property="heart1" destination="Dnt-N4-WEl" id="ZF6-gj-GhC"/>
+                                            <outlet property="heart2" destination="Dnt-N4-WEl" id="taa-hQ-JAw"/>
                                             <outlet property="heart3" destination="EOD-M6-AC3" id="tX0-Kz-Jw1"/>
                                             <outlet property="name" destination="Uaa-ef-nsb" id="Vic-ce-WrK"/>
                                             <outlet property="position" destination="mfb-Qf-44I" id="ihE-Rb-r5y"/>
@@ -1051,6 +1052,7 @@ have a chance to win!</string>
                 <tabBarController storyboardIdentifier="ScoreTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="qzD-zx-wdi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Ca-Zx-dIM">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1081,6 +1083,7 @@ have a chance to win!</string>
         <image name="revealed" width="126.5" height="126.5"/>
         <image name="southAmerica" width="178.5" height="202.5"/>
         <image name="star" width="25.5" height="25.5"/>
+        <image name="whiteLife" width="39" height="46"/>
         <image name="wrong" width="126.5" height="126.5"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
