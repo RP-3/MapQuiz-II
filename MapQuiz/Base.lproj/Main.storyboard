@@ -463,6 +463,8 @@ have a chance to win!</string>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tf-7a-fcp">
                                         <rect key="frame" x="0.0" y="54.5" width="375" height="95.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Leaderboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gae-0C-LiH">
                                         <rect key="frame" x="18" y="10" width="179" height="44.5"/>
@@ -479,9 +481,10 @@ have a chance to win!</string>
                                             <constraint firstAttribute="height" constant="40" id="VVi-b0-GDr"/>
                                             <constraint firstAttribute="width" constant="40" id="adt-dK-gyr"/>
                                         </constraints>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="8Rh-hY-wOh"/>
                                     <constraint firstItem="9Tf-7a-fcp" firstAttribute="top" secondItem="Gae-0C-LiH" secondAttribute="bottom" id="BRg-od-FCf"/>
@@ -497,7 +500,7 @@ have a chance to win!</string>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vsc-lh-Zhh">
                                 <rect key="frame" x="0.0" y="150" width="375" height="468"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leaderboardCell" rowHeight="90" id="yUj-ci-j9U" customClass="LeaderboardCell" customModule="MapQuiz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
@@ -553,6 +556,7 @@ have a chance to win!</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Uaa-ef-nsb" firstAttribute="leading" secondItem="dCR-Vm-gOy" secondAttribute="leading" constant="15" id="8Kg-Wn-AVs"/>
                                                 <constraint firstAttribute="trailing" secondItem="Okl-0G-XPR" secondAttribute="trailing" constant="15" id="CuM-07-eWH"/>
@@ -577,7 +581,7 @@ have a chance to win!</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vsc-lh-Zhh" firstAttribute="top" secondItem="9Tf-7a-fcp" secondAttribute="bottom" id="8HJ-Xs-cxh"/>
                             <constraint firstItem="7kP-kq-77K" firstAttribute="top" secondItem="z3D-g5-DQc" secondAttribute="top" id="BaN-bG-wMV"/>

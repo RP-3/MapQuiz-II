@@ -21,7 +21,7 @@ class LeaderboardViewController: UIViewController {
         var result: [Int] = []
         let year = Calendar.current.component(.year, from: Date())
         for n in 2019 ..< year+1 { result.append(n) }
-        return result.reversed()
+        return result
     }()
 
     var minMonth: Date!
@@ -43,18 +43,18 @@ class LeaderboardViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         pickerView.selectRow(3, inComponent: 0, animated: false) // min month
-        pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: false) // min year
+        pickerView.selectRow(0, inComponent: 1, animated: false) // min year
         pickerView.selectRow(continentPicks.count - 1, inComponent: 2, animated: false)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let currentMonth = Calendar.current.component(.month, from: Date())
-        let currentYear = yearPicks[0]
+        let currentYear = yearPicks.last!
         let currentContinent = continentPicks[0]
         pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
-        pickerView.selectRow(0, inComponent: 1, animated: true) // most recent year
-        pickerView.selectRow(0, inComponent: 2, animated: true)
+        pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // most recent year
+        pickerView.selectRow(2, inComponent: 2, animated: true) // somewhere in the middle
         showActivity(true)
         LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: currentContinent) { success in
             self.showActivity(false)
@@ -116,7 +116,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
 
         guard selected < maxAllowed else {
             pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
-            pickerView.selectRow(0, inComponent: 1, animated: true) // most recent year
+            pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // most recent year
             showActivity(true)
             return LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: continent) { success in
                 self.showActivity(false)
@@ -125,7 +125,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         }
         guard selected >= minMonth else {
             pickerView.selectRow(3, inComponent: 0, animated: true) // min month
-            pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // min year
+            pickerView.selectRow(0, inComponent: 1, animated: true) // min year
             showActivity(true)
             return LeaderboardDataCache.shared.fetch(month: 4, year: 2019, continent: continent) { success in
                 self.showActivity(false)
@@ -176,8 +176,9 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
             element.addSubview(imageView)
         } else {
             let label = UILabel(frame: contentFrame)
-            label.text = component == 1 ? String(yearPicks[row]) : monthPicks[row]
-            label.font = UIConstants.amaticBold(size: 35)
+            let text = component == 1 ? String(yearPicks[row]) : monthPicks[row]
+            let textAttrs = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIConstants.amaticBold(size: 35)]
+            label.attributedText = NSAttributedString(string: text, attributes: textAttrs)
             label.textAlignment = .center
             element.addSubview(label)
         }
