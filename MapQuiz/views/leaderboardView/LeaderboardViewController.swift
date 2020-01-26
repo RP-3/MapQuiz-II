@@ -51,7 +51,7 @@ class LeaderboardViewController: UIViewController {
         super.viewWillAppear(animated)
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = yearPicks.last!
-        let currentContinent = continentPicks[0]
+        let currentContinent = continentPicks[2]
         pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
         pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // most recent year
         pickerView.selectRow(2, inComponent: 2, animated: true) // somewhere in the middle
