@@ -22,6 +22,7 @@ class World {
         "Samoa": 400_000,
         "Cook Islands": 500_000,
         "Palau": 500_000,
+        "Vanuatu": 100_000,
 
         // europe
         "Malta": 50_000,
@@ -38,7 +39,6 @@ class World {
         "Bahrain": 30_000,
 
         // north america
-        "The Bahamas": 200_000,
         "Barbados": 100_000,
         "Dominica": 100_000,
         "Saint Kitts and Nevis": 50_000,
