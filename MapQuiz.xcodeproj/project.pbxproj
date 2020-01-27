@@ -14,19 +14,20 @@
 		414A646723D2BBB800D01383 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A646623D2BBB800D01383 /* ProfileViewController.swift */; };
 		414A646A23D2E7F900D01383 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 414A646923D2E60500D01383 /* JosefinSans-Light.ttf */; };
 		4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */; };
+		419436BA23DE73E7007D4305 /* USStateData.json in Resources */ = {isa = PBXBuildFile; fileRef = 419436B923DE73E7007D4305 /* USStateData.json */; };
 		419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10962235F79F00243AB2 /* AppDelegate.swift */; };
 		419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10982235F7A000243AB2 /* ContinentViewController.swift */; };
 		419F109C2235F7A000243AB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419F109A2235F7A000243AB2 /* Main.storyboard */; };
 		419F109E2235F7A100243AB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419F109D2235F7A100243AB2 /* Assets.xcassets */; };
 		419F10A12235F7A100243AB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419F109F2235F7A100243AB2 /* LaunchScreen.storyboard */; };
 		419F10A92236209A00243AB2 /* ChooseModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10A82236209A00243AB2 /* ChooseModeViewController.swift */; };
-		419F10AB2236246500243AB2 /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AA2236246500243AB2 /* Continent.swift */; };
+		419F10AB2236246500243AB2 /* ChallengeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AA2236246500243AB2 /* ChallengeSet.swift */; };
 		419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AC223628A800243AB2 /* PracticeViewController.swift */; };
 		419F10AF22362A5700243AB2 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10AE22362A5700243AB2 /* MapViewDelegate.swift */; };
 		419F10B122362A9500243AB2 /* CustomPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B022362A9500243AB2 /* CustomPolygon.swift */; };
-		419F10B322362BE500243AB2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B222362BE500243AB2 /* Country.swift */; };
+		419F10B322362BE500243AB2 /* BoundedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B222362BE500243AB2 /* BoundedItem.swift */; };
 		419F10B522362F2400243AB2 /* countryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 419F10B422362F2400243AB2 /* countryData.json */; };
-		419F10B92236317A00243AB2 /* CountryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B82236317A00243AB2 /* CountryDB.swift */; };
+		419F10B92236317A00243AB2 /* BoundaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10B82236317A00243AB2 /* BoundaryDB.swift */; };
 		419F10BC223656F600243AB2 /* PracticeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10BB223656F600243AB2 /* PracticeSession.swift */; };
 		419F10BE22371F4700243AB2 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10BD22371F4700243AB2 /* World.swift */; };
 		419F10C02237240D00243AB2 /* PracticeSessionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10BF2237240D00243AB2 /* PracticeSessionRegistry.swift */; };
@@ -66,6 +67,7 @@
 		414A646623D2BBB800D01383 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		414A646923D2E60500D01383 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
 		4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeScoreViewController.swift; sourceTree = "<group>"; };
+		419436B923DE73E7007D4305 /* USStateData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = USStateData.json; sourceTree = "<group>"; };
 		419F10932235F79F00243AB2 /* MapQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		419F10962235F79F00243AB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		419F10982235F7A000243AB2 /* ContinentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentViewController.swift; sourceTree = "<group>"; };
@@ -74,13 +76,13 @@
 		419F10A02235F7A100243AB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		419F10A22235F7A100243AB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419F10A82236209A00243AB2 /* ChooseModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeViewController.swift; sourceTree = "<group>"; };
-		419F10AA2236246500243AB2 /* Continent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
+		419F10AA2236246500243AB2 /* ChallengeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSet.swift; sourceTree = "<group>"; };
 		419F10AC223628A800243AB2 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		419F10AE22362A5700243AB2 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		419F10B022362A9500243AB2 /* CustomPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPolygon.swift; sourceTree = "<group>"; };
-		419F10B222362BE500243AB2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		419F10B222362BE500243AB2 /* BoundedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundedItem.swift; sourceTree = "<group>"; };
 		419F10B422362F2400243AB2 /* countryData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countryData.json; sourceTree = "<group>"; };
-		419F10B82236317A00243AB2 /* CountryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDB.swift; sourceTree = "<group>"; };
+		419F10B82236317A00243AB2 /* BoundaryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryDB.swift; sourceTree = "<group>"; };
 		419F10BB223656F600243AB2 /* PracticeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSession.swift; sourceTree = "<group>"; };
 		419F10BD22371F4700243AB2 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		419F10BF2237240D00243AB2 /* PracticeSessionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSessionRegistry.swift; sourceTree = "<group>"; };
@@ -207,8 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				419F10B022362A9500243AB2 /* CustomPolygon.swift */,
-				419F10B222362BE500243AB2 /* Country.swift */,
-				419F10AA2236246500243AB2 /* Continent.swift */,
+				419F10B222362BE500243AB2 /* BoundedItem.swift */,
+				419F10AA2236246500243AB2 /* ChallengeSet.swift */,
 				419F10BD22371F4700243AB2 /* World.swift */,
 				41AC845D223868630052AA78 /* GuessOutcome.swift */,
 				41027E2E226009BF00937EE7 /* Ranking.swift */,
@@ -219,8 +221,9 @@
 		419F10B72236316500243AB2 /* countryDb */ = {
 			isa = PBXGroup;
 			children = (
+				419436B923DE73E7007D4305 /* USStateData.json */,
 				419F10B422362F2400243AB2 /* countryData.json */,
-				419F10B82236317A00243AB2 /* CountryDB.swift */,
+				419F10B82236317A00243AB2 /* BoundaryDB.swift */,
 			);
 			path = countryDb;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				419F10C722373DED00243AB2 /* plop.wav in Resources */,
 				419F10C922373DF300243AB2 /* right.wav in Resources */,
 				419F109C2235F7A000243AB2 /* Main.storyboard in Resources */,
+				419436BA23DE73E7007D4305 /* USStateData.json in Resources */,
 				419F10C522373DE700243AB2 /* bounce.wav in Resources */,
 				41DC571F226080A4004FB17F /* ScoreTableViewCell.xib in Resources */,
 			);
@@ -470,9 +474,9 @@
 				41AC8451223759A00052AA78 /* UIConstants.swift in Sources */,
 				41FA3A2323DA9C2D00889AED /* LeaderboardCell.swift in Sources */,
 				41AC846222387ADA0052AA78 /* ScoreAPIClient.swift in Sources */,
-				419F10B322362BE500243AB2 /* Country.swift in Sources */,
+				419F10B322362BE500243AB2 /* BoundedItem.swift in Sources */,
 				41AC845C22377E9C0052AA78 /* ChallengeScoreViewController.swift in Sources */,
-				419F10AB2236246500243AB2 /* Continent.swift in Sources */,
+				419F10AB2236246500243AB2 /* ChallengeSet.swift in Sources */,
 				41FA3A2123DA6F1900889AED /* LeaderboardViewController.swift in Sources */,
 				419F10992235F7A000243AB2 /* ContinentViewController.swift in Sources */,
 				41DC571E226080A4004FB17F /* ScoreTableViewCell.swift in Sources */,
@@ -494,7 +498,7 @@
 				41027E2D2260038B00937EE7 /* RankCache.swift in Sources */,
 				419F10BE22371F4700243AB2 /* World.swift in Sources */,
 				419F10BC223656F600243AB2 /* PracticeSession.swift in Sources */,
-				419F10B92236317A00243AB2 /* CountryDB.swift in Sources */,
+				419F10B92236317A00243AB2 /* BoundaryDB.swift in Sources */,
 				419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */,
 				419F10C322373D8D00243AB2 /* EffectsBoard.swift in Sources */,
 			);

@@ -306,6 +306,14 @@
                                     <action selector="selectEurope:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tHZ-dx-qya"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCQ-7M-lZn">
+                                <rect key="frame" x="164" y="205" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectUSStates:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J6t-vE-wdR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.83921568627450982" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

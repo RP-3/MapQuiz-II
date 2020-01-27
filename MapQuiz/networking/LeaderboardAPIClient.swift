@@ -14,7 +14,7 @@ class LeaderboardAPIClient {
 
     // MARK: Public Interface
     public static func fetchScoresFor(
-        continent: Continent,
+        continent: ChallengeSet,
         month: Int,
         year: Int,
         minPosition: Int,

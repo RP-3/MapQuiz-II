@@ -18,18 +18,18 @@ struct ChallengeSessionGameState {
 class ChallengeSession {
 
     private let totalCountries: Int
-    public let continent: Continent
+    public let continent: ChallengeSet
     public var startTime: Date?
     public var endTime: Date?
 
-    private var countriesHandled: [Country]
-    private var countriesRemaining: [Country]
+    private var countriesHandled: [BoundedItem]
+    private var countriesRemaining: [BoundedItem]
     private var livesRemaining: Int
     private var finished = false
     public var attempts: [ChallengeSessionAttempt]
 
-    init(continent: Continent){
-        let countryList = CountryDB.countries(inContinent: continent)
+    init(continent: ChallengeSet){
+        let countryList = BoundaryDB.boundedItems(inChallengeSet: continent)
         self.continent = continent
         totalCountries = countryList.count
         countriesHandled = []
@@ -51,11 +51,11 @@ class ChallengeSession {
         return endTime!.timeIntervalSince(startTime!) * 1000
     }
 
-    public func remainingCountries() -> [Country] { return self.countriesRemaining }
+    public func remainingCountries() -> [BoundedItem] { return self.countriesRemaining }
 
     public func gameOver() -> Bool { return countriesRemaining.count == 0 || livesRemaining == 0 || finished }
 
-    public func guess(coords: CLLocationCoordinate2D) -> (Country?, GuessOutcome) {
+    public func guess(coords: CLLocationCoordinate2D) -> (BoundedItem?, GuessOutcome) {
         guard let currentCountry = countriesRemaining.last else { return (nil, .fatFingered) }
         // guessed correctly
         let now = NSDate().timeIntervalSince1970

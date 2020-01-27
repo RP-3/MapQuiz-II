@@ -11,7 +11,7 @@ import MapKit
 
 class PracticeViewController: UIViewController {
 
-    public var continent: Continent!
+    public var continent: ChallengeSet!
 
     private weak var session: PracticeSession!
     private let mapDelegate = MapViewDelegate()
@@ -48,7 +48,7 @@ class PracticeViewController: UIViewController {
 
         session = PracticeSessionRegistry.shared.sessionFor(continent: continent)
 
-        session.remainingCountries().forEach { (country: Country) -> Void in
+        session.remainingCountries().forEach { (country: BoundedItem) -> Void in
             for landArea in (country.boundary) {
                 let overlay = CustomPolygon(guessed: false, lat_long: country.annotation_point, coords: landArea, numberOfPoints: landArea.count )
                 overlay.title = country.name
@@ -68,7 +68,7 @@ class PracticeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        worldMap.setRegion(World.regionFor(continent: continent), animated: true)
+        worldMap.setRegion(World.regionFor(challengeSet: continent), animated: true)
         instructionLabel.backgroundColor = BLUE
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false // disable popViewController by swiping
     }

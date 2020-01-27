@@ -18,45 +18,45 @@ struct PracticeGameState {
 
 class PracticeSession {
 
-    private let totalCountries: Int
+    private let totalItems: Int
     private var revealed: Int
     private var misses: Int
 
-    private var countriesHandled: [Country]
-    private var countriesRemaining: [Country]
+    private var itemsHandled: [BoundedItem]
+    private var itemsRemaining: [BoundedItem]
 
-    init(continent: Continent) {
-        let countryList = CountryDB.countries(inContinent: continent)
-        totalCountries = countryList.count
+    init(challengeSet: ChallengeSet) {
+        let countryList = BoundaryDB.boundedItems(inChallengeSet: challengeSet)
+        totalItems = countryList.count
         revealed = 0
         misses = 0
-        countriesHandled = []
-        countriesRemaining = World.shuffle(countries: countryList)
+        itemsHandled = []
+        itemsRemaining = World.shuffle(countries: countryList)
     }
 
     public func currentGameState() -> PracticeGameState {
         return PracticeGameState(
-            countryCount: totalCountries,
-            countriesHandled: countriesHandled.count,
+            countryCount: totalItems,
+            countriesHandled: itemsHandled.count,
             revealed: revealed,
             misses: misses,
-            currentCountryName: countriesRemaining.last?.name
+            currentCountryName: itemsRemaining.last?.name
         )
     }
 
-    public func remainingCountries() -> [Country] { return self.countriesRemaining }
+    public func remainingCountries() -> [BoundedItem] { return self.itemsRemaining }
 
-    public func finished() -> Bool { return countriesRemaining.count == 0 }
+    public func finished() -> Bool { return itemsRemaining.count == 0 }
 
-    public func guess(coords: CLLocationCoordinate2D) -> (Country?, GuessOutcome) {
-        guard let currentCountry = countriesRemaining.last else { return (nil, .fatFingered) }
+    public func guess(coords: CLLocationCoordinate2D) -> (BoundedItem?, GuessOutcome) {
+        guard let currentCountry = itemsRemaining.last else { return (nil, .fatFingered) }
         // guessed correctly
         if World.coordinates(coords, inCountry: currentCountry) {
-            countriesHandled.append(countriesRemaining.popLast()!)
+            itemsHandled.append(itemsRemaining.popLast()!)
             return (currentCountry, .correct)
         }
         // guessed incorrectly
-        for country in countriesRemaining {
+        for country in itemsRemaining {
             if World.coordinates(coords, inCountry: country) {
                 misses += 1
                 return (nil, .wrong)
@@ -66,13 +66,13 @@ class PracticeSession {
     }
 
     public func skip(){
-        guard let countryToRemove = countriesRemaining.popLast() else { return }
-        countriesRemaining.insert(countryToRemove, at: 0)
+        guard let countryToRemove = itemsRemaining.popLast() else { return }
+        itemsRemaining.insert(countryToRemove, at: 0)
     }
 
     public func reveal(){
-        guard let countryToReveal = countriesRemaining.popLast() else { return }
-        countriesHandled.append(countryToReveal)
+        guard let countryToReveal = itemsRemaining.popLast() else { return }
+        itemsHandled.append(countryToReveal)
         revealed += 1
     }
 

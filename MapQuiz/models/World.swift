@@ -48,15 +48,16 @@ class World {
         "Saint Lucia": 80_000,
     ]
 
-    public static func regionFor(continent: Continent) -> MKCoordinateRegion {
+    public static func regionFor(challengeSet: ChallengeSet) -> MKCoordinateRegion {
         let coords: CLLocationCoordinate2D = {
-            switch continent {
+            switch challengeSet {
             case .northAmerica: return CLLocationCoordinate2D(latitude: 50, longitude: -101)
             case .southAmerica: return CLLocationCoordinate2D(latitude: -19, longitude: -60)
             case .europe: return CLLocationCoordinate2D(latitude: 60, longitude: 10)
             case .africa: return CLLocationCoordinate2D(latitude: 10, longitude: 22)
             case .asia: return CLLocationCoordinate2D(latitude: 35, longitude: 85)
             case .oceania: return CLLocationCoordinate2D(latitude: -14, longitude: 160)
+            case .usStates: return CLLocationCoordinate2D(latitude: 39, longitude: 106)
             }
         }()
 
@@ -64,14 +65,15 @@ class World {
         return MKCoordinateRegion(center: coords, span: span)
     }
 
-    public static func timeLimitFor(continent: Continent) -> Double {
-        switch continent {
+    public static func timeLimitFor(continent: ChallengeSet) -> Double {
+        switch continent { // ~8 seconds per item. Written as (m*60) mins + s seconds
         case .northAmerica: return (3*60) + 12
         case .southAmerica: return (1*60) + 36
         case .europe: return (6*60) + 0
         case .africa: return (7*60) + 20
         case .asia: return (5*60) + 52
         case .oceania: return (2*60) + 16
+        case .usStates: return (6*60) + 40
         }
     }
 
@@ -79,7 +81,7 @@ class World {
         return World.smallIslandNames[name]
     }
 
-    public static func coordinates(_ coords: CLLocationCoordinate2D, inCountry country: Country) -> Bool {
+    public static func coordinates(_ coords: CLLocationCoordinate2D, inCountry country: BoundedItem) -> Bool {
         if let radius = smallIsland(name: country.name) {
             // perform match based on proximity
             let givenLocation = CLLocation(latitude: coords.latitude, longitude: coords.longitude)
@@ -98,7 +100,7 @@ class World {
         }
     }
 
-    public static func shuffle(countries: [Country]) -> [Country] {
+    public static func shuffle(countries: [BoundedItem]) -> [BoundedItem] {
         var result = countries.map { $0 }
         for i in 0 ... (countries.count - 1) {
             let randomIndex = Int.random(in: 0 ..< result.count)

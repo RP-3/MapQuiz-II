@@ -87,6 +87,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
             case .northAmerica: return "North America"
             case .southAmerica: return "South America"
             case .oceania: return "Oceania"
+            case .usStates: return "US States"
             }
         }()
 

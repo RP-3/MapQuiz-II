@@ -17,7 +17,7 @@ class LeaderboardDataCache {
     private(set) public var requestInFlight = false
     private(set) public var data = [NamedRanking]()
 
-    public func fetch(month: Int, year: Int, continent: Continent, andExecute cb: @escaping (_: Bool) -> Void){
+    public func fetch(month: Int, year: Int, continent: ChallengeSet, andExecute cb: @escaping (_: Bool) -> Void){
         guard !requestInFlight else { return cb(false) }
         requestInFlight = true
         LeaderboardAPIClient.fetchScoresFor(continent: continent, month: month, year: year, minPosition: 0) { rankings in
@@ -54,7 +54,7 @@ fileprivate struct LeaderboardState {
     let month: Int
     let year: Int
     let offset: Int
-    let continent: Continent
+    let continent: ChallengeSet
 
     func differsInOffsetOnly(from other: LeaderboardState) -> Int? {
         if  self.month == other.month &&

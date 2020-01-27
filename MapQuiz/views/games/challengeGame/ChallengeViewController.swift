@@ -11,7 +11,7 @@ import MapKit
 
 class ChallengeViewController: UIViewController {
 
-    public var continent: Continent!
+    public var continent: ChallengeSet!
 
     private var session: ChallengeSession!
     private let mapDelegate = MapViewDelegate()
@@ -47,7 +47,7 @@ class ChallengeViewController: UIViewController {
 
         session = ChallengeSession(continent: continent)
 
-        session.remainingCountries().forEach { (country: Country) -> Void in
+        session.remainingCountries().forEach { (country: BoundedItem) -> Void in
             for landArea in (country.boundary) {
                 let overlay = CustomPolygon(guessed: false, lat_long: country.annotation_point, coords: landArea, numberOfPoints: landArea.count )
                 overlay.title = country.name
@@ -67,7 +67,7 @@ class ChallengeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        worldMap.setRegion(World.regionFor(continent: continent), animated: true)
+        worldMap.setRegion(World.regionFor(challengeSet: continent), animated: true)
         instructionLabel.backgroundColor = BLUE
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false // disable popViewController by swiping
         let alert = UIAlertController(title: "Ready?", message: "Hit go to start the game", preferredStyle: .alert)

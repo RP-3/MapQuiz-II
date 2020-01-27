@@ -10,7 +10,7 @@ import UIKit
 
 class ChooseModeViewController: UIViewController {
 
-    public var continent: Continent!
+    public var continent: ChallengeSet!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var practiceButton: UIButton!
 

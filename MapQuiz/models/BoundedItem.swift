@@ -14,7 +14,7 @@ enum GeoJsonFormat {
     case multipolygon
 }
 
-struct Country {
+struct BoundedItem {
     let name: String
     let boundary: [[CLLocationCoordinate2D]]
     let boundaryPointsCount: NSInteger

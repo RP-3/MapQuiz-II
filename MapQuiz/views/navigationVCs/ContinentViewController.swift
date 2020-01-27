@@ -17,12 +17,13 @@ class ContinentViewController: UIViewController {
         RegistrationClient.registerDevice()
     }
 
-    @IBAction func selectNorthAmerica(_ sender: Any) { pushViewController(continent: .northAmerica) }
-    @IBAction func selectSouthAmerica(_ sender: Any) { pushViewController(continent: .southAmerica) }
-    @IBAction func selectAfrica(_ sender: Any) { pushViewController(continent: .africa) }
-    @IBAction func selectAsia(_ sender: Any) { pushViewController(continent: .asia) }
-    @IBAction func selectOceania(_ sender: Any) { pushViewController(continent: .oceania) }
-    @IBAction func selectEurope(_ sender: Any) { pushViewController(continent: .europe) }
+    @IBAction func selectNorthAmerica(_ sender: Any) { pushViewController(challengeSet: .northAmerica) }
+    @IBAction func selectSouthAmerica(_ sender: Any) { pushViewController(challengeSet: .southAmerica) }
+    @IBAction func selectAfrica(_ sender: Any) { pushViewController(challengeSet: .africa) }
+    @IBAction func selectAsia(_ sender: Any) { pushViewController(challengeSet: .asia) }
+    @IBAction func selectOceania(_ sender: Any) { pushViewController(challengeSet: .oceania) }
+    @IBAction func selectEurope(_ sender: Any) { pushViewController(challengeSet: .europe) }
+    @IBAction func selectUSStates(_ sender: Any) { pushViewController(challengeSet: .usStates) }
     @IBAction func showScores(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreTabBarController") as! UITabBarController
         self.present(vc, animated: true, completion: nil)
@@ -32,7 +33,7 @@ class ContinentViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
 
-    private func pushViewController(continent: Continent){
+    private func pushViewController(challengeSet: ChallengeSet){
         let backItem = UIBarButtonItem()
         backItem.title = "Continent"
         navigationItem.backBarButtonItem = backItem
@@ -42,7 +43,7 @@ class ContinentViewController: UIViewController {
         )
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
-        vc.continent = continent
+        vc.continent = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

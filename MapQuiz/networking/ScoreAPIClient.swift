@@ -14,7 +14,7 @@ class ScoreAPIClient {
     private static let fetchGameScoresUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-game-scores")
 
     // MARK: Public Interface
-    public static func fetchScores(andExecute cb: @escaping (_: [Continent: [Ranking]]?, _: String?) -> Void ){
+    public static func fetchScores(andExecute cb: @escaping (_: [ChallengeSet: [Ranking]]?, _: String?) -> Void ){
         guard let credentials = RegistrationClient.credentials() else { return cb(nil, nil) }
 
         let body = ["deviceId": credentials.deviceId, "deviceSecret": credentials.deviceSecret ]
@@ -23,9 +23,9 @@ class ScoreAPIClient {
             guard let month = dict["month"] as? String else { return cb(nil, nil) }
             guard let rankings = dict["rankings"] as? [[String: Any]] else { return cb(nil, nil) }
 
-            var rtn: [Continent: [Ranking]] = [:]
+            var rtn: [ChallengeSet: [Ranking]] = [:]
             for ranking in rankings {
-                guard let continent = Continent.from(str: (ranking["code"] as? String)) else { return cb(nil, nil) }
+                guard let continent = ChallengeSet.from(str: (ranking["code"] as? String)) else { return cb(nil, nil) }
                 var scores: [Ranking] = []
                 guard let dictScores = ranking["scores"] as? [[String: Any]] else { return cb(nil, nil) }
                 for dictScore in dictScores {
