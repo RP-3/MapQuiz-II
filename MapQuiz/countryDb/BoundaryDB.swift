@@ -21,7 +21,12 @@ class BoundaryDB {
         let jsonResult = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as! [JSONObject]
 
         return jsonResult
-            .map { (obj: JSONObject) -> BoundedItem in
+            .compactMap { (obj: JSONObject) -> BoundedItem? in
+
+            if challengeSet != .usStates { // challenge is a continent
+                let continent = obj["continent"] as! String
+                guard continent == challengeSet.str() else { return nil }
+            }
 
             let boundaryType: GeoJsonFormat = {
                 switch obj[config.typeKey] as! String {

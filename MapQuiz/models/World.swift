@@ -57,7 +57,7 @@ class World {
             case .africa: return CLLocationCoordinate2D(latitude: 10, longitude: 22)
             case .asia: return CLLocationCoordinate2D(latitude: 35, longitude: 85)
             case .oceania: return CLLocationCoordinate2D(latitude: -14, longitude: 160)
-            case .usStates: return CLLocationCoordinate2D(latitude: 39, longitude: 106)
+            case .usStates: return CLLocationCoordinate2D(latitude: 39, longitude: -106)
             }
         }()
 
