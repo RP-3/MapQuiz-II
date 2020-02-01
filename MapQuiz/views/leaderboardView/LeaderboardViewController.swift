@@ -44,17 +44,17 @@ class LeaderboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         pickerView.selectRow(3, inComponent: 0, animated: false) // min month
         pickerView.selectRow(0, inComponent: 1, animated: false) // min year
-        pickerView.selectRow(continentPicks.count - 1, inComponent: 2, animated: false)
+        pickerView.selectRow(500, inComponent: 2, animated: false)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = yearPicks.last!
-        let currentContinent = continentPicks[2]
+        let currentContinent = continentPicks[500 % continentPicks.count]
         pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
         pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // most recent year
-        pickerView.selectRow(2, inComponent: 2, animated: true) // somewhere in the middle
+        pickerView.selectRow(500, inComponent: 2, animated: true) // somewhere in the middle
         showActivity(true)
         LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: currentContinent) { success in
             self.showActivity(false)
@@ -108,7 +108,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let monthIndex = pickerView.selectedRow(inComponent: 0)
         let year = yearPicks[pickerView.selectedRow(inComponent: 1)]
         let selected = startOfMonth(year: year, month: monthIndex + 1)
-        let continent = continentPicks[pickerView.selectedRow(inComponent: 2)]
+        let continent = continentPicks[pickerView.selectedRow(inComponent: 2) % continentPicks.count]
 
         let currentYear = Calendar.current.component(.year, from: Date())
         let currentMonth = Calendar.current.component(.month, from: Date())
@@ -146,7 +146,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         switch component {
         case 0: return monthPicks.count
         case 1: return yearPicks.count
-        default: return continentPicks.count
+        default: return 1000
         }
     }
 
@@ -154,7 +154,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         switch component {
         case 0: return monthPicks[row]
         case 1: return String(yearPicks[row])
-        default: return continentPicks[row].rawValue
+        default: return continentPicks[row % continentPicks.count].rawValue
         }
     }
 
@@ -169,7 +169,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let contentFrame = CGRect(x: 0, y: 0, width: width/3, height: height)
 
         if component == 2 {
-            let continent = continentPicks[row]
+            let continent = continentPicks[row % continentPicks.count]
             let imageView = UIImageView(frame: contentFrame)
             imageView.contentMode = .scaleAspectFit
             imageView.image = continent.toPickerImage()
