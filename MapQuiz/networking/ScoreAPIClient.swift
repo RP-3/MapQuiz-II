@@ -25,11 +25,20 @@ class ScoreAPIClient {
 
             var rtn: [Continent: [Ranking]] = [:]
             for ranking in rankings {
-                guard let continent = Continent.from(str: (ranking["code"] as? String)) else { return cb(nil, nil) }
+                guard let continent = Continent.from(str: (ranking["code"] as? String)) else {
+                    print("WARNING: Could not parse continent from: \(String(describing: ranking["code"] as? String))")
+                    continue
+                }
                 var scores: [Ranking] = []
-                guard let dictScores = ranking["scores"] as? [[String: Any]] else { return cb(nil, nil) }
+                guard let dictScores = ranking["scores"] as? [[String: Any]] else {
+                    print("WARNING: Could not parse scores from: \(String(describing: ranking["scores"] as? [[String: Any]]))")
+                    continue
+                }
                 for dictScore in dictScores {
-                    guard let score = Ranking.from(dict: dictScore) else { return cb(nil, nil) }
+                    guard let score = Ranking.from(dict: dictScore) else {
+                        print("WARNING: Could not parse ranking from \(dictScore)")
+                        continue
+                    }
                     scores.append(score)
                 }
                 rtn[continent] = scores
