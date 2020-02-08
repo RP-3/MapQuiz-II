@@ -16,6 +16,7 @@
 		410BC3C523EE53EF002DC820 /* MapCellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410BC3C423EE53EF002DC820 /* MapCellHeader.xib */; };
 		410BC3C723EE543C002DC820 /* MapCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BC3C623EE543C002DC820 /* MapCellHeader.swift */; };
 		411192B2226D1F7F00C80642 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 411192B1226D1F7F00C80642 /* GoogleService-Info.plist */; };
+		412158D423EE719000304C47 /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 412158D323EE6F9700304C47 /* JosefinSans.ttf */; };
 		414A646723D2BBB800D01383 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A646623D2BBB800D01383 /* ProfileViewController.swift */; };
 		414A646A23D2E7F900D01383 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 414A646923D2E60500D01383 /* JosefinSans-Light.ttf */; };
 		4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */; };
@@ -74,6 +75,7 @@
 		410BC3C423EE53EF002DC820 /* MapCellHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCellHeader.xib; sourceTree = "<group>"; };
 		410BC3C623EE543C002DC820 /* MapCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCellHeader.swift; sourceTree = "<group>"; };
 		411192B1226D1F7F00C80642 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		412158D323EE6F9700304C47 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
 		414A646623D2BBB800D01383 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		414A646923D2E60500D01383 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
 		4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeScoreViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				414A646923D2E60500D01383 /* JosefinSans-Light.ttf */,
+				412158D323EE6F9700304C47 /* JosefinSans.ttf */,
 				41AC844E223759380052AA78 /* AmaticSC-Bold.ttf */,
 				41AC844F223759380052AA78 /* AmaticSC-Regular.ttf */,
 				41AC8450223759A00052AA78 /* UIConstants.swift */,
@@ -409,6 +412,7 @@
 				414A646A23D2E7F900D01383 /* JosefinSans-Light.ttf in Resources */,
 				41AC845222375AAB0052AA78 /* AmaticSC-Bold.ttf in Resources */,
 				41AC845322375AAB0052AA78 /* AmaticSC-Regular.ttf in Resources */,
+				412158D423EE719000304C47 /* JosefinSans.ttf in Resources */,
 				419F10A12235F7A100243AB2 /* LaunchScreen.storyboard in Resources */,
 				419F109E2235F7A100243AB2 /* Assets.xcassets in Resources */,
 				419F10CB22373DF800243AB2 /* wrong.wav in Resources */,

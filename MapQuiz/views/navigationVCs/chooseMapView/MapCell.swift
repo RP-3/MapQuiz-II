@@ -14,8 +14,16 @@ class MapCell: UITableViewCell {
     @IBOutlet weak var mapImage: UIImageView!
 
     public func set(challengeSet: ChallengeSet){
-        self.titleLabel.text = challengeSet.title().uppercased()
         self.mapImage.image = challengeSet.toTableCellImage()
+
+        self.titleLabel.attributedText = NSAttributedString(
+            string: challengeSet.title().uppercased(),
+            attributes: UIConstants.attributedText(
+                font: UIConstants.josefinSansRegular(size: 20),
+                color: UIColor(named: "textColour")!,
+                kern: 1
+            )
+        )
 
         self.contentView.layer.cornerRadius = 4
         self.contentView.layer.masksToBounds = true

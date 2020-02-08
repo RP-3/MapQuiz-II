@@ -22,6 +22,10 @@ class UIConstants {
         return UIFont(name: "JosefinSans-Light", size: size)!
     }
 
+    public static func josefinSansRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "JosefinSans-Regular", size: size)!
+    }
+
     public static func attributedText(font: UIFont, color: UIColor, kern: NSNumber) -> [NSAttributedString.Key: Any] {
         return [
             NSAttributedString.Key.font: font,
