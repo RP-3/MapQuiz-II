@@ -15,7 +15,7 @@ class LeaderboardViewController: UIViewController {
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
 
     // picker constants
-    let continentPicks: [ChallengeSet] = [.northAmerica, .southAmerica, .africa, .asia, .oceania, .europe]
+    let continentPicks: [ChallengeSet] = [.northAmerica, .southAmerica, .africa, .asia, .oceania, .europe, .usStates]
     let monthPicks: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     let yearPicks: [Int] = {
         var result: [Int] = []

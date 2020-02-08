@@ -18,7 +18,7 @@ enum ChallengeSet: String, CaseIterable {
     case africa = "AF"
 
     // US states
-    case usStates = "US_STE"
+    case usStates = "US_STATES"
 
     func str() -> String { return self.rawValue }
 
@@ -43,7 +43,7 @@ enum ChallengeSet: String, CaseIterable {
         case "EU": return .europe
         case "OC": return .oceania
         case "AF": return .africa
-        case "US_STE": return .usStates
+        case "US_STATES": return .usStates
         default: return nil
         }
     }
@@ -56,7 +56,7 @@ enum ChallengeSet: String, CaseIterable {
         case .europe: return UIImage(named: "pickEurope")!
         case .oceania: return UIImage(named: "pickOceania")!
         case .africa: return UIImage(named: "pickAfrica")!
-        case .usStates: return UIImage(named: "pickNorthAmerica")! // TODO: REPLACE WITH CORRECT IMAGE
+        case .usStates: return UIImage(named: "pickUsStates")!
         }
     }
 
