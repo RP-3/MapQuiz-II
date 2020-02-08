@@ -12,6 +12,11 @@ class ChooseMapViewController: UITableViewController {
 
     override func viewDidLoad(){
         super.viewDidLoad()
+
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
+        self.title = "MapQuiz"
+        RegistrationClient.registerDevice()
+
         let nib = UINib.init(nibName: "MapCell", bundle: nil)
         let headerNib = UINib.init(nibName: "MapCellHeader", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "MapCell")
@@ -19,7 +24,6 @@ class ChooseMapViewController: UITableViewController {
     }
 
     // MARK: Tableview Delegates
-    // MARK: TableView Delegates
     override func numberOfSections(in tableView: UITableView) -> Int { return 2 }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,26 +63,20 @@ class ChooseMapViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         self.tableView.deselectRow(at: indexPath, animated: true)
-//        let backItem = UIBarButtonItem()
-//        backItem.title = LocalizedString("library")
-//        let backButtonTextAttributes = RuntimeConstants.avenirNext(size: 14, colour: UIColor.white)
-//        let highlightedTextAttributes = RuntimeConstants.avenirNext(size: 14, colour: RuntimeConstants.lightGrey)
-//        backItem.setTitleTextAttributes(backButtonTextAttributes, for: .normal)
-//        backItem.setTitleTextAttributes(highlightedTextAttributes, for: .highlighted)
-//        navigationItem.backBarButtonItem = backItem
-//
-//        if indexPath.section == 0 {
-//            let guide = AudioGuides.shared.allGuides()[indexPath.row]
-//            store.dispatch(SetSelectedGuidePack(guide: guide.guidePack))
-//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GuideLanguageViewController") as! GuideLanguageViewController
-//            vc.selectedGuidePackAisle = guide
-//            navigationController!.pushViewController(vc, animated: true)
-//        } else {
-//            let hikingMap = OfflineMaps.shared.allMaps()[indexPath.row]
-//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HikingMapViewController") as! HikingMapViewController
-//            vc.offlineMap = hikingMap
-//            navigationController!.pushViewController(vc, animated: true)
-//        }
+
+        let backItem = UIBarButtonItem()
+        backItem.title = "MapQuiz"
+        navigationItem.backBarButtonItem = backItem
+        navigationItem.backBarButtonItem?.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
+            for: .normal
+        )
+
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
+        let challengeSet = indexPath.section == 0 ? .usStates : ChallengeSet.at(index: indexPath.row)
+        vc.continent = challengeSet
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
