@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ChallengeSet: String {
+enum ChallengeSet: String, CaseIterable {
     // continents
     case northAmerica = "NA"
     case southAmerica = "SA"
@@ -21,6 +21,18 @@ enum ChallengeSet: String {
     case usStates = "US_STE"
 
     func str() -> String { return self.rawValue }
+
+    func title() -> String {
+        switch self {
+        case .northAmerica: return "North America"
+        case .southAmerica: return "South America"
+        case .asia: return "Asia"
+        case .europe: return "Europe"
+        case .oceania: return "Oceania"
+        case .africa: return "Africa"
+        case .usStates: return "US States"
+        }
+    }
 
     static func from(str: String?) -> ChallengeSet? {
         guard let str = str else { return nil }
@@ -45,6 +57,29 @@ enum ChallengeSet: String {
         case .oceania: return UIImage(named: "pickOceania")!
         case .africa: return UIImage(named: "pickAfrica")!
         case .usStates: return UIImage(named: "pickNorthAmerica")! // TODO: REPLACE WITH CORRECT IMAGE
+        }
+    }
+
+    func toTableCellImage() -> UIImage {
+        switch self {
+        case .northAmerica: return UIImage(named: "northAmerica")!
+        case .southAmerica: return UIImage(named: "southAmerica")!
+        case .asia: return UIImage(named: "asia")!
+        case .europe: return UIImage(named: "europe")!
+        case .oceania: return UIImage(named: "oceania")!
+        case .africa: return UIImage(named: "africa")!
+        case .usStates: return UIImage(named: "usStates")!
+        }
+    }
+
+    static func at(index: Int) -> ChallengeSet {
+        switch index {
+        case 0: return .northAmerica
+        case 1: return .southAmerica
+        case 2: return .asia
+        case 3: return .europe
+        case 4: return .oceania
+        default: return .africa
         }
     }
 }
