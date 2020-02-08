@@ -160,7 +160,7 @@ class ProfileViewController: UIViewController {
     // MARK: Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let blurEffect = UIBlurEffect.init(style: .dark)
+        let blurEffect = UIBlurEffect.init(style: .regular)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
         bluredView.frame = UIScreen.main.bounds
         bluredView.tag = BLUR_VIEW_TAG
