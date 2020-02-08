@@ -2,17 +2,50 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "southAmerica1x.png",
+      "filename" : "southAmerica (2)-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "southAmerica2x.png",
+      "filename" : "southAmerica.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "southAmerica (2)@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "southAmerica3x.png",
+      "filename" : "southAmerica@2x.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "southAmerica (2)@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "southAmerica@3x.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
       "scale" : "3x"
     }
   ],
