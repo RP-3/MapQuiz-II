@@ -22,6 +22,14 @@ class UIConstants {
         return UIFont(name: "JosefinSans-Light", size: size)!
     }
 
+    public static func attributedText(font: UIFont, color: UIColor, kern: NSNumber) -> [NSAttributedString.Key: Any] {
+        return [
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: color,
+            NSAttributedString.Key.kern: kern
+        ]
+    }
+
     public static func format(time: Int) -> String {
         let minutes = time / 60
         let seconds = time % 60

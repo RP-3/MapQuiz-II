@@ -13,6 +13,8 @@
 		410A3C9523EE3EA400847452 /* ChooseMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A3C9423EE3EA400847452 /* ChooseMapViewController.swift */; };
 		410A3C9823EE3F2800847452 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A3C9723EE3F2800847452 /* MapCell.swift */; };
 		410A3C9A23EE3F3900847452 /* MapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410A3C9923EE3F3900847452 /* MapCell.xib */; };
+		410BC3C523EE53EF002DC820 /* MapCellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410BC3C423EE53EF002DC820 /* MapCellHeader.xib */; };
+		410BC3C723EE543C002DC820 /* MapCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BC3C623EE543C002DC820 /* MapCellHeader.swift */; };
 		411192B2226D1F7F00C80642 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 411192B1226D1F7F00C80642 /* GoogleService-Info.plist */; };
 		414A646723D2BBB800D01383 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A646623D2BBB800D01383 /* ProfileViewController.swift */; };
 		414A646A23D2E7F900D01383 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 414A646923D2E60500D01383 /* JosefinSans-Light.ttf */; };
@@ -69,6 +71,8 @@
 		410A3C9423EE3EA400847452 /* ChooseMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMapViewController.swift; sourceTree = "<group>"; };
 		410A3C9723EE3F2800847452 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		410A3C9923EE3F3900847452 /* MapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCell.xib; sourceTree = "<group>"; };
+		410BC3C423EE53EF002DC820 /* MapCellHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCellHeader.xib; sourceTree = "<group>"; };
+		410BC3C623EE543C002DC820 /* MapCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCellHeader.swift; sourceTree = "<group>"; };
 		411192B1226D1F7F00C80642 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		414A646623D2BBB800D01383 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		414A646923D2E60500D01383 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				410A3C9423EE3EA400847452 /* ChooseMapViewController.swift */,
 				410A3C9723EE3F2800847452 /* MapCell.swift */,
 				410A3C9923EE3F3900847452 /* MapCell.xib */,
+				410BC3C423EE53EF002DC820 /* MapCellHeader.xib */,
+				410BC3C623EE543C002DC820 /* MapCellHeader.swift */,
 			);
 			path = chooseMapView;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				411192B2226D1F7F00C80642 /* GoogleService-Info.plist in Resources */,
 				419F10B522362F2400243AB2 /* countryData.json in Resources */,
 				419F10C722373DED00243AB2 /* plop.wav in Resources */,
+				410BC3C523EE53EF002DC820 /* MapCellHeader.xib in Resources */,
 				419F10C922373DF300243AB2 /* right.wav in Resources */,
 				419F109C2235F7A000243AB2 /* Main.storyboard in Resources */,
 				419436BA23DE73E7007D4305 /* USStateData.json in Resources */,
@@ -513,6 +520,7 @@
 				41027E28225EF89100937EE7 /* ChallengeSessionAttempt.swift in Sources */,
 				41AC845A22377E850052AA78 /* ChallengeSessionRegistry.swift in Sources */,
 				41AC845622377DF00052AA78 /* ChallengeViewController.swift in Sources */,
+				410BC3C723EE543C002DC820 /* MapCellHeader.swift in Sources */,
 				41FA3A2523DAA4BC00889AED /* LeaderboardAPIClient.swift in Sources */,
 				41FA3A1C23DA4A2800889AED /* RegistrationClient.swift in Sources */,
 				41027E2D2260038B00937EE7 /* RankCache.swift in Sources */,

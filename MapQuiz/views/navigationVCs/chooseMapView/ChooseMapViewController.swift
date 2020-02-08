@@ -13,7 +13,9 @@ class ChooseMapViewController: UITableViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         let nib = UINib.init(nibName: "MapCell", bundle: nil)
+        let headerNib = UINib.init(nibName: "MapCellHeader", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "MapCell")
+        self.tableView.register(headerNib, forCellReuseIdentifier: "MapCellHeader")
     }
 
     // MARK: Tableview Delegates
@@ -24,14 +26,14 @@ class ChooseMapViewController: UITableViewController {
         return section == 0 ? 1 : ChallengeSet.allCases.count - 1
     }
 
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "GuidePackMenuHeader") as! GuidePackMenuHeader
-//        headerView.set(title: (section == 0) ? "Audio Guides" : "Hiking Maps")
-//        return headerView
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60)
+        let title = section == 0 ? "New: US States" : "Countries of the World"
+        return MapCellHeader(frame: frame, title: title)
+    }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
+        return 60
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
