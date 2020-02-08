@@ -25,7 +25,7 @@ class ChallengeViewController: UIViewController {
     @IBOutlet weak var heartOne: UIImageView!
     @IBOutlet weak var heartTwo: UIImageView!
     @IBOutlet weak var heartThree: UIImageView!
-    @IBOutlet weak var timeRemaining: UILabel! // TODO: Check if this should trigger an end game
+    @IBOutlet weak var timeRemaining: UILabel!
     @IBOutlet weak var worldMap: MKMapView!
     @IBOutlet weak var instructionLabel: UILabel!
 
@@ -36,7 +36,6 @@ class ChallengeViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
         instructionLabel.font = UIConstants.amaticBold(size: 24)
         timeRemaining.font = UIConstants.amaticBold(size: 24)
-        timeRemaining.textColor = .black
         let skipButton = UIBarButtonItem(title: "Skip", style: .plain, target: self, action: #selector(skip))
         skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
         self.navigationItem.rightBarButtonItem = skipButton
