@@ -9,7 +9,18 @@
 import UIKit
 
 class ChooseMapViewController: UITableViewController {
+    // MARK: Actions
 
+    @IBAction func showScores(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreTabBarController") as! UITabBarController
+        self.present(vc, animated: true, completion: nil)
+    }
+    @IBAction func showSettings(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        self.present(vc, animated: true, completion: nil)
+    }
+
+    // MARK: Lifecycle methods
     override func viewDidLoad(){
         super.viewDidLoad()
 

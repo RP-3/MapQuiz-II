@@ -952,7 +952,18 @@ have a chance to win!</string>
                             <outlet property="delegate" destination="GJY-7z-gOA" id="xUx-uU-JjH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MapQuiz" id="AzL-QD-pBp"/>
+                    <navigationItem key="navigationItem" title="MapQuiz" id="AzL-QD-pBp">
+                        <barButtonItem key="leftBarButtonItem" image="person" id="qoA-An-MhO">
+                            <connections>
+                                <action selector="showSettings:" destination="GJY-7z-gOA" id="JR5-to-1HK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="star" id="HpL-S8-1kl">
+                            <connections>
+                                <action selector="showScores:" destination="GJY-7z-gOA" id="td4-Gi-EeT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMo-ZS-Xcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -985,6 +996,7 @@ have a chance to win!</string>
         <image name="life" width="39.5" height="47"/>
         <image name="person" width="26" height="26"/>
         <image name="revealed" width="126.5" height="126.5"/>
+        <image name="star" width="25.5" height="25.5"/>
         <image name="whiteLife" width="39" height="46"/>
         <image name="worldSymbol" width="26" height="26"/>
         <image name="wrong" width="126.5" height="126.5"/>
