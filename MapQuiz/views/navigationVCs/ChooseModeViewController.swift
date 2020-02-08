@@ -39,7 +39,6 @@ class ChooseModeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
         self.title = challengeSet.title()
         RegistrationClient.registerDevice()
     }

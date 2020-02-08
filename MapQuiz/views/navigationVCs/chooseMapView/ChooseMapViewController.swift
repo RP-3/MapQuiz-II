@@ -70,7 +70,11 @@ class ChooseMapViewController: UITableViewController {
         backItem.title = "MapQuiz"
         navigationItem.backBarButtonItem = backItem
         navigationItem.backBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
+            UIConstants.attributedText(
+                font: UIConstants.amaticBold(size: 24),
+                color: UIColor(named: "textColour")!,
+                kern: 0
+            ),
             for: .normal
         )
 

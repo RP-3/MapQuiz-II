@@ -488,13 +488,13 @@ have a chance to win!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-N6-I8J">
-                                <rect key="frame" x="67.5" y="230.5" width="240" height="250"/>
+                                <rect key="frame" x="67.5" y="208.5" width="240" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
                                         <rect key="frame" x="81" y="5" width="78" height="57"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
                                         <state key="normal" title="Practice">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" name="textColour"/>
                                         </state>
                                         <connections>
                                             <action selector="selectPracticeMode:" destination="SJW-zq-dgp" eventType="touchUpInside" id="7Sr-vE-QIM"/>
@@ -504,7 +504,7 @@ have a chance to win!</string>
                                         <rect key="frame" x="73" y="188" width="94" height="57"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
                                         <state key="normal" title="Challenge">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" name="textColour"/>
                                         </state>
                                         <connections>
                                             <action selector="selectChallengeMode:" destination="SJW-zq-dgp" eventType="touchUpInside" id="Ure-Ty-j6L"/>
@@ -522,7 +522,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.83921568627450982" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="backgroundPrimary"/>
                         <constraints>
                             <constraint firstItem="0Zg-N6-I8J" firstAttribute="centerX" secondItem="UVQ-bC-30o" secondAttribute="centerX" id="YnE-T2-Pmr"/>
                             <constraint firstItem="0Zg-N6-I8J" firstAttribute="centerY" secondItem="UVQ-bC-30o" secondAttribute="centerY" id="Zcw-RD-5bf"/>
@@ -546,14 +546,14 @@ have a chance to win!</string>
             <objects>
                 <viewController storyboardIdentifier="ChallengeViewController" id="Yvl-w5-oMd" customClass="ChallengeViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cy2-SI-eY4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmy-bw-iZX">
-                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-e4-97G">
-                                <rect key="frame" x="0.0" y="44" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="b7h-wp-Cvu"/>
                                 </constraints>
@@ -562,7 +562,7 @@ have a chance to win!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbU-31-QZG">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-am-VCK">
                                         <rect key="frame" x="309" y="8" width="24" height="28"/>
@@ -643,18 +643,18 @@ have a chance to win!</string>
             <objects>
                 <viewController storyboardIdentifier="ChallengeScoreViewController" id="bde-3d-EjS" customClass="ChallengeScoreViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yWL-4o-qvY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-I2-fuh" userLabel="winLoseImage">
-                                <rect key="frame" x="97.5" y="265.5" width="180" height="180"/>
+                                <rect key="frame" x="97.5" y="233.5" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Y7v-zE-abw"/>
                                     <constraint firstAttribute="width" constant="180" id="pWv-U3-FmR"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99F-Wq-8Nz" userLabel="winLoseMessage">
-                                <rect key="frame" x="30" y="200.5" width="315" height="20.5"/>
+                                <rect key="frame" x="30" y="168.5" width="315" height="20.5"/>
                                 <color key="tintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -686,14 +686,14 @@ have a chance to win!</string>
             <objects>
                 <viewController storyboardIdentifier="PracticeViewController" id="HTi-rs-NQX" customClass="PracticeViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ula-Im-O5e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqq-L2-JX4">
-                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-72-6uE">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.83921568627450982" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xty-vh-mWi"/>
@@ -714,7 +714,7 @@ have a chance to win!</string>
                                 <color key="barTintColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNk-an-mKy" userLabel="instructionLabel">
-                                <rect key="frame" x="0.0" y="44" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eza-6X-NJ3"/>
                                 </constraints>
@@ -756,11 +756,11 @@ have a chance to win!</string>
             <objects>
                 <viewController storyboardIdentifier="PracticeScoreViewController" id="rdB-b0-Q2P" customClass="PracticeScoreViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4k7-hl-ubq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJ2-Gs-kuL" userLabel="correctContainer">
-                                <rect key="frame" x="50" y="217" width="275" height="120"/>
+                                <rect key="frame" x="50" y="197" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct" translatesAutoresizingMaskIntoConstraints="NO" id="vbs-0f-fpk" userLabel="correctImage">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -797,7 +797,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-BL-ydf" userLabel="revealedContainer">
-                                <rect key="frame" x="50" y="517" width="275" height="120"/>
+                                <rect key="frame" x="50" y="497" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="revealed" translatesAutoresizingMaskIntoConstraints="NO" id="vvl-IF-2PJ" userLabel="revealedImage">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -833,7 +833,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVI-rP-jtG" userLabel="wrongContainer">
-                                <rect key="frame" x="50" y="367" width="275" height="120"/>
+                                <rect key="frame" x="50" y="347" width="275" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong" translatesAutoresizingMaskIntoConstraints="NO" id="DxR-y4-qga" userLabel="wrongImage">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -869,7 +869,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzo-qd-uKj" userLabel="summaryLabel">
-                                <rect key="frame" x="166.5" y="56" width="42" height="21"/>
+                                <rect key="frame" x="166.5" y="12" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -927,7 +927,7 @@ have a chance to win!</string>
             </objects>
             <point key="canvasLocation" x="273" y="133"/>
         </scene>
-        <!--Choose Map View Controller-->
+        <!--MapQuiz-->
         <scene sceneID="G9L-3U-YdU">
             <objects>
                 <tableViewController id="GJY-7z-gOA" customClass="ChooseMapViewController" customModule="MapQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -950,10 +950,7 @@ have a chance to win!</string>
                             <outlet property="delegate" destination="GJY-7z-gOA" id="xUx-uU-JjH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AzL-QD-pBp"/>
-                    <connections>
-                        <segue destination="SJW-zq-dgp" kind="show" id="vDd-aX-zZE"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="MapQuiz" id="AzL-QD-pBp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMo-ZS-Xcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -992,6 +989,9 @@ have a chance to win!</string>
         <namedColor name="backgroundPrimary">
             <color red="1" green="0.97647058823529409" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="textColour">
+            <color red="0.10588235294117647" green="0.050980392156862744" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" name="textColour"/>
 </document>
