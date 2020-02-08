@@ -13,6 +13,14 @@ fileprivate typealias JSONObject = Dictionary<String, AnyObject>
 
 class BoundaryDB {
 
+    static private var challengeSetSizes: [ChallengeSet : Int] = [:]
+
+    public static func size(of challengeSet: ChallengeSet) -> Int {
+        if let size = challengeSetSizes[challengeSet] { return size }
+        challengeSetSizes[challengeSet] = boundedItems(inChallengeSet: challengeSet).count
+        return challengeSetSizes[challengeSet]!
+    }
+
     public static func boundedItems(inChallengeSet challengeSet: ChallengeSet) -> [BoundedItem] {
 
         let config = mapping(forChallengeSet: challengeSet)

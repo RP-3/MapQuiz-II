@@ -18,7 +18,7 @@ class MapCellHeader: UIView {
         label.attributedText = NSAttributedString(
             string: title.uppercased(),
             attributes: UIConstants.attributedText(
-                font: UIConstants.amaticBold(size: 25),
+                font: UIConstants.amaticBold(size: 28),
                 color: UIColor(named: "textColour")!,
                 kern: 4
             )

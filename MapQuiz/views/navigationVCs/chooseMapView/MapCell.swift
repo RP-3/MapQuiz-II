@@ -11,6 +11,7 @@ import UIKit
 class MapCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapImage: UIImageView!
 
     public func set(challengeSet: ChallengeSet){
@@ -19,9 +20,20 @@ class MapCell: UITableViewCell {
         self.titleLabel.attributedText = NSAttributedString(
             string: challengeSet.title().uppercased(),
             attributes: UIConstants.attributedText(
-                font: UIConstants.josefinSansRegular(size: 20),
+                font: UIConstants.josefinSansRegular(size: 18),
                 color: UIColor(named: "textColour")!,
-                kern: 1
+                kern: 0
+            )
+        )
+
+        let prefix = BoundaryDB.size(of: challengeSet)
+        let suffix = challengeSet == .usStates ? "states & territories" : "countries"
+        self.descriptionLabel.attributedText = NSAttributedString(
+            string: "\(String(prefix)) \(suffix)",
+            attributes: UIConstants.attributedText(
+                font: UIConstants.josefinSans(size: 18),
+                color: UIColor(named: "textColour")!,
+                kern: 0
             )
         )
 
