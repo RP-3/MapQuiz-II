@@ -10,7 +10,7 @@ import UIKit
 
 class ChooseModeViewController: UIViewController {
 
-    public var continent: ChallengeSet!
+    public var challengeSet: ChallengeSet!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var practiceButton: UIButton!
 
@@ -21,7 +21,7 @@ class ChooseModeViewController: UIViewController {
         setFont()
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "PracticeViewController") as! PracticeViewController
-        vc.continent = continent
+        vc.continent = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -33,8 +33,15 @@ class ChooseModeViewController: UIViewController {
         setFont()
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChallengeViewController") as! ChallengeViewController
-        vc.continent = continent
+        vc.continent = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
+        self.title = challengeSet.title()
+        RegistrationClient.registerDevice()
     }
 
     private func setFont(){

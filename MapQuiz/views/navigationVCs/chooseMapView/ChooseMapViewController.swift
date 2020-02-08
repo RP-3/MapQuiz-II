@@ -76,7 +76,7 @@ class ChooseMapViewController: UITableViewController {
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
         let challengeSet = indexPath.section == 0 ? .usStates : ChallengeSet.at(index: indexPath.row)
-        vc.continent = challengeSet
+        vc.challengeSet = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -43,7 +43,7 @@ class ContinentViewController: UIViewController {
         )
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
-        vc.continent = challengeSet
+        vc.challengeSet = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
