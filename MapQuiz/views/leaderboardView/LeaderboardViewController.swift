@@ -177,8 +177,10 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         } else {
             let label = UILabel(frame: contentFrame)
             let text = component == 1 ? String(yearPicks[row]) : monthPicks[row]
-            let textAttrs = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIConstants.amaticBold(size: 35)]
-            label.attributedText = NSAttributedString(string: text, attributes: textAttrs)
+            label.attributedText = NSAttributedString(string: text, attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor(named: "textColour")!,
+                NSAttributedString.Key.font: UIConstants.amaticBold(size: 35)
+            ])
             label.textAlignment = .center
             element.addSubview(label)
         }

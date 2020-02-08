@@ -101,7 +101,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
             height: tableView.bounds.size.height
         ))
         headerLabel.font = UIConstants.amatic(size: 22)
-        headerLabel.textColor = UIColor.black
+        headerLabel.textColor = UIColor(named: "textColour")!
         headerLabel.text = "\(continentName) (\(RankCache.shared.ranking[section].1[0].total) games played world-wide)"
         headerLabel.sizeToFit()
         headerView.addSubview(headerLabel)

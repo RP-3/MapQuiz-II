@@ -2,17 +2,50 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "europe3x-2.png",
+      "filename" : "europe3xdark.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "europe3x-1.png",
+      "filename" : "europe3x-2.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "europe3xdark-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "europe3x-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "europe3xdark-2.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "universal",
       "filename" : "europe3x.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
       "scale" : "3x"
     }
   ],

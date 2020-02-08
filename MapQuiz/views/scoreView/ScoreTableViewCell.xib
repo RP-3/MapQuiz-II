@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,15 +24,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.32.182" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-VO-dmA">
-                        <rect key="frame" x="10" y="5" width="64.5" height="34.5"/>
+                        <rect key="frame" x="10" y="6.5" width="120.5" height="31.5"/>
                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="27"/>
-                        <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" name="textColour"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1028th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia0-Tn-o5G">
-                        <rect key="frame" x="136.5" y="4.5" width="47" height="35"/>
+                        <rect key="frame" x="118" y="6.5" width="84" height="31.5"/>
                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="27"/>
-                        <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" name="textColour"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="LSg-s7-Db0">
@@ -56,7 +57,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" name="backgroundSecondary"/>
                 <constraints>
                     <constraint firstItem="SgD-GB-Kj6" firstAttribute="leading" secondItem="n9l-TC-ZqT" secondAttribute="trailing" constant="10" id="0bR-oq-aEd"/>
                     <constraint firstAttribute="trailing" secondItem="LSg-s7-Db0" secondAttribute="trailing" constant="10" id="17a-OG-nA0"/>
@@ -82,5 +83,11 @@
     </objects>
     <resources>
         <image name="life" width="39.5" height="47"/>
+        <namedColor name="backgroundSecondary">
+            <color red="0.95294117647058818" green="0.89411764705882357" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColour">
+            <color red="0.10588235294117647" green="0.050980392156862744" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

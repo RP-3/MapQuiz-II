@@ -26,12 +26,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile &amp; Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEf-YL-qjj">
-                                <rect key="frame" x="89" y="18" width="197.5" height="50.5"/>
+                                <rect key="frame" x="34" y="18" width="307" height="47"/>
                                 <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="40"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-lD-nMA">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-lD-nMA">
                                 <rect key="frame" x="329" y="33" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="LYP-qc-JeN"/>
@@ -39,7 +39,7 @@
                                 </constraints>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqq-6U-vsZ" userLabel="nameContainer">
-                                <rect key="frame" x="18" y="148.5" width="339" height="40"/>
+                                <rect key="frame" x="18" y="155" width="339" height="37"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTi-Bz-E3T" userLabel="overline">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="1"/>
@@ -48,14 +48,14 @@
                                             <constraint firstAttribute="height" constant="1" id="rsp-sg-QgI"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-YM-DFQ">
-                                        <rect key="frame" x="0.0" y="2" width="47" height="38"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-YM-DFQ">
+                                        <rect key="frame" x="0.0" y="2" width="47" height="35"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your name here" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R7U-EY-DF5" userLabel="nameInput">
-                                        <rect key="frame" x="57" y="5" width="282" height="35"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your name here" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R7U-EY-DF5" userLabel="nameInput">
+                                        <rect key="frame" x="57" y="5" width="282" height="32"/>
                                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" name="textColour"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="27"/>
@@ -79,16 +79,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This appears on the public leaderboard" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-b7-Zfw">
-                                <rect key="frame" x="18" y="193.5" width="339" height="20"/>
+                                <rect key="frame" x="18" y="197" width="339" height="47"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WT1-A7-xNm" userLabel="muteContainer">
-                                <rect key="frame" x="18" y="243.5" width="339" height="40"/>
+                                <rect key="frame" x="18" y="274" width="339" height="37"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mute Sound Effects:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdu-Qz-xwj">
-                                        <rect key="frame" x="0.0" y="2" width="156" height="38"/>
+                                        <rect key="frame" x="0.0" y="2" width="274" height="35"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
@@ -122,16 +122,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prevent the app from making any sound" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UG-mh-kib">
-                                <rect key="frame" x="18" y="288.5" width="339" height="20"/>
+                                <rect key="frame" x="18" y="316" width="339" height="47"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAy-SD-7BN" userLabel="buzzContainer">
-                                <rect key="frame" x="18" y="338.5" width="339" height="40"/>
+                                <rect key="frame" x="18" y="393" width="339" height="37"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop Vibrations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF5-C4-Sxj">
-                                        <rect key="frame" x="0.0" y="2" width="132.5" height="38"/>
+                                        <rect key="frame" x="0.0" y="2" width="214" height="35"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
@@ -166,13 +166,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disable haptic feedback in the app" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOq-9A-JIn">
-                                <rect key="frame" x="18" y="383.5" width="339" height="20"/>
+                                <rect key="frame" x="18" y="435" width="339" height="23.5"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-yA-Dc0">
-                                <rect key="frame" x="117.5" y="421.5" width="140" height="39"/>
+                                <rect key="frame" x="114.5" y="476.5" width="146" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.27843137254901962" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="BR7-hr-dyh"/>
@@ -192,7 +192,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are anonymous. If you enter your name below, your scores will appear on the public global leaderboard" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUe-or-VR4">
-                                <rect key="frame" x="18" y="78.5" width="339" height="60"/>
+                                <rect key="frame" x="18" y="75" width="339" height="70"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
@@ -255,22 +255,23 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="16H-Iz-Oqa">
                                 <rect key="frame" x="0.0" y="80" width="375" height="538"/>
-                                <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="backgroundSecondary"/>
+                                <color key="tintColor" name="textColour"/>
+                                <color key="sectionIndexColor" name="textColour"/>
+                                <color key="sectionIndexBackgroundColor" name="backgroundSecondary"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRc-iU-DSk" userLabel="HeaderContainer">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Scores for October 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6b-qN-Xye">
-                                        <rect key="frame" x="20" y="18" width="335" height="44.5"/>
+                                        <rect key="frame" x="20" y="19.5" width="335" height="41"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="backgroundPrimary"/>
+                                <color key="tintColor" name="textColour"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="S6b-qN-Xye" secondAttribute="trailing" constant="20" id="Fad-ak-eVL"/>
                                     <constraint firstAttribute="height" constant="80" id="LlZ-OI-BPo"/>
@@ -282,7 +283,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5o-Fd-0Ec">
-                                        <rect key="frame" x="41" y="132.5" width="293" height="353.5"/>
+                                        <rect key="frame" x="-61" y="146" width="497" height="326.5"/>
                                         <string key="text">Whenever you complete
 a game in Challenge mode
 your score will appear here.
@@ -291,11 +292,11 @@ Top scores are reset
 every month, so you always
 have a chance to win!</string>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="40"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="backgroundPrimary"/>
                                 <constraints>
                                     <constraint firstItem="A5o-Fd-0Ec" firstAttribute="centerY" secondItem="XLk-fq-6fG" secondAttribute="centerY" id="7KB-NU-D0j"/>
                                     <constraint firstItem="A5o-Fd-0Ec" firstAttribute="centerX" secondItem="XLk-fq-6fG" secondAttribute="centerX" id="uZb-Ey-nG2"/>
@@ -318,7 +319,9 @@ have a chance to win!</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e5f-eO-RSa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Top Scores" image="person" selectedImage="person" id="T2L-iB-syc"/>
+                    <tabBarItem key="tabBarItem" title="My Top Scores" image="person" selectedImage="person" id="T2L-iB-syc">
+                        <color key="badgeColor" name="textColour"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="coverView" destination="XLk-fq-6fG" id="hw6-H3-o1D"/>
                         <outlet property="headerLabel" destination="S6b-qN-Xye" id="R83-Ha-qkH"/>
@@ -342,28 +345,28 @@ have a chance to win!</string>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tf-7a-fcp">
                                         <rect key="frame" x="0.0" y="54.5" width="375" height="95.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="backgroundPrimary"/>
+                                        <color key="tintColor" name="textColour"/>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Leaderboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gae-0C-LiH">
-                                        <rect key="frame" x="18" y="10" width="179" height="44.5"/>
+                                        <rect key="frame" x="18" y="10" width="299" height="44.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44.5" id="Ub6-Ye-1pD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2wv-Dh-hLz">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2wv-Dh-hLz">
                                         <rect key="frame" x="325" y="10" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="VVi-b0-GDr"/>
                                             <constraint firstAttribute="width" constant="40" id="adt-dK-gyr"/>
                                         </constraints>
-                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="color" name="textColour"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="backgroundPrimary"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="8Rh-hY-wOh"/>
                                     <constraint firstItem="9Tf-7a-fcp" firstAttribute="top" secondItem="Gae-0C-LiH" secondAttribute="bottom" id="BRg-od-FCf"/>
@@ -389,34 +392,34 @@ have a chance to win!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-ef-nsb" userLabel="name">
-                                                    <rect key="frame" x="15" y="8" width="345" height="32"/>
+                                                    <rect key="frame" x="15" y="8" width="345" height="29.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="25"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="textColour"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfb-Qf-44I" userLabel="position">
-                                                    <rect key="frame" x="15" y="62" width="43.5" height="20"/>
+                                                    <rect key="frame" x="15" y="58.5" width="49" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="textColour"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okl-0G-XPR" userLabel="heartStack">
                                                     <rect key="frame" x="261" y="49" width="99" height="33"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLife" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-M6-AC3" userLabel="heart3">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-M6-AC3" userLabel="heart3">
                                                             <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="EOD-M6-AC3" secondAttribute="height" multiplier="1:1" id="LYS-5C-5nq"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLife" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-SG-oJc" userLabel="heart2">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-SG-oJc" userLabel="heart2">
                                                             <rect key="frame" x="33" y="0.0" width="33" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="fDo-SG-oJc" secondAttribute="height" multiplier="1:1" id="dXP-uf-KkR"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLife" translatesAutoresizingMaskIntoConstraints="NO" id="Dnt-N4-WEl" userLabel="heart1">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="Dnt-N4-WEl" userLabel="heart1">
                                                             <rect key="frame" x="66" y="0.0" width="33" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Dnt-N4-WEl" secondAttribute="height" multiplier="1:1" id="RLd-Th-i4y"/>
@@ -429,13 +432,13 @@ have a chance to win!</string>
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJd-Np-HMT" userLabel="timing">
-                                                    <rect key="frame" x="197.5" y="62" width="43.5" height="20"/>
+                                                    <rect key="frame" x="192" y="58.5" width="49" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="textColour"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="backgroundPrimary"/>
                                             <constraints>
                                                 <constraint firstItem="Uaa-ef-nsb" firstAttribute="leading" secondItem="dCR-Vm-gOy" secondAttribute="leading" constant="15" id="8Kg-Wn-AVs"/>
                                                 <constraint firstAttribute="trailing" secondItem="Okl-0G-XPR" secondAttribute="trailing" constant="15" id="CuM-07-eWH"/>
@@ -473,7 +476,9 @@ have a chance to win!</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z3D-g5-DQc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Global Leaderboard" image="worldSymbol" id="viJ-Qs-LnR"/>
+                    <tabBarItem key="tabBarItem" title="Global Leaderboard" image="worldSymbol" id="viJ-Qs-LnR">
+                        <color key="badgeColor" name="textColour"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="activityMonitor" destination="2wv-Dh-hLz" id="hIs-I3-EXp"/>
                         <outlet property="pickerView" destination="9Tf-7a-fcp" id="2FN-NB-XuL"/>
@@ -496,7 +501,7 @@ have a chance to win!</string>
                                 <rect key="frame" x="67.5" y="208.5" width="240" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
-                                        <rect key="frame" x="81" y="5" width="78" height="57"/>
+                                        <rect key="frame" x="55.5" y="5" width="129" height="53"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
                                         <state key="normal" title="Practice">
                                             <color key="titleColor" name="textColour"/>
@@ -506,7 +511,7 @@ have a chance to win!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHa-kO-OGB">
-                                        <rect key="frame" x="73" y="188" width="94" height="57"/>
+                                        <rect key="frame" x="41.5" y="192" width="157" height="53"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
                                         <state key="normal" title="Challenge">
                                             <color key="titleColor" name="textColour"/>
@@ -982,7 +987,7 @@ have a chance to win!</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Ca-Zx-dIM">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="backgroundPrimary"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -1002,11 +1007,13 @@ have a chance to win!</string>
         <image name="person" width="26" height="26"/>
         <image name="revealed" width="126.5" height="126.5"/>
         <image name="star" width="25.5" height="25.5"/>
-        <image name="whiteLife" width="39" height="46"/>
         <image name="worldSymbol" width="26" height="26"/>
         <image name="wrong" width="126.5" height="126.5"/>
         <namedColor name="backgroundPrimary">
             <color red="1" green="0.97647058823529409" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundSecondary">
+            <color red="0.95294117647058818" green="0.89411764705882357" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColour">
             <color red="0.10588235294117647" green="0.050980392156862744" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
