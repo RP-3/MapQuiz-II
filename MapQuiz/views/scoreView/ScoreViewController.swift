@@ -49,7 +49,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
             DispatchQueue.main.async {
                 if success {
                     self.tableView.reloadData()
-                    self.headerLabel.text = "Your Scores for \(RankCache.shared.monthString)"
+                    self.headerLabel.text = "Your Top Scores for \(RankCache.shared.monthString)"
                 }
                 if self.refreshControl.isRefreshing {
                     self.refreshControl.endRefreshing()
@@ -91,7 +91,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         ))
         headerLabel.font = UIConstants.amatic(size: 22)
         headerLabel.textColor = UIColor(named: "textColour")!
-        headerLabel.text = "\(continentName) (\(RankCache.shared.ranking[section].1[0].total) players world-wide)"
+        headerLabel.text = "\(continentName) (\(RankCache.shared.ranking[section].1[0].total) qualifying players world-wide)"
         headerLabel.sizeToFit()
         headerView.addSubview(headerLabel)
 
