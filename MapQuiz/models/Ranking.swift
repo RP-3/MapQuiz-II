@@ -52,7 +52,7 @@ struct NamedRanking {
         guard let anonymous = dict["anonymous"] as? Bool else { return nil }
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         guard let startedAt = dateFormatter.date(from: dateString) else { return nil }
 
         return NamedRanking(

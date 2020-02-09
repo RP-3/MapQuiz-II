@@ -43,7 +43,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     @objc func refreshTableData(_ sender: Any){
-        self.headerLabel.text = "Your Scores for \(RankCache.shared.monthString)"
+        self.headerLabel.text = "Your Rank for \(RankCache.shared.monthString)"
 
         RankCache.shared.fetchLatestScores(andExecute: { success in
             DispatchQueue.main.async {
@@ -79,20 +79,9 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let continentName: String = {
-            switch RankCache.shared.ranking[section].0 {
-            case .africa: return "Africa"
-            case .asia: return "Asia"
-            case .europe: return "Europe"
-            case .northAmerica: return "North America"
-            case .southAmerica: return "South America"
-            case .oceania: return "Oceania"
-            case .usStates: return "US States"
-            }
-        }()
-
+        let continentName = RankCache.shared.ranking[section].0.title()
         let headerView = UIView()
-        headerView.backgroundColor = UIColor.lightGray
+        headerView.backgroundColor = UIColor(named: "backgroundSecondary")!
 
         let headerLabel = UILabel(frame: CGRect(
             x: 10,
@@ -102,7 +91,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         ))
         headerLabel.font = UIConstants.amatic(size: 22)
         headerLabel.textColor = UIColor(named: "textColour")!
-        headerLabel.text = "\(continentName) (\(RankCache.shared.ranking[section].1[0].total) games played world-wide)"
+        headerLabel.text = "\(continentName) (\(RankCache.shared.ranking[section].1[0].total) players world-wide)"
         headerLabel.sizeToFit()
         headerView.addSubview(headerLabel)
 

@@ -41,8 +41,8 @@ class LeaderboardDataCache {
             minPosition: state.offset + 20
         ) { rankings in
             self.requestInFlight = false
-            guard let rankings = rankings else { return cb(false) }
-            let newState = LeaderboardState(month: state.month, year: state.year, offset: state.offset+20, continent: state.continent)
+            guard let rankings = rankings, rankings.count > 0 else { return cb(false) }
+            let newState = LeaderboardState(month: state.month, year: state.year, offset: state.offset+rankings.count, continent: state.continent)
             self.state = newState
             self.data.append(contentsOf: rankings)
             return DispatchQueue.main.async { cb(true) }

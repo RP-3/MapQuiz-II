@@ -11,7 +11,7 @@ import Foundation
 class ScoreAPIClient {
     // MARK: Network Constants
     private static let saveChallengeSessionUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-save-game")
-    private static let fetchGameScoresUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-game-scores")
+    private static let fetchGameScoresUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-v3-game-scores")
 
     // MARK: Public Interface
     public static func fetchScores(andExecute cb: @escaping (_: [ChallengeSet: [Ranking]]?, _: String?) -> Void ){

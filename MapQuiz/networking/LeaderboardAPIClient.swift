@@ -10,7 +10,7 @@ import Foundation
 
 class LeaderboardAPIClient {
     // MARK: Network Constants
-    private static let leaderboardUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/leaderboard")
+    private static let leaderboardUrl: URL! = URL(string: "https://europe-west1-phosphorous.cloudfunctions.net/mapquiz-v3-leaderboard")
 
     // MARK: Public Interface
     public static func fetchScoresFor(
