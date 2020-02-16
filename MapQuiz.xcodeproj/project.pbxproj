@@ -54,6 +54,7 @@
 		41DC571B22607FA0004FB17F /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC571A22607FA0004FB17F /* ScoreViewController.swift */; };
 		41DC571E226080A4004FB17F /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC571C226080A4004FB17F /* ScoreTableViewCell.swift */; };
 		41DC571F226080A4004FB17F /* ScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */; };
+		41E4C1F523F8D82B0036B320 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4C1F423F8D82B0036B320 /* UIExtensions.swift */; };
 		41FA3A1C23DA4A2800889AED /* RegistrationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */; };
 		41FA3A1E23DA4A8F00889AED /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A1D23DA4A8E00889AED /* HTTP.swift */; };
 		41FA3A2123DA6F1900889AED /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */; };
@@ -114,6 +115,7 @@
 		41DC571A22607FA0004FB17F /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		41DC571C226080A4004FB17F /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		41DC571D226080A4004FB17F /* ScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableViewCell.xib; sourceTree = "<group>"; };
+		41E4C1F423F8D82B0036B320 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		41FA3A1B23DA4A2800889AED /* RegistrationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationClient.swift; sourceTree = "<group>"; };
 		41FA3A1D23DA4A8E00889AED /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		41FA3A2023DA6F1900889AED /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				41AC844E223759380052AA78 /* AmaticSC-Bold.ttf */,
 				41AC844F223759380052AA78 /* AmaticSC-Regular.ttf */,
 				41AC8450223759A00052AA78 /* UIConstants.swift */,
+				41E4C1F423F8D82B0036B320 /* UIExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				419F10AD223628A800243AB2 /* PracticeViewController.swift in Sources */,
 				414A646723D2BBB800D01383 /* ProfileViewController.swift in Sources */,
 				41FA3A2723DAB32400889AED /* LeaderboardDataCache.swift in Sources */,
+				41E4C1F523F8D82B0036B320 /* UIExtensions.swift in Sources */,
 				41027E28225EF89100937EE7 /* ChallengeSessionAttempt.swift in Sources */,
 				41AC845A22377E850052AA78 /* ChallengeSessionRegistry.swift in Sources */,
 				41AC845622377DF00052AA78 /* ChallengeViewController.swift in Sources */,
