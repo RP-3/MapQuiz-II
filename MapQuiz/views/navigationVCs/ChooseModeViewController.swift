@@ -21,6 +21,7 @@ class ChooseModeViewController: UIViewController {
     @IBOutlet weak var nullOrErrorStateView: UIView!
     @IBOutlet weak var dataStateView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var leaderboardButton: UIButton!
 
     // data state labels
     @IBOutlet weak var qualifyingPlayersLabel: UILabel!
@@ -53,6 +54,14 @@ class ChooseModeViewController: UIViewController {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChallengeViewController") as! ChallengeViewController
         vc.continent = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @IBAction func showLeaderboard(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreTabBarController") as! UITabBarController
+        if let leaderboard = vc.viewControllers?[0] as? LeaderboardViewController {
+            leaderboard.defaultContinent = self.challengeSet
+        }
+        self.present(vc, animated: true, completion: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {

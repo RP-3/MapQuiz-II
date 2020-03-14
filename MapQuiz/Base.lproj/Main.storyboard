@@ -526,10 +526,10 @@ have a chance to win!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
-                                <rect key="frame" x="16" y="140" width="163.5" height="49"/>
+                                <rect key="frame" x="16" y="140" width="163.5" height="45"/>
                                 <color key="backgroundColor" red="0.30588235294117649" green="0.73725490196078436" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="QPK-IZ-3Ca"/>
+                                    <constraint firstAttribute="height" constant="45" id="QPK-IZ-3Ca"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="JosefinSans-Regular" family="Josefin Sans" pointSize="18"/>
                                 <state key="normal" title="PRACTICE">
@@ -545,10 +545,10 @@ have a chance to win!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHa-kO-OGB">
-                                <rect key="frame" x="195.5" y="140" width="163.5" height="49"/>
+                                <rect key="frame" x="195.5" y="140" width="163.5" height="45"/>
                                 <color key="backgroundColor" red="0.30588235294117649" green="0.73725490196078436" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="ccq-Gi-fkk"/>
+                                    <constraint firstAttribute="height" constant="45" id="ccq-Gi-fkk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="JosefinSans-Regular" family="Josefin Sans" pointSize="18"/>
                                 <state key="normal" title="CHALLENGE">
@@ -564,10 +564,10 @@ have a chance to win!</string>
                                 </connections>
                             </button>
                             <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoR-AQ-ht9" userLabel="nullOrErrorStateView">
-                                <rect key="frame" x="20" y="209" width="335" height="438"/>
+                                <rect key="frame" x="20" y="205" width="335" height="442"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-86-b6I" customClass="UIViewWithDashedLineBorder" customModule="MapQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="134" width="335" height="170"/>
+                                        <rect key="frame" x="0.0" y="136" width="335" height="170"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSD-Sg-EJT">
                                                 <rect key="frame" x="47.5" y="40" width="240" height="90"/>
@@ -616,7 +616,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHG-9V-CX2" userLabel="dataStateView">
-                                <rect key="frame" x="20" y="209" width="335" height="438"/>
+                                <rect key="frame" x="20" y="205" width="335" height="462"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbI-YH-8qm">
                                         <rect key="frame" x="0.0" y="0.0" width="82" height="35.5"/>
@@ -741,6 +741,25 @@ have a chance to win!</string>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4e-wR-vAn">
+                                        <rect key="frame" x="0.0" y="407" width="335" height="45"/>
+                                        <color key="backgroundColor" red="0.30588235289999999" green="0.73725490199999999" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="BfB-ZA-aHs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="JosefinSans-Regular" family="Josefin Sans" pointSize="18"/>
+                                        <state key="normal" title="Global Leaderboard">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showLeaderboard:" destination="SJW-zq-dgp" eventType="touchUpInside" id="ykI-B6-h7j"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -755,7 +774,9 @@ have a chance to win!</string>
                                     <constraint firstItem="FbI-YH-8qm" firstAttribute="leading" secondItem="PHG-9V-CX2" secondAttribute="leading" id="Bkb-60-BN2"/>
                                     <constraint firstAttribute="trailing" secondItem="a5e-3U-HdD" secondAttribute="trailing" id="HJC-qK-qm4"/>
                                     <constraint firstItem="BaC-vQ-Sjh" firstAttribute="top" secondItem="lih-UH-4q7" secondAttribute="bottom" constant="10" id="IUT-hI-7rJ"/>
+                                    <constraint firstItem="C4e-wR-vAn" firstAttribute="leading" secondItem="PHG-9V-CX2" secondAttribute="leading" id="JWj-Eh-fvh"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qbh-Nf-S9H" secondAttribute="trailing" constant="20" symbolic="YES" id="MQR-hr-qdz"/>
+                                    <constraint firstAttribute="trailing" secondItem="C4e-wR-vAn" secondAttribute="trailing" id="Mn6-dn-HhD"/>
                                     <constraint firstItem="EbV-kc-Xy6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kRc-QI-nza" secondAttribute="trailing" constant="8" symbolic="YES" id="Myj-oD-13A"/>
                                     <constraint firstItem="bc4-n8-3pn" firstAttribute="leading" secondItem="PHG-9V-CX2" secondAttribute="leading" id="N1K-w7-pAZ"/>
                                     <constraint firstAttribute="trailing" secondItem="EbV-kc-Xy6" secondAttribute="trailing" constant="0.5" id="P8C-XO-TTW"/>
@@ -776,6 +797,7 @@ have a chance to win!</string>
                                     <constraint firstItem="kRc-QI-nza" firstAttribute="top" secondItem="Xsj-Yd-Elf" secondAttribute="bottom" constant="8" id="pBQ-NM-X7U"/>
                                     <constraint firstAttribute="trailing" secondItem="2jM-WF-tE3" secondAttribute="trailing" id="pQ9-CC-u5e"/>
                                     <constraint firstItem="FbI-YH-8qm" firstAttribute="top" secondItem="PHG-9V-CX2" secondAttribute="top" id="qcj-Jv-b9z"/>
+                                    <constraint firstAttribute="bottom" secondItem="C4e-wR-vAn" secondAttribute="bottom" constant="10" id="rjb-jp-7iC"/>
                                     <constraint firstItem="32k-1Q-dFq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KUQ-gC-Ouq" secondAttribute="trailing" constant="8" symbolic="YES" id="sv6-5Q-zs4"/>
                                     <constraint firstItem="2jM-WF-tE3" firstAttribute="leading" secondItem="PHG-9V-CX2" secondAttribute="leading" id="ugv-Uu-aVZ"/>
                                     <constraint firstItem="kRc-QI-nza" firstAttribute="leading" secondItem="PHG-9V-CX2" secondAttribute="leading" id="vEd-mj-o3n"/>
@@ -789,7 +811,7 @@ have a chance to win!</string>
                             <constraint firstItem="xHa-kO-OGB" firstAttribute="leading" secondItem="c8X-R2-daD" secondAttribute="trailing" constant="16" id="2Jr-WA-dnN"/>
                             <constraint firstItem="CoR-AQ-ht9" firstAttribute="top" secondItem="xHa-kO-OGB" secondAttribute="bottom" constant="20" id="4rz-pp-Epq"/>
                             <constraint firstItem="TbT-9r-0Vk" firstAttribute="top" secondItem="UVQ-bC-30o" secondAttribute="top" constant="25" id="5Oq-dI-fmw"/>
-                            <constraint firstItem="UVQ-bC-30o" firstAttribute="bottom" secondItem="PHG-9V-CX2" secondAttribute="bottom" constant="20" id="5g7-cw-Fbn"/>
+                            <constraint firstItem="UVQ-bC-30o" firstAttribute="bottom" secondItem="PHG-9V-CX2" secondAttribute="bottom" id="5g7-cw-Fbn"/>
                             <constraint firstItem="PHG-9V-CX2" firstAttribute="leading" secondItem="UVQ-bC-30o" secondAttribute="leading" constant="20" id="6Jy-Hr-sX7"/>
                             <constraint firstAttribute="trailing" secondItem="xHa-kO-OGB" secondAttribute="trailing" constant="16" id="DBF-KW-wuT"/>
                             <constraint firstItem="c8X-R2-daD" firstAttribute="leading" secondItem="t4Y-mK-abd" secondAttribute="leading" constant="16" id="EPr-DI-OaY"/>
@@ -826,6 +848,7 @@ have a chance to win!</string>
                         <outlet property="lastChallengeTiming" destination="bc4-n8-3pn" id="Sbb-Oh-ch8"/>
                         <outlet property="lastScoreHeart1" destination="i3P-02-zf5" id="xty-ec-rOq"/>
                         <outlet property="lastScoreHeart2" destination="sha-jN-hg5" id="IDJ-Ig-kgj"/>
+                        <outlet property="leaderboardButton" destination="C4e-wR-vAn" id="R76-18-kF2"/>
                         <outlet property="nullOrErrorStateView" destination="CoR-AQ-ht9" id="IOP-V4-3Jj"/>
                         <outlet property="practiceButton" destination="c8X-R2-daD" id="xkk-wD-J5c"/>
                         <outlet property="qualifyingPlayersLabel" destination="EbV-kc-Xy6" id="ssl-dR-X4O"/>

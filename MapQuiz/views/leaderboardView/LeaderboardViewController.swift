@@ -14,6 +14,8 @@ class LeaderboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
 
+    public var defaultContinent: ChallengeSet = .southAmerica
+
     // picker constants
     let continentPicks: [ChallengeSet] = [.northAmerica, .southAmerica, .africa, .asia, .oceania, .europe, .usStates]
     let monthPicks: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -51,12 +53,15 @@ class LeaderboardViewController: UIViewController {
         super.viewWillAppear(animated)
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = yearPicks.last!
-        let currentContinent = continentPicks[500 % continentPicks.count]
+        var continentRowNumber = 500
+        while(continentPicks[continentRowNumber % continentPicks.count] != defaultContinent){
+            continentRowNumber+=1
+        }
         pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
         pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // most recent year
-        pickerView.selectRow(500, inComponent: 2, animated: true) // somewhere in the middle
+        pickerView.selectRow(continentRowNumber, inComponent: 2, animated: true) // somewhere in the middle
         showActivity(true)
-        LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: currentContinent) { success in
+        LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: defaultContinent) { success in
             self.showActivity(false)
             self.tableView.reloadData()
         }
