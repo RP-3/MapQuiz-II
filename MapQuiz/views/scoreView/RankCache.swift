@@ -17,8 +17,8 @@ class RankCache {
 
     public func fetchLatestScores(andExecute cb: @escaping (_: Bool) -> Void ){
         ScoreAPIClient.fetchScores() { newScores, month in
-            guard let newScores = newScores else { return cb(false) }
-            guard let monthStr = month else { return cb(false) }
+            guard let newScores = newScores else { return DispatchQueue.main.async { cb(false) } }
+            guard let monthStr = month else { return DispatchQueue.main.async { cb(false) } }
 
             let newRankings: [(ChallengeSet, [Ranking])] = {
                 var rtn = [(ChallengeSet, [Ranking])]()
@@ -30,9 +30,36 @@ class RankCache {
                 return rtn
             }()
 
-            self.ranking = newRankings
+            self.ranking = newRankings.sorted(by: { (item1: (ChallengeSet, [Ranking]), item2: (ChallengeSet, [Ranking])) -> Bool in
+                return item1.0.title() < item2.0.title()
+            })
             self.monthString = monthStr
             DispatchQueue.main.async { cb(true) }
         }
+    }
+
+    public func score(for challengeSet: ChallengeSet) -> Ranking? {
+        for tuple in self.ranking {
+            if tuple.0 == challengeSet { return tuple.1.first }
+        }
+        return nil
+    }
+
+    public func save(ranking: LocalRanking, forChallenge challengeSet: ChallengeSet){
+        let (lengthKey, livesKey) = self.localRankingKeys(for: challengeSet)
+        UserDefaults.standard.set(ranking.lengthInMs, forKey: lengthKey)
+        UserDefaults.standard.set(ranking.livesRemaining, forKey: livesKey)
+    }
+
+    public func fetchRanking(for challengeSet: ChallengeSet) -> LocalRanking? {
+        let (lengthKey, livesKey) = self.localRankingKeys(for: challengeSet)
+        let length = UserDefaults.standard.integer(forKey: lengthKey)
+        let lives = UserDefaults.standard.integer(forKey: livesKey)
+        if length == 0 || lives == 0 { return nil }
+        return LocalRanking(livesRemaining: lives, lengthInMs: length)
+    }
+
+    private func localRankingKeys(for challengeSet: ChallengeSet) -> (String, String) {
+        return ("local_ranking_\(challengeSet.str())_timing", "local_ranking_\(challengeSet.str())_lives")
     }
 }

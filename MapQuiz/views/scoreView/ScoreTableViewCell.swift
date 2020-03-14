@@ -18,13 +18,7 @@ class ScoreTableViewCell: UITableViewCell {
     public func setup(ranking: Ranking){
         thirdLife.alpha = ranking.livesRemaining < 3 ? 0.2 : 1.0
         secondLife.alpha = ranking.livesRemaining < 2 ? 0.2 : 1.0
-
-        let milliseconds = ranking.lengthInMs
-        let minutes = (milliseconds / 1000) / 60
-        let seconds = (milliseconds / 1000) - (minutes * 60)
-        let remainingMilliseconds = milliseconds % 1000
-        timeLabel.text = "\(minutes >= 0 ? "" : "0")\(minutes):\(seconds).\(remainingMilliseconds)"
-
+        timeLabel.text = ranking.formattedLength()
         let formatter = NumberFormatter()
         formatter.numberStyle = .ordinal
         rankLabel.text = formatter.string(from: NSNumber(value: ranking.rank))

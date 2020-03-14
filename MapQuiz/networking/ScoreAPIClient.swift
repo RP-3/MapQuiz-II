@@ -60,7 +60,7 @@ class ScoreAPIClient {
         var result: [String: Any] = [:]
 
         let game: [String: Any] = [
-            "continent": challengeSession.continent.str(),
+            "continent": challengeSession.challengeSet.str(),
             "livesRemaining": challengeSession.currentGameState().livesRemaining as Int,
             "lengthInMs": challengeSession.dangerousElapsedTimeInMs() as Double,
             "startedAt": Int(challengeSession.startTime!.timeIntervalSince1970 as Double * 1000)

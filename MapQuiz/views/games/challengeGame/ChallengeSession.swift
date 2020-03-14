@@ -18,7 +18,7 @@ struct ChallengeSessionGameState {
 class ChallengeSession {
 
     private let totalCountries: Int
-    public let continent: ChallengeSet
+    public let challengeSet: ChallengeSet
     public var startTime: Date?
     public var endTime: Date?
 
@@ -30,7 +30,7 @@ class ChallengeSession {
 
     init(continent: ChallengeSet){
         let countryList = BoundaryDB.boundedItems(inChallengeSet: continent)
-        self.continent = continent
+        self.challengeSet = continent
         totalCountries = countryList.count
         countriesHandled = []
         attempts = []
