@@ -98,6 +98,10 @@ class ChooseModeViewController: UIViewController {
                 self.emptyLabel.text = "When you complete the map of \(title) on challenge mode you'll see your score here"
                 return
             }
+
+            // hide leaderboard button if it doesn't fit
+            self.leaderboardButton.isHidden = self.leaderboardButton.frame.intersects(self.currentRankLabel.frame)
+
             self.nullOrErrorStateView.isHidden = true
             self.dataStateView.isHidden = false
             self.qualifyingPlayersLabel.text = "\(String(ranking.total)) Qualifying Players"
