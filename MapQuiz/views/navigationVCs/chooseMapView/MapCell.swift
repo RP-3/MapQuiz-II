@@ -15,7 +15,7 @@ class MapCell: UITableViewCell {
     @IBOutlet weak var mapImage: UIImageView!
 
     public func set(challengeSet: ChallengeSet){
-        self.mapImage.image = challengeSet.toTableCellImage()
+        self.mapImage.image = challengeSet.tableCellImage()
 
         self.titleLabel.attributedText = NSAttributedString(
             string: challengeSet.title().uppercased(),
@@ -27,7 +27,7 @@ class MapCell: UITableViewCell {
         )
 
         let prefix = BoundaryDB.size(of: challengeSet)
-        let suffix = challengeSet == .usStates ? "states & territories" : "countries"
+        let suffix = challengeSet.collectionDescriptor()
         self.descriptionLabel.attributedText = NSAttributedString(
             string: "\(String(prefix)) \(suffix)",
             attributes: UIConstants.attributedText(

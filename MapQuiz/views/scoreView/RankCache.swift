@@ -60,6 +60,6 @@ class RankCache {
     }
 
     private func localRankingKeys(for challengeSet: ChallengeSet) -> (String, String) {
-        return ("local_ranking_\(challengeSet.str())_timing", "local_ranking_\(challengeSet.str())_lives")
+        return ("local_ranking_\(challengeSet.slug())_timing", "local_ranking_\(challengeSet.slug())_lives")
     }
 }

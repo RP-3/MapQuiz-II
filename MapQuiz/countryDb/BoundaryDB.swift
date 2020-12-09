@@ -33,7 +33,7 @@ class BoundaryDB {
 
             if challengeSet != .usStates { // challenge is a continent
                 let continent = obj["continent"] as! String
-                guard continent == challengeSet.str() else { return nil }
+                guard continent == challengeSet.slug() else { return nil }
             }
 
             let boundaryType: GeoJsonFormat = {

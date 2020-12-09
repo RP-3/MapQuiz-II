@@ -19,6 +19,7 @@ struct PracticeGameState {
 class PracticeSession {
 
     private let totalItems: Int
+    public let challengeSet: ChallengeSet
     private var revealed: Int
     private var misses: Int
 
@@ -27,6 +28,7 @@ class PracticeSession {
 
     init(challengeSet: ChallengeSet) {
         let countryList = BoundaryDB.boundedItems(inChallengeSet: challengeSet)
+        self.challengeSet = challengeSet
         totalItems = countryList.count
         revealed = 0
         misses = 0

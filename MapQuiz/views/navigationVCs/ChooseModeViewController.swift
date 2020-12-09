@@ -74,12 +74,12 @@ class ChooseModeViewController: UIViewController {
 
         self.title = challengeSet.title()
         self.titleLabel.text = challengeSet.title()
-        self.titleImage.image = challengeSet.toTableCellImage()
+        self.titleImage.image = challengeSet.tableCellImage()
         self.localScoreExists = false // set up a deliberate race. If the score exists locally this will be set to true
         // otherwise we'll use the asynchronously fetched one
 
         let count = String(BoundaryDB.boundedItems(inChallengeSet: challengeSet).count)
-        let description = "There are \(count) states & territories in \(challengeSet.title())."
+        let description = "There are \(count) \(challengeSet.collectionDescriptor()) in \(challengeSet.title())."
         self.challengeDescriptionLine1.text = description
         self.emptyLabel.text = "We're just fetching your scores..."
 

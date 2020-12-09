@@ -25,7 +25,7 @@ class PracticeScoreViewController: UIViewController {
         correctCount.text = "\(state.countriesHandled - state.revealed)"
         wrongCount.text = "\(state.misses)"
         revealedCount.text = "\(state.revealed)"
-        summaryLabel.text = "Out of \(state.countryCount) countries, you got:"
+        summaryLabel.text = "Out of \(state.countryCount) \(session.challengeSet.collectionDescriptor()), you got:"
     }
 
     override func viewDidLoad() {

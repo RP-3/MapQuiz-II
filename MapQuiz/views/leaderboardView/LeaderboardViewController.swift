@@ -177,7 +177,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
             let continent = continentPicks[row % continentPicks.count]
             let imageView = UIImageView(frame: contentFrame)
             imageView.contentMode = .scaleAspectFit
-            imageView.image = continent.toPickerImage()
+            imageView.image = continent.pickerImage()
             element.addSubview(imageView)
         } else {
             let label = UILabel(frame: contentFrame)

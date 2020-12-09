@@ -20,19 +20,7 @@ enum ChallengeSet: String, CaseIterable {
     // US states
     case usStates = "US_STATES"
 
-    func str() -> String { return self.rawValue }
-
-    func title() -> String {
-        switch self {
-        case .northAmerica: return "North America"
-        case .southAmerica: return "South America"
-        case .asia: return "Asia"
-        case .europe: return "Europe"
-        case .oceania: return "Oceania"
-        case .africa: return "Africa"
-        case .usStates: return "US States"
-        }
-    }
+    func slug() -> String { return self.rawValue }
 
     static func from(str: String?) -> ChallengeSet? {
         guard let str = str else { return nil }
@@ -48,7 +36,19 @@ enum ChallengeSet: String, CaseIterable {
         }
     }
 
-    func toPickerImage() -> UIImage {
+    func title() -> String {
+        switch self {
+        case .northAmerica: return "North America"
+        case .southAmerica: return "South America"
+        case .asia: return "Asia"
+        case .europe: return "Europe"
+        case .oceania: return "Oceania"
+        case .africa: return "Africa"
+        case .usStates: return "US States"
+        }
+    }
+
+    func pickerImage() -> UIImage {
         switch self {
         case .northAmerica: return UIImage(named: "pickNorthAmerica")!
         case .southAmerica: return UIImage(named: "pickSouthAmerica")!
@@ -60,7 +60,7 @@ enum ChallengeSet: String, CaseIterable {
         }
     }
 
-    func toTableCellImage() -> UIImage {
+    func tableCellImage() -> UIImage {
         switch self {
         case .northAmerica: return UIImage(named: "northAmerica")!
         case .southAmerica: return UIImage(named: "southAmerica")!
@@ -69,6 +69,18 @@ enum ChallengeSet: String, CaseIterable {
         case .oceania: return UIImage(named: "oceania")!
         case .africa: return UIImage(named: "africa")!
         case .usStates: return UIImage(named: "usStates")!
+        }
+    }
+
+    func collectionDescriptor() -> String {
+        switch self {
+        case .northAmerica: return "countries & islands"
+        case .southAmerica: return "countries"
+        case .asia: return "countries"
+        case .europe: return "countries and city states"
+        case .oceania: return "countries"
+        case .africa: return "countries"
+        case .usStates: return "states & territories"
         }
     }
 
