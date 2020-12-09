@@ -1,5 +1,5 @@
 //
-//  CountryDB.swift
+//  BoundaryDB.swift
 //  MapQuiz
 //
 //  Created by Rohan Pethiyagoda on 11/3/19.
@@ -85,9 +85,9 @@ class BoundaryDB {
                 annotationPointKey: "annotationCoords"
             )
         } else {
-            let countryDataPath = Bundle.main.path(forResource: "countryData", ofType: "json")!
+            let itemDataPath = Bundle.main.path(forResource: "countryData", ofType: "json")!
             return GeoJsonMapping(
-                dataFileURL: URL(fileURLWithPath: countryDataPath),
+                dataFileURL: URL(fileURLWithPath: itemDataPath),
                 typeKey: "coordinates_type",
                 coordsKey: "coordinates",
                 nameKey: "country",

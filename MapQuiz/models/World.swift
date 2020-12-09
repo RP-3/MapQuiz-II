@@ -65,8 +65,8 @@ class World {
         return MKCoordinateRegion(center: coords, span: span)
     }
 
-    public static func timeLimitFor(continent: ChallengeSet) -> Double {
-        switch continent { // ~8 seconds per item. Written as (m*60) mins + s seconds
+    public static func timeLimitFor(challengeSet: ChallengeSet) -> Double {
+        switch challengeSet { // ~8 seconds per item. Written as (m*60) mins + s seconds
         case .northAmerica: return (3*60) + 12
         case .southAmerica: return (1*60) + 36
         case .europe: return (6*60) + 0
@@ -81,16 +81,16 @@ class World {
         return World.smallIslandNames[name]
     }
 
-    public static func coordinates(_ coords: CLLocationCoordinate2D, inCountry country: BoundedItem) -> Bool {
-        if let radius = smallIsland(name: country.name) {
+    public static func coordinates(_ coords: CLLocationCoordinate2D, inItem item: BoundedItem) -> Bool {
+        if let radius = smallIsland(name: item.name) {
             // perform match based on proximity
             let givenLocation = CLLocation(latitude: coords.latitude, longitude: coords.longitude)
-            let atnPoint = country.annotation_point
+            let atnPoint = item.annotation_point
             let approxIslandLocation = CLLocation(latitude: atnPoint.latitude, longitude: atnPoint.longitude)
             return givenLocation.distance(from: approxIslandLocation) < radius
         } else {
             // perform match based on containment
-            for polygon in country.boundary {
+            for polygon in item.boundary {
                 var unsafePointerToPolygon = polygon
                 let polygonRenderer = MKPolygonRenderer(polygon: MKPolygon(coordinates: &unsafePointerToPolygon, count: polygon.count))
                 let guessCoords: CGPoint = polygonRenderer.point(for: MKMapPoint(coords))

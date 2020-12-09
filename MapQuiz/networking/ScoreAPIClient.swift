@@ -25,8 +25,8 @@ class ScoreAPIClient {
 
             var rtn: [ChallengeSet: [Ranking]] = [:]
             for ranking in rankings {
-                guard let continent = ChallengeSet.from(str: (ranking["code"] as? String)) else {
-                    print("WARNING: Could not parse continent from: \(String(describing: ranking["code"] as? String))")
+                guard let challengeSet = ChallengeSet.from(str: (ranking["code"] as? String)) else {
+                    print("WARNING: Could not parse ChallengeSet from: \(String(describing: ranking["code"] as? String))")
                     continue
                 }
                 var scores: [Ranking] = []
@@ -41,7 +41,7 @@ class ScoreAPIClient {
                     }
                     scores.append(score)
                 }
-                rtn[continent] = scores
+                rtn[challengeSet] = scores
             }
             return cb(rtn, month)
         }
@@ -69,8 +69,8 @@ class ScoreAPIClient {
 
         let attempts: [[String: Any]] = challengeSession.attempts.map { attempt in
             return [
-                "countryToFind": attempt.countryToFind.name,
-                "countryGuessed": attempt.countryGuessed.name,
+                "countryToFind": attempt.itemToFind.name,
+                "countryGuessed": attempt.itemGuessed.name,
                 "attemptedAt": Int(attempt.attemptedAt * 1000)
             ] as [String: Any]
         }

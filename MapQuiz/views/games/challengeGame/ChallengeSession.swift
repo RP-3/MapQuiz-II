@@ -9,41 +9,41 @@
 import MapKit
 
 struct ChallengeSessionGameState {
-    let countryCount: Int
-    let countriesHandled: Int
+    let itemCount: Int
+    let itemsHandled: Int
     let livesRemaining: Int
-    let currentCountryName: String?
+    let currentItemName: String?
 }
 
 class ChallengeSession {
 
-    private let totalCountries: Int
+    private let totalItems: Int
     public let challengeSet: ChallengeSet
     public var startTime: Date?
     public var endTime: Date?
 
-    private var countriesHandled: [BoundedItem]
-    private var countriesRemaining: [BoundedItem]
+    private var itemsHandled: [BoundedItem]
+    private var itemsRemaining: [BoundedItem]
     private var livesRemaining: Int
     private var finished = false
     public var attempts: [ChallengeSessionAttempt]
 
-    init(continent: ChallengeSet){
-        let countryList = BoundaryDB.boundedItems(inChallengeSet: continent)
-        self.challengeSet = continent
-        totalCountries = countryList.count
-        countriesHandled = []
+    init(challengeSet: ChallengeSet){
+        let itemList = BoundaryDB.boundedItems(inChallengeSet: challengeSet)
+        self.challengeSet = challengeSet
+        totalItems = itemList.count
+        itemsHandled = []
         attempts = []
-        countriesRemaining = World.shuffle(countries: countryList)
+        itemsRemaining = World.shuffle(countries: itemList)
         livesRemaining = 3
     }
 
     public func currentGameState() -> ChallengeSessionGameState {
         return ChallengeSessionGameState(
-            countryCount: totalCountries,
-            countriesHandled: countriesHandled.count,
+            itemCount: totalItems,
+            itemsHandled: itemsHandled.count,
             livesRemaining: livesRemaining,
-            currentCountryName: countriesRemaining.last?.name
+            currentItemName: itemsRemaining.last?.name
         )
     }
 
@@ -51,26 +51,26 @@ class ChallengeSession {
         return endTime!.timeIntervalSince(startTime!) * 1000
     }
 
-    public func remainingCountries() -> [BoundedItem] { return self.countriesRemaining }
+    public func remainingCountries() -> [BoundedItem] { return self.itemsRemaining }
 
-    public func gameOver() -> Bool { return countriesRemaining.count == 0 || livesRemaining == 0 || finished }
+    public func gameOver() -> Bool { return itemsRemaining.count == 0 || livesRemaining == 0 || finished }
 
     public func guess(coords: CLLocationCoordinate2D) -> (BoundedItem?, GuessOutcome) {
-        guard let currentCountry = countriesRemaining.last else { return (nil, .fatFingered) }
+        guard let currentItem = itemsRemaining.last else { return (nil, .fatFingered) }
         // guessed correctly
         let now = NSDate().timeIntervalSince1970
-        if World.coordinates(coords, inCountry: currentCountry) {
-            countriesHandled.append(countriesRemaining.popLast()!)
-            if countriesRemaining.count == 0 { finish() }
-            attempts.append(ChallengeSessionAttempt(countryToFind: currentCountry, countryGuessed: currentCountry, attemptedAt: now))
-            return (currentCountry, .correct)
+        if World.coordinates(coords, inItem: currentItem) {
+            itemsHandled.append(itemsRemaining.popLast()!)
+            if itemsRemaining.count == 0 { finish() }
+            attempts.append(ChallengeSessionAttempt(itemToFind: currentItem, itemGuessed: currentItem, attemptedAt: now))
+            return (currentItem, .correct)
         }
         // guessed incorrectly
-        for country in countriesRemaining {
-            if World.coordinates(coords, inCountry: country) {
+        for item in itemsRemaining {
+            if World.coordinates(coords, inItem: item) {
                 livesRemaining -= 1
                 if livesRemaining == 0 { finish() }
-                attempts.append(ChallengeSessionAttempt(countryToFind: currentCountry, countryGuessed: country, attemptedAt: now))
+                attempts.append(ChallengeSessionAttempt(itemToFind: currentItem, itemGuessed: item, attemptedAt: now))
                 return (nil, .wrong)
             }
         }
@@ -80,7 +80,7 @@ class ChallengeSession {
     public func start(){ startTime = startTime ?? Date.init() }
 
     public func skip(){
-        countriesRemaining.insert(countriesRemaining.popLast()!, at: 0)
+        itemsRemaining.insert(itemsRemaining.popLast()!, at: 0)
     }
 
     public func finish() {

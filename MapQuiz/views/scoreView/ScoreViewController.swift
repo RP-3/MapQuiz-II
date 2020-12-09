@@ -79,7 +79,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let continentName = RankCache.shared.ranking[section].0.title()
+        let challengeName = RankCache.shared.ranking[section].0.title()
         let headerView = UIView()
         headerView.backgroundColor = UIColor(named: "backgroundSecondary")!
 
@@ -91,7 +91,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         ))
         headerLabel.font = UIConstants.amatic(size: 22)
         headerLabel.textColor = UIColor(named: "textColour")!
-        headerLabel.text = "\(continentName) (\(RankCache.shared.ranking[section].1[0].total) qualifying players world-wide)"
+        headerLabel.text = "\(challengeName) (\(RankCache.shared.ranking[section].1[0].total) qualifying players world-wide)"
         headerLabel.sizeToFit()
         headerView.addSubview(headerLabel)
 

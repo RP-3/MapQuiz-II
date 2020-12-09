@@ -1,5 +1,5 @@
 //
-//  Continent.swift
+//  ChallegeSet.swift
 //  MapQuiz
 //
 //  Created by Rohan Pethiyagoda on 11/3/19.

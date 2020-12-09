@@ -14,14 +14,14 @@ class LeaderboardAPIClient {
 
     // MARK: Public Interface
     public static func fetchScoresFor(
-        continent: ChallengeSet,
+        challengeSet: ChallengeSet,
         month: Int,
         year: Int,
         minPosition: Int,
         andExecute cb: @escaping (_: [NamedRanking]?) -> Void
     ){
         let body: [String: Any] = [
-            "continent": continent.rawValue,
+            "continent": challengeSet.rawValue,
             "month": month,
             "year": year,
             "minPosition": minPosition

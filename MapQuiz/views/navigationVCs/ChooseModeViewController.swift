@@ -40,7 +40,7 @@ class ChooseModeViewController: UIViewController {
         setFont()
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "PracticeViewController") as! PracticeViewController
-        vc.continent = challengeSet
+        vc.challengeSet = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -52,14 +52,14 @@ class ChooseModeViewController: UIViewController {
         setFont()
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChallengeViewController") as! ChallengeViewController
-        vc.continent = challengeSet
+        vc.challengeSet = challengeSet
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func showLeaderboard(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreTabBarController") as! UITabBarController
         if let leaderboard = vc.viewControllers?[0] as? LeaderboardViewController {
-            leaderboard.defaultContinent = self.challengeSet
+            leaderboard.defaultChallengeSet = self.challengeSet
         }
         self.present(vc, animated: true, completion: nil)
     }

@@ -22,10 +22,10 @@ class PracticeScoreViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let state = session.currentGameState()
-        correctCount.text = "\(state.countriesHandled - state.revealed)"
+        correctCount.text = "\(state.itemsHandled - state.revealed)"
         wrongCount.text = "\(state.misses)"
         revealedCount.text = "\(state.revealed)"
-        summaryLabel.text = "Out of \(state.countryCount) \(session.challengeSet.collectionDescriptor()), you got:"
+        summaryLabel.text = "Out of \(state.itemCount) \(session.challengeSet.collectionDescriptor()), you got:"
     }
 
     override func viewDidLoad() {

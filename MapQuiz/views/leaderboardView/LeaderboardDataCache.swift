@@ -17,13 +17,13 @@ class LeaderboardDataCache {
     private(set) public var requestInFlight = false
     private(set) public var data = [NamedRanking]()
 
-    public func fetch(month: Int, year: Int, continent: ChallengeSet, andExecute cb: @escaping (_: Bool) -> Void){
+    public func fetch(month: Int, year: Int, challengeSet: ChallengeSet, andExecute cb: @escaping (_: Bool) -> Void){
         guard !requestInFlight else { return cb(false) }
         requestInFlight = true
-        LeaderboardAPIClient.fetchScoresFor(continent: continent, month: month, year: year, minPosition: 0) { rankings in
+        LeaderboardAPIClient.fetchScoresFor(challengeSet: challengeSet, month: month, year: year, minPosition: 0) { rankings in
             self.requestInFlight = false
             guard let rankings = rankings else { return cb(false) }
-            let newState = LeaderboardState(month: month, year: year, offset: 0, continent: continent)
+            let newState = LeaderboardState(month: month, year: year, offset: 0, challengeSet: challengeSet)
             self.state = newState
             self.data = rankings
             return DispatchQueue.main.async { cb(true) }
@@ -35,14 +35,14 @@ class LeaderboardDataCache {
         guard let state = state else { return cb(false) }
         requestInFlight = true
         LeaderboardAPIClient.fetchScoresFor(
-            continent: state.continent,
+            challengeSet: state.challengeSet,
             month: state.month,
             year: state.year,
             minPosition: state.offset + 20
         ) { rankings in
             self.requestInFlight = false
             guard let rankings = rankings, rankings.count > 0 else { return cb(false) }
-            let newState = LeaderboardState(month: state.month, year: state.year, offset: state.offset+rankings.count, continent: state.continent)
+            let newState = LeaderboardState(month: state.month, year: state.year, offset: state.offset+rankings.count, challengeSet: state.challengeSet)
             self.state = newState
             self.data.append(contentsOf: rankings)
             return DispatchQueue.main.async { cb(true) }
@@ -54,12 +54,12 @@ fileprivate struct LeaderboardState {
     let month: Int
     let year: Int
     let offset: Int
-    let continent: ChallengeSet
+    let challengeSet: ChallengeSet
 
     func differsInOffsetOnly(from other: LeaderboardState) -> Int? {
         if  self.month == other.month &&
             self.year == other.year &&
-            self.continent == other.continent &&
+            self.challengeSet == other.challengeSet &&
             self.offset != other.offset
         {
             return abs(self.offset - other.offset)

@@ -11,7 +11,7 @@ import MapKit
 
 class ChallengeViewController: UIViewController {
 
-    public var continent: ChallengeSet!
+    public var challengeSet: ChallengeSet!
 
     private var session: ChallengeSession!
     private let mapDelegate = MapViewDelegate()
@@ -44,16 +44,16 @@ class ChallengeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        session = ChallengeSession(continent: continent)
+        session = ChallengeSession(challengeSet: challengeSet)
 
-        session.remainingCountries().forEach { (country: BoundedItem) -> Void in
-            for landArea in (country.boundary) {
-                let overlay = CustomPolygon(guessed: false, lat_long: country.annotation_point, coords: landArea, numberOfPoints: landArea.count )
-                overlay.title = country.name
+        session.remainingCountries().forEach { (item: BoundedItem) -> Void in
+            for landArea in (item.boundary) {
+                let overlay = CustomPolygon(guessed: false, lat_long: item.annotation_point, coords: landArea, numberOfPoints: landArea.count )
+                overlay.title = item.name
                 worldMap.addOverlay(overlay)
             }
-            if let radius = World.smallIsland(name: country.name) {
-                let circle = MKCircle(center: country.annotation_point, radius: radius)
+            if let radius = World.smallIsland(name: item.name) {
+                let circle = MKCircle(center: item.annotation_point, radius: radius)
                 worldMap.addOverlay(circle)
             }
         }
@@ -66,7 +66,7 @@ class ChallengeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        worldMap.setRegion(World.regionFor(challengeSet: continent), animated: true)
+        worldMap.setRegion(World.regionFor(challengeSet: challengeSet), animated: true)
         instructionLabel.backgroundColor = BLUE
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false // disable popViewController by swiping
         let alert = UIAlertController(title: "Ready?", message: "Hit go to start the game", preferredStyle: .alert)
@@ -96,10 +96,10 @@ class ChallengeViewController: UIViewController {
     private func renderGameState(){
         let gameState = session.currentGameState()
 
-        self.title = String("\(gameState.countriesHandled) / \(gameState.countryCount)")
+        self.title = String("\(gameState.itemsHandled) / \(gameState.itemCount)")
 
-        if let countryToFind = gameState.currentCountryName {
-            instructionLabel.text = "Find \(countryToFind)"
+        if let itemToFind = gameState.currentItemName {
+            instructionLabel.text = "Find \(itemToFind)"
         }
 
         if gameState.livesRemaining < 3 { heartThree.alpha = 0.2 }
@@ -115,7 +115,7 @@ class ChallengeViewController: UIViewController {
 
     @objc func tickGameClock(){
         let elapsedTime = Date.init().timeIntervalSince(session.startTime!)
-        let timeLimit = World.timeLimitFor(continent: continent)
+        let timeLimit = World.timeLimitFor(challengeSet: challengeSet)
         let secondsRemaining = Int(timeLimit - elapsedTime)
 
         if secondsRemaining < 0 {
@@ -134,11 +134,11 @@ class ChallengeViewController: UIViewController {
     // MARK: Actions
     @objc func tapMap(gestureRecognizer: UIGestureRecognizer){
         let coords = worldMap.convert(gestureRecognizer.location(in: worldMap), toCoordinateFrom: worldMap)
-        let (country, outcome) = session.guess(coords: coords)
+        let (item, outcome) = session.guess(coords: coords)
 
         switch outcome {
         case .correct:
-            removeOverlayFor(countryName: country!.name)
+            removeOverlayFor(itemName: item!.name)
             EffectsBoard.play(.yep)
             instructionLabel.backgroundColor = GREEN
         case .wrong:
@@ -159,8 +159,8 @@ class ChallengeViewController: UIViewController {
     }
 
     // MARK: Overlays
-    private func removeOverlayFor(countryName: String){
-        let overlays = worldMap.overlays.filter({ $0.title == countryName })
+    private func removeOverlayFor(itemName: String){
+        let overlays = worldMap.overlays.filter({ $0.title == itemName })
         overlays.forEach({ overlay in
             worldMap.removeOverlay(overlay)
             (overlay as! CustomPolygon).userGuessed = true

@@ -14,10 +14,10 @@ class LeaderboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
 
-    public var defaultContinent: ChallengeSet = .southAmerica
+    public var defaultChallengeSet: ChallengeSet = .southAmerica
 
     // picker constants
-    let continentPicks: [ChallengeSet] = [.northAmerica, .southAmerica, .africa, .asia, .oceania, .europe, .usStates]
+    let challengeSets: [ChallengeSet] = [.northAmerica, .southAmerica, .africa, .asia, .oceania, .europe, .usStates]
     let monthPicks: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     let yearPicks: [Int] = {
         var result: [Int] = []
@@ -53,15 +53,15 @@ class LeaderboardViewController: UIViewController {
         super.viewWillAppear(animated)
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = yearPicks.last!
-        var continentRowNumber = 500
-        while(continentPicks[continentRowNumber % continentPicks.count] != defaultContinent){
-            continentRowNumber+=1
+        var challengeSetRowNumber = 500
+        while(challengeSets[challengeSetRowNumber % challengeSets.count] != defaultChallengeSet){
+            challengeSetRowNumber+=1
         }
         pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
         pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // most recent year
-        pickerView.selectRow(continentRowNumber, inComponent: 2, animated: true) // somewhere in the middle
+        pickerView.selectRow(challengeSetRowNumber, inComponent: 2, animated: true) // somewhere in the middle
         showActivity(true)
-        LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: defaultContinent) { success in
+        LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, challengeSet: defaultChallengeSet) { success in
             self.showActivity(false)
             self.tableView.reloadData()
         }
@@ -113,7 +113,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let monthIndex = pickerView.selectedRow(inComponent: 0)
         let year = yearPicks[pickerView.selectedRow(inComponent: 1)]
         let selected = startOfMonth(year: year, month: monthIndex + 1)
-        let continent = continentPicks[pickerView.selectedRow(inComponent: 2) % continentPicks.count]
+        let challengeSet = challengeSets[pickerView.selectedRow(inComponent: 2) % challengeSets.count]
 
         let currentYear = Calendar.current.component(.year, from: Date())
         let currentMonth = Calendar.current.component(.month, from: Date())
@@ -123,7 +123,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
             pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
             pickerView.selectRow(yearPicks.count - 1, inComponent: 1, animated: true) // most recent year
             showActivity(true)
-            return LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, continent: continent) { success in
+            return LeaderboardDataCache.shared.fetch(month: currentMonth, year: currentYear, challengeSet: challengeSet) { success in
                 self.showActivity(false)
                 self.tableView.reloadData()
             }
@@ -132,14 +132,14 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
             pickerView.selectRow(3, inComponent: 0, animated: true) // min month
             pickerView.selectRow(0, inComponent: 1, animated: true) // min year
             showActivity(true)
-            return LeaderboardDataCache.shared.fetch(month: 4, year: 2019, continent: continent) { success in
+            return LeaderboardDataCache.shared.fetch(month: 4, year: 2019, challengeSet: challengeSet) { success in
                 self.showActivity(false)
                 self.tableView.reloadData()
             }
         }
 
         showActivity(true)
-        LeaderboardDataCache.shared.fetch(month: monthIndex+1, year: year, continent: continent) { success in
+        LeaderboardDataCache.shared.fetch(month: monthIndex+1, year: year, challengeSet: challengeSet) { success in
             self.showActivity(false)
             self.tableView.reloadData()
         }
@@ -159,7 +159,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         switch component {
         case 0: return monthPicks[row]
         case 1: return String(yearPicks[row])
-        default: return continentPicks[row % continentPicks.count].rawValue
+        default: return challengeSets[row % challengeSets.count].rawValue
         }
     }
 
@@ -174,10 +174,10 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let contentFrame = CGRect(x: 0, y: 0, width: width/3, height: height)
 
         if component == 2 {
-            let continent = continentPicks[row % continentPicks.count]
+            let challengeSet = challengeSets[row % challengeSets.count]
             let imageView = UIImageView(frame: contentFrame)
             imageView.contentMode = .scaleAspectFit
-            imageView.image = continent.pickerImage()
+            imageView.image = challengeSet.pickerImage()
             element.addSubview(imageView)
         } else {
             let label = UILabel(frame: contentFrame)

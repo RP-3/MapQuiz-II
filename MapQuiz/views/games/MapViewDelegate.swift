@@ -42,7 +42,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
     //show labels instead of annotations on the page
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
-        let reuseId: String = "countryAnnotation"
+        let reuseId: String = "itemAnnotation"
         var aView: MKAnnotationView
         if let av = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) {
             av.annotation = annotation

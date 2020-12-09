@@ -9,11 +9,11 @@
 import MapKit
 
 struct PracticeGameState {
-    let countryCount: Int
-    let countriesHandled: Int
+    let itemCount: Int
+    let itemsHandled: Int
     let revealed: Int
     let misses: Int
-    let currentCountryName: String?
+    let currentItemName: String?
 }
 
 class PracticeSession {
@@ -27,22 +27,22 @@ class PracticeSession {
     private var itemsRemaining: [BoundedItem]
 
     init(challengeSet: ChallengeSet) {
-        let countryList = BoundaryDB.boundedItems(inChallengeSet: challengeSet)
+        let itemList = BoundaryDB.boundedItems(inChallengeSet: challengeSet)
         self.challengeSet = challengeSet
-        totalItems = countryList.count
+        totalItems = itemList.count
         revealed = 0
         misses = 0
         itemsHandled = []
-        itemsRemaining = World.shuffle(countries: countryList)
+        itemsRemaining = World.shuffle(countries: itemList)
     }
 
     public func currentGameState() -> PracticeGameState {
         return PracticeGameState(
-            countryCount: totalItems,
-            countriesHandled: itemsHandled.count,
+            itemCount: totalItems,
+            itemsHandled: itemsHandled.count,
             revealed: revealed,
             misses: misses,
-            currentCountryName: itemsRemaining.last?.name
+            currentItemName: itemsRemaining.last?.name
         )
     }
 
@@ -51,15 +51,15 @@ class PracticeSession {
     public func finished() -> Bool { return itemsRemaining.count == 0 }
 
     public func guess(coords: CLLocationCoordinate2D) -> (BoundedItem?, GuessOutcome) {
-        guard let currentCountry = itemsRemaining.last else { return (nil, .fatFingered) }
+        guard let currentItem = itemsRemaining.last else { return (nil, .fatFingered) }
         // guessed correctly
-        if World.coordinates(coords, inCountry: currentCountry) {
+        if World.coordinates(coords, inItem: currentItem) {
             itemsHandled.append(itemsRemaining.popLast()!)
-            return (currentCountry, .correct)
+            return (currentItem, .correct)
         }
         // guessed incorrectly
-        for country in itemsRemaining {
-            if World.coordinates(coords, inCountry: country) {
+        for item in itemsRemaining {
+            if World.coordinates(coords, inItem: item) {
                 misses += 1
                 return (nil, .wrong)
             }
@@ -68,13 +68,13 @@ class PracticeSession {
     }
 
     public func skip(){
-        guard let countryToRemove = itemsRemaining.popLast() else { return }
-        itemsRemaining.insert(countryToRemove, at: 0)
+        guard let itemToRemove = itemsRemaining.popLast() else { return }
+        itemsRemaining.insert(itemToRemove, at: 0)
     }
 
     public func reveal(){
-        guard let countryToReveal = itemsRemaining.popLast() else { return }
-        itemsHandled.append(countryToReveal)
+        guard let itemToReveal = itemsRemaining.popLast() else { return }
+        itemsHandled.append(itemToReveal)
         revealed += 1
     }
 

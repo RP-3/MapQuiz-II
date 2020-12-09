@@ -9,7 +9,7 @@
 import Foundation
 
 struct ChallengeSessionAttempt {
-    let countryToFind: BoundedItem
-    let countryGuessed: BoundedItem
+    let itemToFind: BoundedItem
+    let itemGuessed: BoundedItem
     let attemptedAt: TimeInterval
 }
