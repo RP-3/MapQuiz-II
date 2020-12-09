@@ -79,7 +79,7 @@ class ChooseModeViewController: UIViewController {
         // otherwise we'll use the asynchronously fetched one
 
         let count = String(BoundaryDB.boundedItems(inChallengeSet: challengeSet).count)
-        let description = "There are \(count) \(challengeSet.collectionDescriptor()) in \(challengeSet.title())."
+        let description = "There are \(count) \(challengeSet.collectionDescriptor()) in this quiz."
         self.challengeDescriptionLine1.text = description
         self.emptyLabel.text = "We're just fetching your scores..."
 

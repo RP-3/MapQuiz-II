@@ -80,7 +80,7 @@ enum ChallengeSet: String, CaseIterable {
         case .europe: return "countries and city states"
         case .oceania: return "countries"
         case .africa: return "countries"
-        case .usStates: return "states & territories"
+        case .usStates: return "states"
         }
     }
 
