@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YMd-Mb-6P7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YMd-Mb-6P7">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile &amp; Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEf-YL-qjj">
-                                <rect key="frame" x="89" y="18" width="197.5" height="50.5"/>
+                                <rect key="frame" x="34" y="18" width="307" height="47"/>
                                 <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="40"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
@@ -42,7 +43,7 @@
                                 </constraints>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqq-6U-vsZ" userLabel="nameContainer">
-                                <rect key="frame" x="18" y="148.5" width="339" height="40"/>
+                                <rect key="frame" x="18" y="155" width="339" height="37"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTi-Bz-E3T" userLabel="overline">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="1"/>
@@ -52,14 +53,14 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-YM-DFQ">
-                                        <rect key="frame" x="0.0" y="2" width="47" height="38"/>
+                                        <rect key="frame" x="0.0" y="2" width="70" height="35"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your name here" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R7U-EY-DF5" userLabel="nameInput">
-                                        <rect key="frame" x="57" y="5" width="282" height="35"/>
-                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="80" y="4" width="259" height="33"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <color key="textColor" name="textColour"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="27"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" textContentType="name"/>
@@ -82,16 +83,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This appears on the public leaderboard" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-b7-Zfw">
-                                <rect key="frame" x="18" y="193.5" width="339" height="20"/>
+                                <rect key="frame" x="18" y="197" width="339" height="47"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WT1-A7-xNm" userLabel="muteContainer">
-                                <rect key="frame" x="18" y="243.5" width="339" height="40"/>
+                                <rect key="frame" x="18" y="274" width="339" height="37"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mute Sound Effects:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdu-Qz-xwj">
-                                        <rect key="frame" x="0.0" y="2" width="156" height="38"/>
+                                        <rect key="frame" x="0.0" y="2" width="274" height="35"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
@@ -125,16 +126,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prevent the app from making any sound" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UG-mh-kib">
-                                <rect key="frame" x="18" y="288.5" width="339" height="20"/>
+                                <rect key="frame" x="18" y="316" width="339" height="47"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAy-SD-7BN" userLabel="buzzContainer">
-                                <rect key="frame" x="18" y="338.5" width="339" height="40"/>
+                                <rect key="frame" x="18" y="393" width="339" height="37"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop Vibrations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF5-C4-Sxj">
-                                        <rect key="frame" x="0.0" y="2" width="132.5" height="38"/>
+                                        <rect key="frame" x="0.0" y="2" width="214" height="35"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
@@ -169,13 +170,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disable haptic feedback in the app" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOq-9A-JIn">
-                                <rect key="frame" x="18" y="383.5" width="339" height="20"/>
+                                <rect key="frame" x="18" y="435" width="339" height="23.5"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-yA-Dc0">
-                                <rect key="frame" x="117.5" y="421.5" width="140" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-yA-Dc0">
+                                <rect key="frame" x="114.5" y="476.5" width="146" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.27843137254901962" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="BR7-hr-dyh"/>
@@ -195,12 +196,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are anonymous. If you enter your name below, your scores will appear on the public global leaderboard" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUe-or-VR4">
-                                <rect key="frame" x="18" y="78.5" width="339" height="60"/>
+                                <rect key="frame" x="18" y="75" width="339" height="70"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="YhB-Tl-IXf"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="textColour"/>
                         <constraints>
@@ -232,7 +234,6 @@
                             <constraint firstItem="YaC-yA-Dc0" firstAttribute="centerX" secondItem="YhB-Tl-IXf" secondAttribute="centerX" id="xTR-hF-6qw"/>
                             <constraint firstItem="YhB-Tl-IXf" firstAttribute="trailing" secondItem="HAy-SD-7BN" secondAttribute="trailing" constant="18" id="yze-92-4Du"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="YhB-Tl-IXf"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="5rQ-lD-nMA" id="lNi-dz-qVn"/>
@@ -267,7 +268,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Scores for October 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6b-qN-Xye">
-                                        <rect key="frame" x="20" y="18" width="335" height="44.5"/>
+                                        <rect key="frame" x="20" y="19.5" width="335" height="41"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="35"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
@@ -286,7 +287,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5o-Fd-0Ec">
-                                        <rect key="frame" x="41" y="132.5" width="293" height="353.5"/>
+                                        <rect key="frame" x="-61" y="146" width="497" height="326.5"/>
                                         <string key="text">Whenever you complete
 a game in Challenge mode
 your score will appear here.
@@ -306,6 +307,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="e5f-eO-RSa"/>
                         <color key="backgroundColor" red="0.8980392157" green="0.83921568629999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zRc-iU-DSk" firstAttribute="leading" secondItem="e5f-eO-RSa" secondAttribute="leading" id="8xd-hs-bUC"/>
@@ -320,7 +322,6 @@ have a chance to win!</string>
                             <constraint firstItem="e5f-eO-RSa" firstAttribute="trailing" secondItem="XLk-fq-6fG" secondAttribute="trailing" id="nvd-AF-cxL"/>
                             <constraint firstItem="16H-Iz-Oqa" firstAttribute="top" secondItem="zRc-iU-DSk" secondAttribute="bottom" id="qwO-8x-6s3"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="e5f-eO-RSa"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Top Scores" image="person" selectedImage="person" id="T2L-iB-syc">
                         <color key="badgeColor" name="textColour"/>
@@ -352,7 +353,7 @@ have a chance to win!</string>
                                         <color key="tintColor" name="textColour"/>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Leaderboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gae-0C-LiH">
-                                        <rect key="frame" x="18" y="10" width="179" height="44.5"/>
+                                        <rect key="frame" x="18" y="10" width="299" height="44.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44.5" id="Ub6-Ye-1pD"/>
                                         </constraints>
@@ -396,14 +397,14 @@ have a chance to win!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-ef-nsb" userLabel="name">
-                                                    <rect key="frame" x="15" y="8" width="345" height="32"/>
+                                                    <rect key="frame" x="15" y="8" width="345" height="29.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="25"/>
                                                     <color key="textColor" name="textColour"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfb-Qf-44I" userLabel="position">
-                                                    <rect key="frame" x="15" y="62" width="43.5" height="20"/>
+                                                    <rect key="frame" x="15" y="58.5" width="49" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                                     <color key="textColor" name="textColour"/>
                                                     <nil key="highlightedColor"/>
@@ -436,7 +437,7 @@ have a chance to win!</string>
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJd-Np-HMT" userLabel="timing">
-                                                    <rect key="frame" x="197.5" y="62" width="43.5" height="20"/>
+                                                    <rect key="frame" x="192" y="58.5" width="49" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                                     <color key="textColor" name="textColour"/>
                                                     <nil key="highlightedColor"/>
@@ -468,6 +469,7 @@ have a chance to win!</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="z3D-g5-DQc"/>
                         <color key="backgroundColor" name="backgroundPrimary"/>
                         <color key="tintColor" name="textColour"/>
                         <constraints>
@@ -479,7 +481,6 @@ have a chance to win!</string>
                             <constraint firstItem="7kP-kq-77K" firstAttribute="leading" secondItem="z3D-g5-DQc" secondAttribute="leading" id="qCX-Ze-pmN"/>
                             <constraint firstItem="z3D-g5-DQc" firstAttribute="trailing" secondItem="7kP-kq-77K" secondAttribute="trailing" id="sRc-Uu-yon"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="z3D-g5-DQc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Global Leaderboard" image="worldSymbol" id="viJ-Qs-LnR">
                         <color key="badgeColor" name="textColour"/>
@@ -507,7 +508,7 @@ have a chance to win!</string>
                                 <color key="color" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-9r-0Vk">
-                                <rect key="frame" x="16" y="25" width="54" height="50.5"/>
+                                <rect key="frame" x="16" y="25" width="98" height="47"/>
                                 <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="40"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
@@ -520,13 +521,13 @@ have a chance to win!</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoR-bP-UF8">
-                                <rect key="frame" x="16" y="100" width="343" height="20"/>
+                                <rect key="frame" x="16" y="100" width="343" height="23.5"/>
                                 <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                 <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
-                                <rect key="frame" x="16" y="140" width="163.5" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-R2-daD">
+                                <rect key="frame" x="16" y="143.5" width="163.5" height="45"/>
                                 <color key="backgroundColor" red="0.30588235294117649" green="0.73725490196078436" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="QPK-IZ-3Ca"/>
@@ -544,8 +545,8 @@ have a chance to win!</string>
                                     <action selector="selectPracticeMode:" destination="SJW-zq-dgp" eventType="touchUpInside" id="7Sr-vE-QIM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHa-kO-OGB">
-                                <rect key="frame" x="195.5" y="140" width="163.5" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHa-kO-OGB">
+                                <rect key="frame" x="195.5" y="143.5" width="163.5" height="45"/>
                                 <color key="backgroundColor" red="0.30588235294117649" green="0.73725490196078436" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ccq-Gi-fkk"/>
@@ -564,16 +565,16 @@ have a chance to win!</string>
                                 </connections>
                             </button>
                             <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoR-AQ-ht9" userLabel="nullOrErrorStateView">
-                                <rect key="frame" x="20" y="205" width="335" height="442"/>
+                                <rect key="frame" x="20" y="208.5" width="335" height="438.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KC-86-b6I" customClass="UIViewWithDashedLineBorder" customModule="MapQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="136" width="335" height="170"/>
+                                        <rect key="frame" x="0.0" y="132.5" width="335" height="173.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSD-Sg-EJT">
-                                                <rect key="frame" x="47.5" y="40" width="240" height="90"/>
+                                                <rect key="frame" x="47.5" y="40" width="240" height="93.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fW-LP-qLH">
-                                                        <rect key="frame" x="98.5" y="70" width="43.5" height="20"/>
+                                                        <rect key="frame" x="95.5" y="70" width="49" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                                         <color key="textColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -616,35 +617,35 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHG-9V-CX2" userLabel="dataStateView">
-                                <rect key="frame" x="20" y="205" width="335" height="462"/>
+                                <rect key="frame" x="20" y="208.5" width="335" height="458.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbI-YH-8qm">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140.5" height="33"/>
                                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="28"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2w-Ch-ijm" userLabel="divider1">
-                                        <rect key="frame" x="0.0" y="35.5" width="335" height="1"/>
+                                        <rect key="frame" x="0.0" y="33" width="335" height="1"/>
                                         <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="8H9-5a-HzT"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last challenge completed" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lih-UH-4q7">
-                                        <rect key="frame" x="0.0" y="46.5" width="193" height="20"/>
+                                        <rect key="frame" x="0.0" y="44" width="230.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-n8-3pn">
-                                        <rect key="frame" x="0.0" y="76.5" width="19.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="77.5" width="23.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaC-vQ-Sjh" userLabel="heartStack">
-                                        <rect key="frame" x="275" y="76.5" width="60" height="20"/>
+                                        <rect key="frame" x="275" y="77.5" width="60" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="dUc-ho-kf1" userLabel="heart3">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -671,7 +672,7 @@ have a chance to win!</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32k-1Q-dFq" userLabel="heartStack">
-                                        <rect key="frame" x="275" y="142.5" width="60" height="20"/>
+                                        <rect key="frame" x="275" y="154.5" width="60" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="L0e-Ij-DTd" userLabel="heart3">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -698,51 +699,51 @@ have a chance to win!</string>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5e-3U-HdD" userLabel="divider2">
-                                        <rect key="frame" x="0.0" y="106.5" width="335" height="1"/>
+                                        <rect key="frame" x="0.0" y="111" width="335" height="1"/>
                                         <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="LCI-vv-iCL"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUQ-gC-Ouq">
-                                        <rect key="frame" x="0.0" y="147.5" width="19.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="23.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best score this month" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbh-Nf-S9H">
-                                        <rect key="frame" x="0.0" y="117.5" width="156.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="122" width="196" height="23.5"/>
                                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Rank" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsj-Yd-Elf">
-                                        <rect key="frame" x="0.0" y="186" width="98" height="20"/>
+                                        <rect key="frame" x="0.0" y="197.5" width="118.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jM-WF-tE3" userLabel="divider3">
-                                        <rect key="frame" x="0.0" y="175" width="335" height="1"/>
+                                        <rect key="frame" x="0.0" y="186.5" width="335" height="1"/>
                                         <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="fdO-sA-2Eb"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-QI-nza">
-                                        <rect key="frame" x="0.0" y="214" width="42" height="20"/>
+                                        <rect key="frame" x="0.0" y="229" width="42" height="20"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="__ qualifying players" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbV-kc-Xy6">
-                                        <rect key="frame" x="176.5" y="214" width="158" height="20"/>
+                                        <rect key="frame" x="153" y="229" width="181.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                                         <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4e-wR-vAn">
-                                        <rect key="frame" x="0.0" y="407" width="335" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4e-wR-vAn">
+                                        <rect key="frame" x="0.0" y="403.5" width="335" height="45"/>
                                         <color key="backgroundColor" red="0.30588235289999999" green="0.73725490199999999" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="BfB-ZA-aHs"/>
@@ -805,6 +806,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="UVQ-bC-30o"/>
                         <color key="backgroundColor" name="backgroundPrimary"/>
                         <constraints>
                             <constraint firstItem="H1y-lj-1RO" firstAttribute="top" secondItem="UVQ-bC-30o" secondAttribute="top" constant="20" id="0fg-ox-Q8D"/>
@@ -832,7 +834,6 @@ have a chance to win!</string>
                             <constraint firstItem="UVQ-bC-30o" firstAttribute="trailing" secondItem="H1y-lj-1RO" secondAttribute="trailing" constant="16" id="vMI-01-Pbv"/>
                             <constraint firstItem="JoR-bP-UF8" firstAttribute="top" secondItem="H1y-lj-1RO" secondAttribute="bottom" constant="20" id="vVL-DC-jKr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="UVQ-bC-30o"/>
                     </view>
                     <navigationItem key="navigationItem" id="FHE-YA-6ze"/>
                     <connections>
@@ -929,6 +930,7 @@ have a chance to win!</string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="slU-ym-c8z"/>
                         <color key="backgroundColor" name="backgroundPrimary"/>
                         <constraints>
                             <constraint firstItem="rbU-31-QZG" firstAttribute="top" secondItem="rmy-bw-iZX" secondAttribute="bottom" id="Ab5-Ii-mtA"/>
@@ -942,7 +944,6 @@ have a chance to win!</string>
                             <constraint firstItem="slU-ym-c8z" firstAttribute="trailing" secondItem="KQZ-e4-97G" secondAttribute="trailing" id="ehg-lK-VL7"/>
                             <constraint firstItem="slU-ym-c8z" firstAttribute="bottom" secondItem="rbU-31-QZG" secondAttribute="bottom" id="nJd-Gw-ftY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="slU-ym-c8z"/>
                     </view>
                     <navigationItem key="navigationItem" id="0rm-mk-GSq"/>
                     <connections>
@@ -982,6 +983,7 @@ have a chance to win!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="kGt-PI-hey"/>
                         <color key="backgroundColor" name="backgroundPrimary"/>
                         <constraints>
                             <constraint firstItem="dWi-I2-fuh" firstAttribute="centerX" secondItem="kGt-PI-hey" secondAttribute="centerX" id="EBc-FB-4ls"/>
@@ -990,7 +992,6 @@ have a chance to win!</string>
                             <constraint firstItem="kGt-PI-hey" firstAttribute="trailing" secondItem="99F-Wq-8Nz" secondAttribute="trailing" constant="30" id="eaD-dj-Ehi"/>
                             <constraint firstItem="dWi-I2-fuh" firstAttribute="centerY" secondItem="kGt-PI-hey" secondAttribute="centerY" id="guV-Xj-SKS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="kGt-PI-hey"/>
                     </view>
                     <navigationItem key="navigationItem" id="HXg-f1-NAm"/>
                     <connections>
@@ -1046,6 +1047,7 @@ have a chance to win!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jpy-PY-L8X"/>
                         <color key="backgroundColor" name="backgroundPrimary"/>
                         <constraints>
                             <constraint firstItem="BBf-72-6uE" firstAttribute="leading" secondItem="jpy-PY-L8X" secondAttribute="leading" id="6a1-29-5yd"/>
@@ -1059,7 +1061,6 @@ have a chance to win!</string>
                             <constraint firstItem="BBf-72-6uE" firstAttribute="top" secondItem="Tqq-L2-JX4" secondAttribute="bottom" id="m7o-wG-EKP"/>
                             <constraint firstItem="jpy-PY-L8X" firstAttribute="trailing" secondItem="BBf-72-6uE" secondAttribute="trailing" id="zBp-Nv-h6x"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jpy-PY-L8X"/>
                     </view>
                     <navigationItem key="navigationItem" id="A1y-c3-6XQ"/>
                     <connections>
@@ -1198,6 +1199,7 @@ have a chance to win!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="GVY-YF-Kta"/>
                         <color key="backgroundColor" name="backgroundPrimary"/>
                         <constraints>
                             <constraint firstItem="GVY-YF-Kta" firstAttribute="trailing" secondItem="fQT-BL-ydf" secondAttribute="trailing" constant="50" id="03f-J4-8hb"/>
@@ -1215,7 +1217,6 @@ have a chance to win!</string>
                             <constraint firstItem="aVI-rP-jtG" firstAttribute="top" secondItem="CJ2-Gs-kuL" secondAttribute="bottom" constant="30" id="sAq-IU-mW7"/>
                             <constraint firstItem="dzo-qd-uKj" firstAttribute="top" secondItem="GVY-YF-Kta" secondAttribute="top" constant="12" id="vlE-0V-EqF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GVY-YF-Kta"/>
                     </view>
                     <navigationItem key="navigationItem" id="aeq-pd-hzv"/>
                     <connections>
@@ -1312,6 +1313,7 @@ have a chance to win!</string>
             <point key="canvasLocation" x="1084" y="815"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="textColour"/>
     <resources>
         <image name="correct" width="126.5" height="126.5"/>
         <image name="greyTrophy" width="50" height="50"/>
@@ -1330,6 +1332,8 @@ have a chance to win!</string>
         <namedColor name="textColour">
             <color red="0.10588235294117647" green="0.050980392156862744" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
-    <color key="tintColor" name="textColour"/>
 </document>
