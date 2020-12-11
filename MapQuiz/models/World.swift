@@ -57,6 +57,7 @@ class World {
             case .africa: return CLLocationCoordinate2D(latitude: 10, longitude: 22)
             case .asia: return CLLocationCoordinate2D(latitude: 35, longitude: 85)
             case .oceania: return CLLocationCoordinate2D(latitude: -14, longitude: 160)
+            case .world: return CLLocationCoordinate2D(latitude: 0, longitude: 0)
             case .usStates: return CLLocationCoordinate2D(latitude: 39, longitude: -106)
             }
         }()
@@ -73,6 +74,7 @@ class World {
         case .africa: return (7*60) + 20
         case .asia: return (5*60) + 52
         case .oceania: return (2*60) + 16
+        case .world: return (10*60) + 0 // TODO: figure out how much time actually give them
         case .usStates: return (6*60) + 40
         }
     }

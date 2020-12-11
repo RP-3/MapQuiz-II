@@ -28,10 +28,9 @@ class BoundaryDB {
         let data = try! Data(contentsOf: config.dataFileURL, options: .mappedIfSafe)
         let jsonResult = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as! [JSONObject]
 
-        return jsonResult
-            .compactMap { (obj: JSONObject) -> BoundedItem? in
+        return jsonResult.compactMap { (obj: JSONObject) -> BoundedItem? in
 
-            if challengeSet != .usStates { // challenge is a continent
+            if challengeSet != .usStates && challengeSet != .world { // challenge is a single continent
                 let continent = obj["continent"] as! String
                 guard continent == challengeSet.slug() else { return nil }
             }

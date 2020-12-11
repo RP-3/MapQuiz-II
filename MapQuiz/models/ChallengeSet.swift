@@ -16,6 +16,7 @@ enum ChallengeSet: String, CaseIterable {
     case europe = "EU"
     case oceania = "OC"
     case africa = "AF"
+    case world = "WORLD"
 
     // US states
     case usStates = "US_STATES"
@@ -32,6 +33,7 @@ enum ChallengeSet: String, CaseIterable {
         case "OC": return .oceania
         case "AF": return .africa
         case "US_STATES": return .usStates
+        case "WORLD": return .world
         default: return nil
         }
     }
@@ -45,6 +47,7 @@ enum ChallengeSet: String, CaseIterable {
         case .oceania: return "Oceania"
         case .africa: return "Africa"
         case .usStates: return "US States"
+        case .world: return "World"
         }
     }
 
@@ -57,6 +60,7 @@ enum ChallengeSet: String, CaseIterable {
         case .oceania: return UIImage(named: "pickOceania")!
         case .africa: return UIImage(named: "pickAfrica")!
         case .usStates: return UIImage(named: "pickUsStates")!
+        case .world: return UIImage(named: "pickWorld")!
         }
     }
 
@@ -69,6 +73,7 @@ enum ChallengeSet: String, CaseIterable {
         case .oceania: return UIImage(named: "oceania")!
         case .africa: return UIImage(named: "africa")!
         case .usStates: return UIImage(named: "usStates")!
+        case .world: return UIImage(named: "worldIcon")!
         }
     }
 
@@ -81,6 +86,7 @@ enum ChallengeSet: String, CaseIterable {
         case .oceania: return "countries"
         case .africa: return "countries"
         case .usStates: return "states"
+        case .world: return "countries, islands and city states"
         }
     }
 
@@ -91,7 +97,18 @@ enum ChallengeSet: String, CaseIterable {
         case 2: return .asia
         case 3: return .europe
         case 4: return .oceania
-        default: return .africa
+        case 5: return .africa
+        default: return .world
         }
     }
+}
+
+class ChallengeSets {
+    static let all: [ChallengeSet] = {
+        var result: [ChallengeSet] = Array()
+        for challenge in ChallengeSet.allCases {
+            result.append(challenge)
+        }
+        return result
+    }()
 }
