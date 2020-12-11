@@ -7,7 +7,7 @@
 //
 import Foundation
 
-private func format(milliseconds: Int) -> String{
+fileprivate func format(milliseconds: Int) -> String{
     let minutes = (milliseconds / 1000) / 60
     let seconds = (milliseconds / 1000) - (minutes * 60)
     let remainingMilliseconds = milliseconds % 1000
@@ -30,6 +30,13 @@ private func format(milliseconds: Int) -> String{
     return "\(minuteString):\(secondString).\(msString)"
 }
 
+fileprivate func parse(dateString: String) -> Date? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    dateFormatter.locale = .init(identifier: "en_US_POSIX")
+    return dateFormatter.date(from: dateString)
+}
+
 struct LocalRanking {
     let livesRemaining: Int
     let lengthInMs: Int
@@ -47,15 +54,15 @@ struct Ranking {
     let startedAt: Date
 
     static func from(dict: [String: Any]) -> Ranking? {
-        guard let livesRemaining = dict["livesRemaining"] as? Int else { return nil }
-        guard let lengthInMs = dict["lengthInMs"] as? Int else { return nil }
-        guard let rank = dict["rank"] as? Int else { return nil }
-        guard let dateString = dict["startedAt"] as? String else { return nil }
-        guard let total = dict["total"] as? Int else { return nil }
+        guard
+            let livesRemaining = dict["livesRemaining"] as? Int,
+            let lengthInMs = dict["lengthInMs"] as? Int,
+            let dateString = dict["startedAt"] as? String,
+            let total = dict["total"] as? Int,
+            let rank = dict["rank"] as? Int
+        else { return nil }
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        guard let startedAt = dateFormatter.date(from: dateString) else { return nil }
+        guard let startedAt = parse(dateString: dateString) else { return nil }
 
         return Ranking(
             livesRemaining: livesRemaining,
@@ -80,16 +87,16 @@ struct NamedRanking {
     let anonymous: Bool
 
     static func from(dict: [String: Any]) -> NamedRanking? {
-        guard let livesRemaining = dict["livesRemaining"] as? Int else { return nil }
-        guard let lengthInMs = dict["lengthInMs"] as? Int else { return nil }
-        guard let rank = dict["rank"] as? Int else { return nil }
-        guard let dateString = dict["startedAt"] as? String else { return nil }
-        guard let name = dict["name"] as? String else { return nil }
-        guard let anonymous = dict["anonymous"] as? Bool else { return nil }
+        guard
+            let livesRemaining = dict["livesRemaining"] as? Int,
+            let dateString = dict["startedAt"] as? String,
+            let lengthInMs = dict["lengthInMs"] as? Int,
+            let anonymous = dict["anonymous"] as? Bool,
+            let name = dict["name"] as? String,
+            let rank = dict["rank"] as? Int
+        else { return nil }
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        guard let startedAt = dateFormatter.date(from: dateString) else { return nil }
+        guard let startedAt = parse(dateString: dateString) else { return nil }
 
         return NamedRanking(
             livesRemaining: livesRemaining,
