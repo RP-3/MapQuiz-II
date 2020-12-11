@@ -20,6 +20,8 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
             let renderer = MKCircleRenderer(circle: circle)
             renderer.fillColor = beigeColor
             renderer.alpha = 0.1
+            renderer.lineDashPattern = [2, 5];
+            renderer.strokeColor = .black
             return renderer
         }
 

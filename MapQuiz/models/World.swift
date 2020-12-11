@@ -26,6 +26,8 @@ class World {
 
         // europe
         "Malta": 50_000,
+        "Vatican City": 50_000,
+        "San Marino": 50_000,
 
         // africa
         "Mauritius": 500_000,
