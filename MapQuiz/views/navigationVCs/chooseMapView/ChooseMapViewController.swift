@@ -43,7 +43,7 @@ class ChooseMapViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60)
-        let title = section == 0 ? "New: US States" : "Countries of the World"
+        let title = section == 0 ? "States & Territories" : "Countries of the World"
         return MapCellHeader(frame: frame, title: title)
     }
 
