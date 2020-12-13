@@ -48,6 +48,12 @@ class World {
         "Antigua and Barbuda": 60_000,
         "Grenada": 90_000,
         "Saint Lucia": 80_000,
+
+        // us states
+        "US Virgin Islands": 80_000,
+        "Northern Mariana Islands": 80_000,
+        "Guam": 80_000,
+        "American Samoa": 80_000,
     ]
 
     public static func regionFor(challengeSet: ChallengeSet) -> MKCoordinateRegion {
