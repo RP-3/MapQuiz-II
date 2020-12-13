@@ -69,15 +69,16 @@ class World {
     }
 
     public static func timeLimitFor(challengeSet: ChallengeSet) -> Double {
-        switch challengeSet { // ~8 seconds per item. Written as (m*60) mins + s seconds
-        case .northAmerica: return (3*60) + 12
-        case .southAmerica: return (1*60) + 36
-        case .europe: return (6*60) + 0
-        case .africa: return (7*60) + 20
-        case .asia: return (5*60) + 52
-        case .oceania: return (2*60) + 16
-        case .world: return (10*60) + 0 // TODO: figure out how much time actually give them
-        case .usStates: return (6*60) + 40
+        let secondsPerItem: Double = 6
+        switch challengeSet { // ~6 seconds per item
+        case .northAmerica: return 24*secondsPerItem
+        case .southAmerica: return 13*secondsPerItem
+        case .europe: return 46*secondsPerItem
+        case .africa: return 54*secondsPerItem
+        case .asia: return 47*secondsPerItem
+        case .oceania: return 17*secondsPerItem
+        case .world: return 200*secondsPerItem
+        case .usStates: return 50*secondsPerItem
         }
     }
 
