@@ -20,7 +20,8 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 44
+        tableView.rowHeight = 90
+        tableView.separatorStyle = .singleLine
         let nib = UINib(nibName: "ScoreTableViewCell", bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: "ScoreTableViewCell")
 
@@ -58,18 +59,15 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if RankCache.shared.ranking.count > 0 { coverView.isHidden = true }
         return RankCache.shared.ranking.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RankCache.shared.ranking[section].1.count
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreTableViewCell") as? ScoreTableViewCell ?? ScoreTableViewCell()
-        cell.setup(ranking: RankCache.shared.ranking[indexPath.section].1[indexPath.row])
+        let (challengeSet, ranking) = RankCache.shared.ranking[indexPath.row]
+        cell.setup(ranking: ranking[0], challengeSet: challengeSet)
         return cell
     }
 
@@ -77,24 +75,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        let challengeName = RankCache.shared.ranking[section].0.title()
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor(named: "backgroundSecondary")!
-
-        let headerLabel = UILabel(frame: CGRect(
-            x: 10,
-            y: 0,
-            width:tableView.bounds.size.width,
-            height: tableView.bounds.size.height
-        ))
-        headerLabel.font = UIConstants.amatic(size: 22)
-        headerLabel.textColor = UIColor(named: "textColour")!
-        headerLabel.text = "\(challengeName) (\(RankCache.shared.ranking[section].1[0].total) qualifying players world-wide)"
-        headerLabel.sizeToFit()
-        headerView.addSubview(headerLabel)
-
-        return headerView
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
 }
