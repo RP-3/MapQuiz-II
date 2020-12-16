@@ -139,9 +139,8 @@ class ChooseModeViewController: UIViewController {
     }
 
     private func setFont(){
-        navigationItem.backBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
-            for: .normal
-        )
+        if let btn = navigationItem.backBarButtonItem {
+            UIConstants.set(attrs: [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], forAllStatesOn: btn)
+        }
     }
 }

@@ -37,7 +37,8 @@ class ChallengeViewController: UIViewController {
         instructionLabel.font = UIConstants.amaticBold(size: 24)
         timeRemaining.font = UIConstants.amaticBold(size: 24)
         let skipButton = UIBarButtonItem(title: "Skip", style: .plain, target: self, action: #selector(skip))
-        skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
+        let attrs = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
+        UIConstants.set(attrs: attrs, forAllStatesOn: skipButton)
         self.navigationItem.rightBarButtonItem = skipButton
     }
 

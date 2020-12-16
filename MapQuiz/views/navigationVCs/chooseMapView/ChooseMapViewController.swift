@@ -79,15 +79,13 @@ class ChooseMapViewController: UITableViewController {
 
         let backItem = UIBarButtonItem()
         backItem.title = "MapQuiz"
-        navigationItem.backBarButtonItem = backItem
-        navigationItem.backBarButtonItem?.setTitleTextAttributes(
-            UIConstants.attributedText(
-                font: UIConstants.amaticBold(size: 24),
-                color: UIColor(named: "textColour")!,
-                kern: 0
-            ),
-            for: .normal
+        let attrs = UIConstants.attributedText(
+            font: UIConstants.amaticBold(size: 24),
+            color: UIColor(named: "textColour")!,
+            kern: 0
         )
+        UIConstants.set(attrs: attrs, forAllStatesOn: backItem)
+        navigationItem.backBarButtonItem = backItem
 
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
         let challengeSet = indexPath.section == 0 ? .usStates : ChallengeSet.at(index: indexPath.row)

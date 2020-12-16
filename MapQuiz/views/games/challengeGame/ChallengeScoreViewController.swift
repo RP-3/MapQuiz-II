@@ -22,10 +22,10 @@ class ChallengeScoreViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = newBackButton
 
         winLoseMessage.font = UIConstants.amaticBold(size: 28)
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)],
-            for: .normal
-        )
+        if let btn = navigationItem.leftBarButtonItem {
+            let attrs = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
+            UIConstants.set(attrs: attrs, forAllStatesOn: btn)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

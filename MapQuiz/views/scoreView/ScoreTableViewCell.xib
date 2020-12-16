@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.32.182" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-VO-dmA">
-                        <rect key="frame" x="120" y="71" width="80" height="20"/>
+                        <rect key="frame" x="115.5" y="67.5" width="89" height="23.5"/>
                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                         <color key="textColor" name="textColour"/>
                         <nil key="highlightedColor"/>
@@ -54,19 +54,19 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-Ci-l7b">
-                        <rect key="frame" x="10" y="8" width="33.5" height="32"/>
+                        <rect key="frame" x="10" y="8" width="61.5" height="29.5"/>
                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-PI-BhD">
-                        <rect key="frame" x="53.5" y="15.5" width="37" height="17"/>
+                        <rect key="frame" x="81.5" y="13" width="42" height="20"/>
                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1028th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia0-Tn-o5G">
-                        <rect key="frame" x="10" y="71" width="54.5" height="20"/>
+                        <rect key="frame" x="10" y="67.5" width="62" height="23.5"/>
                         <fontDescription key="fontDescription" name="JosefinSans-Light" family="Josefin Sans" pointSize="20"/>
                         <color key="textColor" name="textColour"/>
                         <nil key="highlightedColor"/>

@@ -31,15 +31,13 @@ class PracticeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         worldMap.delegate = mapDelegate
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
-        revealButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
-        revealButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .disabled)
-        skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
-        skipButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .disabled)
+        let attrs = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
+        self.navigationController?.navigationBar.titleTextAttributes = attrs
+        UIConstants.set(attrs: attrs, forAllStatesOn: revealButton)
+        UIConstants.set(attrs: attrs, forAllStatesOn: skipButton)
         instructionLabel.font = UIConstants.amaticBold(size: 24)
         let revealAllButton = UIBarButtonItem(title: "Reveal All", style: .plain, target: self, action: #selector(revealAll))
-        revealAllButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .normal)
-        revealAllButton.setTitleTextAttributes([NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)], for: .disabled)
+        UIConstants.set(attrs: attrs, forAllStatesOn: revealAllButton)
         self.navigationItem.rightBarButtonItem = revealAllButton
     }
 

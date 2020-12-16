@@ -34,6 +34,13 @@ class UIConstants {
         ]
     }
 
+    public static func set(attrs: [NSAttributedString.Key: Any], forAllStatesOn btn: UIBarButtonItem) {
+        let states: [UIControl.State] = [.disabled, .focused, .highlighted, .normal]
+        for state in states {
+            btn.setTitleTextAttributes(attrs, for: state)
+        }
+    }
+
     public static func format(time: Int) -> String {
         let minutes = time / 60
         let seconds = time % 60
