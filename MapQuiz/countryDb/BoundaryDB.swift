@@ -22,94 +22,54 @@ class BoundaryDB {
     }
 
     public static func boundedItems(inChallengeSet challengeSet: ChallengeSet) -> [BoundedItem] {
+        var result: [BoundedItem] = Array()
 
-        let config = mapping(forChallengeSet: challengeSet)
+        for fileName in challengeSet.dataFiles {
+            let path = Bundle.main.path(forResource: "data/\(fileName)", ofType: "json")!
+            let url = URL(fileURLWithPath: path)
+            let data = try! Data(contentsOf: url, options: .mappedIfSafe)
+            let jsonResult = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as! [JSONObject]
 
-        let data = try! Data(contentsOf: config.dataFileURL, options: .mappedIfSafe)
-        let jsonResult = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as! [JSONObject]
+            let parsedItemsInFile = jsonResult.compactMap { (obj: JSONObject) -> BoundedItem? in
+                let boundaryType: GeoJsonFormat = {
+                    switch obj["type"] as! String {
+                    case "Polygon": return .polygon
+                    case "MultiPolygon": return .multipolygon
+                    default:
+                        fatalError("Warning: Unknown boundary type \(obj["type"] as! String)")
+                    }
+                }()
 
-        return jsonResult.compactMap { (obj: JSONObject) -> BoundedItem? in
+                var boundaryPointsCount = 0
+                let boundary: [[CLLocationCoordinate2D]] = {
+                    switch boundaryType {
+                    case .polygon:
+                        let points = (obj["coordinates"] as! [[[CLLocationDegrees]]]).first!
+                        boundaryPointsCount = points.count
+                        return [points.map { CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0]) }]
+                    case .multipolygon:
+                        let polygons = (obj["coordinates"] as! [[[[CLLocationDegrees]]]])
+                        return polygons.map { (polygon: [[[CLLocationDegrees]]]) -> [CLLocationCoordinate2D] in
+                            return polygon[0].map { CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0]) }
+                        }
+                    }
+                }()
 
-            if challengeSet != ChallengeSets.US_STATES && challengeSet != ChallengeSets.WORLD && challengeSet != ChallengeSets.GB_COUNTIES { // challenge is a single continent
-                let continent = obj["continent"] as! String
-                guard continent == challengeSet.slug else { return nil }
+                let annotPtStr = (obj["centroid"] as! String).components(separatedBy: ",")
+                let annotationPoint = CLLocationCoordinate2D(latitude: Double(annotPtStr[0])!, longitude: Double(annotPtStr[1])!)
+
+                return BoundedItem(
+                    name: obj["name"]! as! String,
+                    boundary: boundary,
+                    boundaryPointsCount: boundaryPointsCount,
+                    geojsonFormat: boundaryType,
+                    annotation_point: annotationPoint
+                )
             }
 
-            let boundaryType: GeoJsonFormat = {
-                switch obj[config.typeKey] as! String {
-                case "Polygon": return .polygon
-                case "MultiPolygon": return .multipolygon
-                default:
-                    print("Warning: Unknown boundary type \(obj[config.typeKey] as! String)")
-                    return .polygon
-                }
-            }()
-
-            var boundaryPointsCount = 0
-            let boundary: [[CLLocationCoordinate2D]] = {
-                switch boundaryType {
-                case .polygon:
-                    let points = (obj[config.coordsKey] as! [[[CLLocationDegrees]]]).first!
-                    boundaryPointsCount = points.count
-                    return [points.map { CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0]) }]
-                case .multipolygon:
-                    let polygons = (obj[config.coordsKey] as! [[[[CLLocationDegrees]]]])
-                    return polygons.map { (polygon: [[[CLLocationDegrees]]]) -> [CLLocationCoordinate2D] in
-                        return polygon[0].map { CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0]) }
-                    }
-                }
-            }()
-
-            let annotPtStr = (obj[config.annotationPointKey] as! String).components(separatedBy: ",")
-            let annotationPoint = CLLocationCoordinate2D(latitude: Double(annotPtStr[0])!, longitude: Double(annotPtStr[1])!)
-
-            return BoundedItem(
-                name: obj[config.nameKey]! as! String,
-                boundary: boundary,
-                boundaryPointsCount: boundaryPointsCount,
-                geojsonFormat: boundaryType,
-                annotation_point: annotationPoint
-            )
+            result.append(contentsOf: parsedItemsInFile)
         }
-    }
 
-    private static func mapping(forChallengeSet challengeSet: ChallengeSet) -> GeoJsonMapping {
-        switch challengeSet {
-        case ChallengeSets.US_STATES:
-            let stateDataPath = Bundle.main.path(forResource: "USStateData", ofType: "json")!
-            return GeoJsonMapping(
-                dataFileURL: URL(fileURLWithPath: stateDataPath),
-                typeKey: "type",
-                coordsKey: "coordinates",
-                nameKey: "name",
-                annotationPointKey: "annotationCoords"
-            )
-        case ChallengeSets.GB_COUNTIES:
-            let itemDataPath = Bundle.main.path(forResource: "ceremonialCountiesGB", ofType: "json")!
-            return GeoJsonMapping(
-                dataFileURL: URL(fileURLWithPath: itemDataPath),
-                typeKey: "type",
-                coordsKey: "coordinates",
-                nameKey: "NAME",
-                annotationPointKey: "centroid"
-            )
-        default:
-            let itemDataPath = Bundle.main.path(forResource: "countryData", ofType: "json")!
-            return GeoJsonMapping(
-                dataFileURL: URL(fileURLWithPath: itemDataPath),
-                typeKey: "coordinates_type",
-                coordsKey: "coordinates",
-                nameKey: "country",
-                annotationPointKey: "lat_long"
-            )
-        }
+        return result
     }
-}
-
-fileprivate struct GeoJsonMapping {
-    let dataFileURL: URL
-    let typeKey: String
-    let coordsKey: String
-    let nameKey: String
-    let annotationPointKey: String
 }
