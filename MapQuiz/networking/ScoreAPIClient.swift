@@ -25,7 +25,7 @@ class ScoreAPIClient {
 
             var rtn: [ChallengeSet: [Ranking]] = [:]
             for ranking in rankings {
-                guard let challengeSet = ChallengeSet.from(str: (ranking["code"] as? String)) else {
+                guard let challengeSet = ChallengeSets.from(slug: (ranking["code"] as? String ?? "")) else {
                     print("WARNING: Could not parse ChallengeSet from: \(String(describing: ranking["code"] as? String))")
                     continue
                 }
@@ -60,7 +60,7 @@ class ScoreAPIClient {
         var result: [String: Any] = [:]
 
         let game: [String: Any] = [
-            "continent": challengeSession.challengeSet.slug(),
+            "continent": challengeSession.challengeSet.slug,
             "livesRemaining": challengeSession.currentGameState().livesRemaining as Int,
             "lengthInMs": challengeSession.dangerousElapsedTimeInMs() as Double,
             "startedAt": Int(challengeSession.startTime!.timeIntervalSince1970 as Double * 1000)

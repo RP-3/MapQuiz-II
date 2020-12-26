@@ -7,108 +7,93 @@
 //
 
 import UIKit
+import MapKit
 
-enum ChallengeSet: String, CaseIterable {
-    // continents
-    case northAmerica = "NA"
-    case southAmerica = "SA"
-    case asia = "AS"
-    case europe = "EU"
-    case oceania = "OC"
-    case africa = "AF"
-    case world = "WORLD"
+class ChallengeSet: Hashable {
+    let slug: String
+    let title: String
+    let pickerImage: UIImage
+    let tableCellImage: UIImage
+    let collectionDescriptor: String
+    let region: MKCoordinateRegion
+    let timeLimit: Double
 
-    // US states
-    case usStates = "US_STATES"
-
-    func slug() -> String { return self.rawValue }
-
-    static func from(str: String?) -> ChallengeSet? {
-        guard let str = str else { return nil }
-        switch str {
-        case "NA": return .northAmerica
-        case "SA": return .southAmerica
-        case "AS": return .asia
-        case "EU": return .europe
-        case "OC": return .oceania
-        case "AF": return .africa
-        case "US_STATES": return .usStates
-        case "WORLD": return .world
-        default: return nil
-        }
+    init(_ slug: String, _ title: String, _ pickerImage: UIImage, _ tableCellImage: UIImage, _ collectionDescriptor: String, _ region: MKCoordinateRegion, _ timeLimit: Double){
+        self.slug = slug
+        self.title = title
+        self.pickerImage = pickerImage
+        self.tableCellImage = tableCellImage
+        self.collectionDescriptor = collectionDescriptor
+        self.region = region
+        self.timeLimit = timeLimit
     }
 
-    func title() -> String {
-        switch self {
-        case .northAmerica: return "North America"
-        case .southAmerica: return "South America"
-        case .asia: return "Asia"
-        case .europe: return "Europe"
-        case .oceania: return "Oceania"
-        case .africa: return "Africa"
-        case .usStates: return "US States & Territories"
-        case .world: return "World"
-        }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(slug)
     }
 
-    func pickerImage() -> UIImage {
-        switch self {
-        case .northAmerica: return UIImage(named: "pickNorthAmerica")!
-        case .southAmerica: return UIImage(named: "pickSouthAmerica")!
-        case .asia: return UIImage(named: "pickAsia")!
-        case .europe: return UIImage(named: "pickEurope")!
-        case .oceania: return UIImage(named: "pickOceania")!
-        case .africa: return UIImage(named: "pickAfrica")!
-        case .usStates: return UIImage(named: "pickUsStates")!
-        case .world: return UIImage(named: "pickWorld")!
-        }
+    static func == (lhs: ChallengeSet, rhs: ChallengeSet) -> Bool {
+        return lhs.slug == rhs.slug
     }
+}
 
-    func tableCellImage() -> UIImage {
-        switch self {
-        case .northAmerica: return UIImage(named: "northAmerica")!
-        case .southAmerica: return UIImage(named: "southAmerica")!
-        case .asia: return UIImage(named: "asia")!
-        case .europe: return UIImage(named: "europe")!
-        case .oceania: return UIImage(named: "oceania")!
-        case .africa: return UIImage(named: "africa")!
-        case .usStates: return UIImage(named: "usStates")!
-        case .world: return UIImage(named: "worldIcon")!
-        }
-    }
+class ChallengeSetCollection {
+    let header: String
+    let challengeSets: [ChallengeSet]
 
-    func collectionDescriptor() -> String {
-        switch self {
-        case .northAmerica: return "countries & islands"
-        case .southAmerica: return "countries"
-        case .asia: return "countries"
-        case .europe: return "countries and city states"
-        case .oceania: return "countries"
-        case .africa: return "countries"
-        case .usStates: return "states & territories"
-        case .world: return "countries, islands and city states"
-        }
-    }
-
-    static func at(index: Int) -> ChallengeSet {
-        switch index {
-        case 0: return .northAmerica
-        case 1: return .southAmerica
-        case 2: return .asia
-        case 3: return .europe
-        case 4: return .oceania
-        case 5: return .africa
-        default: return .world
-        }
+    init(header: String, challengeSets: [ChallengeSet]) {
+        self.header = header
+        self.challengeSets = challengeSets
     }
 }
 
 class ChallengeSets {
-    static let all: [ChallengeSet] = {
-        var result: [ChallengeSet] = Array()
-        for challenge in ChallengeSet.allCases {
-            result.append(challenge)
+    //                           slug     title            picker                   tableCellImage              collectionDescriptor                     region                 timeLimit
+    static let NA = ChallengeSet("NA",    "North America", img("pickNorthAmerica"), img("northAmerica"),        "countries & islands",                   region(50, -101, 100), 24*6)
+    static let SA = ChallengeSet("SA",    "South America", img("pickSouthAmerica"), img("southAmerica"),        "countries",                             region(-19, -60, 100), 13*6)
+    static let AS = ChallengeSet("AS",    "Asia",          img("pickAsia"),         img("asia"),                "countries",                             region(35, 85, 100),   47*6)
+    static let EU = ChallengeSet("EU",    "Europe",        img("pickEurope"),       img("europe"),              "countries and city states",             region(60, 10, 100),   46*6)
+    static let OC = ChallengeSet("OC",    "Oceania",       img("pickOceania"),      img("oceania"),             "countries",                             region(-14, 160, 100), 17*6)
+    static let AF = ChallengeSet("AF",    "Africa",        img("pickAfrica"),       img("africa"),              "countries",                             region(10, 22, 100),   54*6)
+    static let WORLD = ChallengeSet("WORLD", "World",         img("pickWorld"),        img("worldIcon"),        "countries, islands and city states",    region(0, 0, 100),     200*6)
+    static let US_STATES = ChallengeSet("US_STATES", "US States & Territories",  img("pickUsStates"), img("usStates"), "states & territories",           region(39, -106, 100), 50*6)
+    static let GB_COUNTIES = ChallengeSet("GB_COUNTIES", "British Counties (Ceremonial)",  img("pickUsStates"), img("usStates"), "ceremonial counties", region(60, 10, 40),     91*6)
+
+    static let all = [
+        ChallengeSetCollection(header: "Countries of the World", challengeSets: [NA, SA, AS, EU, OC, AF, WORLD]),
+        ChallengeSetCollection(header: "United Kingdom", challengeSets: [GB_COUNTIES]),
+        ChallengeSetCollection(header: "United States", challengeSets: [US_STATES]),
+    ]
+
+    static let flattened = [NA, SA, AS, EU, OC, AF, WORLD, US_STATES, GB_COUNTIES]
+
+    static func from(slug: String) -> ChallengeSet? {
+        for collection in self.all {
+            for cs in collection.challengeSets {
+                if cs.slug == slug {
+                    return cs
+                }
+            }
         }
-        return result
-    }()
+        return nil
+    }
+}
+
+// syntactic helpers
+fileprivate func img(_ name: String) -> UIImage {
+    return UIImage(named: name)!
+}
+
+fileprivate func coords(_ latitude: CLLocationDegrees, _ longitude: CLLocationDegrees) -> CLLocationCoordinate2D {
+    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+}
+
+fileprivate func span(_ delta: CLLocationDegrees) -> MKCoordinateSpan {
+    return MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
+}
+
+fileprivate func region(_ lat: CLLocationDegrees, _ lon: CLLocationDegrees, _ delta: CLLocationDegrees) -> MKCoordinateRegion {
+    let c = coords(lat, lon)
+    let s = span(delta)
+    return MKCoordinateRegion(center: c, span: s)
 }

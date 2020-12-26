@@ -41,6 +41,7 @@
 		419F10C722373DED00243AB2 /* plop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10C622373DED00243AB2 /* plop.wav */; };
 		419F10C922373DF300243AB2 /* right.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10C822373DF300243AB2 /* right.wav */; };
 		419F10CB22373DF800243AB2 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 419F10CA22373DF800243AB2 /* wrong.wav */; };
+		41ABAF832595020200C0E449 /* ceremonialCountiesGB.json in Resources */ = {isa = PBXBuildFile; fileRef = 41ABAF822595020200C0E449 /* ceremonialCountiesGB.json */; };
 		41AC8451223759A00052AA78 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC8450223759A00052AA78 /* UIConstants.swift */; };
 		41AC845222375AAB0052AA78 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41AC844E223759380052AA78 /* AmaticSC-Bold.ttf */; };
 		41AC845322375AAB0052AA78 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41AC844F223759380052AA78 /* AmaticSC-Regular.ttf */; };
@@ -102,6 +103,7 @@
 		419F10C622373DED00243AB2 /* plop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = plop.wav; sourceTree = "<group>"; };
 		419F10C822373DF300243AB2 /* right.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = right.wav; sourceTree = "<group>"; };
 		419F10CA22373DF800243AB2 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		41ABAF822595020200C0E449 /* ceremonialCountiesGB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ceremonialCountiesGB.json; sourceTree = "<group>"; };
 		41AC844E223759380052AA78 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		41AC844F223759380052AA78 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		41AC8450223759A00052AA78 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		419F10B72236316500243AB2 /* countryDb */ = {
 			isa = PBXGroup;
 			children = (
+				41ABAF822595020200C0E449 /* ceremonialCountiesGB.json */,
 				419436B923DE73E7007D4305 /* USStateData.json */,
 				419F10B422362F2400243AB2 /* countryData.json */,
 				419F10B82236317A00243AB2 /* BoundaryDB.swift */,
@@ -426,6 +429,7 @@
 				419F10C522373DE700243AB2 /* bounce.wav in Resources */,
 				41DC571F226080A4004FB17F /* ScoreTableViewCell.xib in Resources */,
 				410A3C9A23EE3F3900847452 /* MapCell.xib in Resources */,
+				41ABAF832595020200C0E449 /* ceremonialCountiesGB.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,7 +31,7 @@ class RankCache {
             }()
 
             self.ranking = newRankings.sorted(by: { (item1: (ChallengeSet, [Ranking]), item2: (ChallengeSet, [Ranking])) -> Bool in
-                return item1.0.title() < item2.0.title()
+                return item1.0.title < item2.0.title
             })
             self.monthString = monthStr
             DispatchQueue.main.async { cb(true) }
@@ -60,6 +60,6 @@ class RankCache {
     }
 
     private func localRankingKeys(for challengeSet: ChallengeSet) -> (String, String) {
-        return ("local_ranking_\(challengeSet.slug())_timing", "local_ranking_\(challengeSet.slug())_lives")
+        return ("local_ranking_\(challengeSet.slug)_timing", "local_ranking_\(challengeSet.slug)_lives")
     }
 }

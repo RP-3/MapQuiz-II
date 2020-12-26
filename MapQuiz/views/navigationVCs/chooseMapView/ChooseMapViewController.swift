@@ -35,15 +35,15 @@ class ChooseMapViewController: UITableViewController {
     }
 
     // MARK: Tableview Delegates
-    override func numberOfSections(in tableView: UITableView) -> Int { return 2 }
+    override func numberOfSections(in tableView: UITableView) -> Int { return ChallengeSets.all.count }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : ChallengeSet.allCases.count - 1
+        return ChallengeSets.all[section].challengeSets.count
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60)
-        let title = section == 0 ? "States & Territories" : "Countries of the World"
+        let title = ChallengeSets.all[section].header
         return MapCellHeader(frame: frame, title: title)
     }
 
@@ -60,17 +60,10 @@ class ChooseMapViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let challengeSet: ChallengeSet = .usStates
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell") as! MapCell
-            cell.set(challengeSet: challengeSet)
-            return cell
-        } else {
-            let challengeSet: ChallengeSet = ChallengeSet.at(index: indexPath.row)
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell") as! MapCell
-            cell.set(challengeSet: challengeSet)
-            return cell
-        }
+        let collection = ChallengeSets.all[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell") as! MapCell
+        cell.set(challengeSet: collection.challengeSets[indexPath.row])
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,9 +80,9 @@ class ChooseMapViewController: UITableViewController {
         UIConstants.set(attrs: attrs, forAllStatesOn: backItem)
         navigationItem.backBarButtonItem = backItem
 
+        let collection = ChallengeSets.all[indexPath.section]
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
-        let challengeSet = indexPath.section == 0 ? .usStates : ChallengeSet.at(index: indexPath.row)
-        vc.challengeSet = challengeSet
+        vc.challengeSet = collection.challengeSets[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

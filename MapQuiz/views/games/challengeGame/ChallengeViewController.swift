@@ -67,7 +67,7 @@ class ChallengeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        worldMap.setRegion(World.regionFor(challengeSet: challengeSet), animated: true)
+        worldMap.setRegion(challengeSet.region, animated: true)
         instructionLabel.backgroundColor = BLUE
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false // disable popViewController by swiping
         let alert = UIAlertController(title: "Ready?", message: "Hit go to start the game", preferredStyle: .alert)
@@ -116,7 +116,7 @@ class ChallengeViewController: UIViewController {
 
     @objc func tickGameClock(){
         let elapsedTime = Date.init().timeIntervalSince(session.startTime!)
-        let timeLimit = World.timeLimitFor(challengeSet: challengeSet)
+        let timeLimit = challengeSet.timeLimit
         let secondsRemaining = Int(timeLimit - elapsedTime)
 
         if secondsRemaining < 0 {

@@ -21,7 +21,7 @@ class LeaderboardAPIClient {
         andExecute cb: @escaping (_: [NamedRanking]?) -> Void
     ){
         let body: [String: Any] = [
-            "continent": challengeSet.rawValue,
+            "continent": challengeSet.slug,
             "month": month,
             "year": year,
             "minPosition": minPosition

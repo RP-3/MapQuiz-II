@@ -56,38 +56,6 @@ class World {
         "American Samoa": 80_000,
     ]
 
-    public static func regionFor(challengeSet: ChallengeSet) -> MKCoordinateRegion {
-        let coords: CLLocationCoordinate2D = {
-            switch challengeSet {
-            case .northAmerica: return CLLocationCoordinate2D(latitude: 50, longitude: -101)
-            case .southAmerica: return CLLocationCoordinate2D(latitude: -19, longitude: -60)
-            case .europe: return CLLocationCoordinate2D(latitude: 60, longitude: 10)
-            case .africa: return CLLocationCoordinate2D(latitude: 10, longitude: 22)
-            case .asia: return CLLocationCoordinate2D(latitude: 35, longitude: 85)
-            case .oceania: return CLLocationCoordinate2D(latitude: -14, longitude: 160)
-            case .world: return CLLocationCoordinate2D(latitude: 0, longitude: 0)
-            case .usStates: return CLLocationCoordinate2D(latitude: 39, longitude: -106)
-            }
-        }()
-
-        let span = MKCoordinateSpan(latitudeDelta: 100.0, longitudeDelta: 100.0)
-        return MKCoordinateRegion(center: coords, span: span)
-    }
-
-    public static func timeLimitFor(challengeSet: ChallengeSet) -> Double {
-        let secondsPerItem: Double = 6
-        switch challengeSet { // ~6 seconds per item
-        case .northAmerica: return 24*secondsPerItem
-        case .southAmerica: return 13*secondsPerItem
-        case .europe: return 46*secondsPerItem
-        case .africa: return 54*secondsPerItem
-        case .asia: return 47*secondsPerItem
-        case .oceania: return 17*secondsPerItem
-        case .world: return 200*secondsPerItem
-        case .usStates: return 50*secondsPerItem
-        }
-    }
-
     public static func smallIsland(name: String) -> CLLocationDistance? {
         return World.smallIslandNames[name]
     }

@@ -14,7 +14,7 @@ class LeaderboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
 
-    public var defaultChallengeSet: ChallengeSet = .southAmerica
+    public var defaultChallengeSet = ChallengeSets.from(slug: "SA")!
 
     // picker constants
     let monthPicks: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -53,7 +53,7 @@ class LeaderboardViewController: UIViewController {
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = yearPicks.last!
         var challengeSetRowNumber = 500
-        while(ChallengeSets.all[challengeSetRowNumber % ChallengeSets.all.count] != defaultChallengeSet){
+        while(ChallengeSets.flattened[challengeSetRowNumber % ChallengeSets.flattened.count] != defaultChallengeSet){
             challengeSetRowNumber+=1
         }
         pickerView.selectRow(currentMonth - 1, inComponent: 0, animated: true) // most recent month
@@ -112,7 +112,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let monthIndex = pickerView.selectedRow(inComponent: 0)
         let year = yearPicks[pickerView.selectedRow(inComponent: 1)]
         let selected = startOfMonth(year: year, month: monthIndex + 1)
-        let challengeSet = ChallengeSets.all[pickerView.selectedRow(inComponent: 2) % ChallengeSets.all.count]
+        let challengeSet = ChallengeSets.flattened[pickerView.selectedRow(inComponent: 2) % ChallengeSets.all.count]
 
         let currentYear = Calendar.current.component(.year, from: Date())
         let currentMonth = Calendar.current.component(.month, from: Date())
@@ -158,7 +158,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         switch component {
         case 0: return monthPicks[row]
         case 1: return String(yearPicks[row])
-        default: return ChallengeSets.all[row % ChallengeSets.all.count].rawValue
+        default: return ChallengeSets.flattened[row % ChallengeSets.all.count].slug
         }
     }
 
@@ -173,10 +173,10 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let contentFrame = CGRect(x: 0, y: 0, width: width/3, height: height)
 
         if component == 2 {
-            let challengeSet = ChallengeSets.all[row % ChallengeSets.all.count]
+            let challengeSet = ChallengeSets.flattened[row % ChallengeSets.all.count]
             let imageView = UIImageView(frame: contentFrame)
             imageView.contentMode = .scaleAspectFit
-            imageView.image = challengeSet.pickerImage()
+            imageView.image = challengeSet.pickerImage
             element.addSubview(imageView)
         } else {
             let label = UILabel(frame: contentFrame)

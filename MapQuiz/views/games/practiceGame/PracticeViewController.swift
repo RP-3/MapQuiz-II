@@ -66,7 +66,7 @@ class PracticeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        worldMap.setRegion(World.regionFor(challengeSet: challengeSet), animated: true)
+        worldMap.setRegion(challengeSet.region, animated: true)
         instructionLabel.backgroundColor = BLUE
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false // disable popViewController by swiping
     }

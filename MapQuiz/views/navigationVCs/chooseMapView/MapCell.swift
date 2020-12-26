@@ -15,10 +15,10 @@ class MapCell: UITableViewCell {
     @IBOutlet weak var mapImage: UIImageView!
 
     public func set(challengeSet: ChallengeSet){
-        self.mapImage.image = challengeSet.tableCellImage()
+        self.mapImage.image = challengeSet.tableCellImage
 
         self.titleLabel.attributedText = NSAttributedString(
-            string: challengeSet.title().uppercased(),
+            string: challengeSet.title.uppercased(),
             attributes: UIConstants.attributedText(
                 font: UIConstants.josefinSansRegular(size: 18),
                 color: UIColor(named: "textColour")!,
@@ -27,7 +27,7 @@ class MapCell: UITableViewCell {
         )
 
         let prefix = BoundaryDB.size(of: challengeSet)
-        let suffix = challengeSet.collectionDescriptor()
+        let suffix = challengeSet.collectionDescriptor
         self.descriptionLabel.attributedText = NSAttributedString(
             string: "\(String(prefix)) \(suffix)",
             attributes: UIConstants.attributedText(

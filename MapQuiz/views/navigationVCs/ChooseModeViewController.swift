@@ -72,14 +72,14 @@ class ChooseModeViewController: UIViewController {
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
 
-        self.title = challengeSet.title()
-        self.titleLabel.text = challengeSet.title()
-        self.titleImage.image = challengeSet.tableCellImage()
+        self.title = challengeSet.title
+        self.titleLabel.text = challengeSet.title
+        self.titleImage.image = challengeSet.tableCellImage
         self.localScoreExists = false // set up a deliberate race. If the score exists locally this will be set to true
         // otherwise we'll use the asynchronously fetched one
 
         let count = String(BoundaryDB.boundedItems(inChallengeSet: challengeSet).count)
-        let description = "There are \(count) \(challengeSet.collectionDescriptor()) in this quiz."
+        let description = "There are \(count) \(challengeSet.collectionDescriptor) in this quiz."
         self.challengeDescriptionLine1.text = description
         self.emptyLabel.text = "We're just fetching your scores..."
 
@@ -94,7 +94,7 @@ class ChooseModeViewController: UIViewController {
                 return
             }
             guard let ranking = RankCache.shared.score(for: self.challengeSet) else {
-                let title = self.challengeSet.title()
+                let title = self.challengeSet.title
                 self.emptyLabel.text = "When you complete the map of \(title) on challenge mode you'll see your score here"
                 return
             }

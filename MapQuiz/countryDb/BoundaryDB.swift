@@ -30,9 +30,9 @@ class BoundaryDB {
 
         return jsonResult.compactMap { (obj: JSONObject) -> BoundedItem? in
 
-            if challengeSet != .usStates && challengeSet != .world { // challenge is a single continent
+            if challengeSet != ChallengeSets.US_STATES && challengeSet != ChallengeSets.WORLD && challengeSet != ChallengeSets.GB_COUNTIES { // challenge is a single continent
                 let continent = obj["continent"] as! String
-                guard continent == challengeSet.slug() else { return nil }
+                guard continent == challengeSet.slug else { return nil }
             }
 
             let boundaryType: GeoJsonFormat = {
@@ -74,7 +74,8 @@ class BoundaryDB {
     }
 
     private static func mapping(forChallengeSet challengeSet: ChallengeSet) -> GeoJsonMapping {
-        if challengeSet == .usStates {
+        switch challengeSet {
+        case ChallengeSets.US_STATES:
             let stateDataPath = Bundle.main.path(forResource: "USStateData", ofType: "json")!
             return GeoJsonMapping(
                 dataFileURL: URL(fileURLWithPath: stateDataPath),
@@ -83,7 +84,16 @@ class BoundaryDB {
                 nameKey: "name",
                 annotationPointKey: "annotationCoords"
             )
-        } else {
+        case ChallengeSets.GB_COUNTIES:
+            let itemDataPath = Bundle.main.path(forResource: "ceremonialCountiesGB", ofType: "json")!
+            return GeoJsonMapping(
+                dataFileURL: URL(fileURLWithPath: itemDataPath),
+                typeKey: "type",
+                coordsKey: "coordinates",
+                nameKey: "NAME",
+                annotationPointKey: "centroid"
+            )
+        default:
             let itemDataPath = Bundle.main.path(forResource: "countryData", ofType: "json")!
             return GeoJsonMapping(
                 dataFileURL: URL(fileURLWithPath: itemDataPath),
