@@ -14,11 +14,11 @@ class MapCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapImage: UIImageView!
 
-    public func set(challengeSet: ChallengeSet){
-        self.mapImage.image = challengeSet.tableCellImage
+    public func set(displayItem: ChooseGameTableDisplayable){
+        self.mapImage.image = displayItem.tableCellImage
 
         self.titleLabel.attributedText = NSAttributedString(
-            string: challengeSet.title.uppercased(),
+            string: displayItem.title.uppercased(),
             attributes: UIConstants.attributedText(
                 font: UIConstants.josefinSansRegular(size: 18),
                 color: UIColor(named: "textColour")!,
@@ -26,10 +26,21 @@ class MapCell: UITableViewCell {
             )
         )
 
-        let prefix = BoundaryDB.size(of: challengeSet)
-        let suffix = challengeSet.collectionDescriptor
+        let description: String = {
+            switch displayItem {
+            case let challengeSet as ChallengeSet:
+                let prefix = BoundaryDB.size(of: challengeSet)
+                let suffix = challengeSet.collectionDescriptor
+                return "\(String(prefix)) \(suffix)"
+            case let group as GroupedChallengeSetCollection:
+                return group.description
+            default:
+                fatalError("Unknown entity subscribed to ChooseGameTableDisplayable protocol")
+            }
+        }()
+
         self.descriptionLabel.attributedText = NSAttributedString(
-            string: "\(String(prefix)) \(suffix)",
+            string: description,
             attributes: UIConstants.attributedText(
                 font: UIConstants.josefinSans(size: 18),
                 color: UIColor(named: "textColour")!,

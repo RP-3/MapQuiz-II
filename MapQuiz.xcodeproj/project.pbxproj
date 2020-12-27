@@ -21,6 +21,7 @@
 		414A646A23D2E7F900D01383 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 414A646923D2E60500D01383 /* JosefinSans-Light.ttf */; };
 		4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */; };
 		418F492B25979451007602EF /* data in Resources */ = {isa = PBXBuildFile; fileRef = 418F492A25979451007602EF /* data */; };
+		418F49362598EFBC007602EF /* ChooseGroupedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F49352598EFBC007602EF /* ChooseGroupedMapViewController.swift */; };
 		419F10972235F79F00243AB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419F10962235F79F00243AB2 /* AppDelegate.swift */; };
 		419F109C2235F7A000243AB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419F109A2235F7A000243AB2 /* Main.storyboard */; };
 		419F109E2235F7A100243AB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419F109D2235F7A100243AB2 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		414A646923D2E60500D01383 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
 		4168DBE422375142006C57A8 /* PracticeScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeScoreViewController.swift; sourceTree = "<group>"; };
 		418F492A25979451007602EF /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		418F49352598EFBC007602EF /* ChooseGroupedMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGroupedMapViewController.swift; sourceTree = "<group>"; };
 		419F10932235F79F00243AB2 /* MapQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		419F10962235F79F00243AB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		419F109B2235F7A000243AB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				410A3C9423EE3EA400847452 /* ChooseMapViewController.swift */,
+				418F49352598EFBC007602EF /* ChooseGroupedMapViewController.swift */,
 				410A3C9723EE3F2800847452 /* MapCell.swift */,
 				410A3C9923EE3F3900847452 /* MapCell.xib */,
 				410BC3C423EE53EF002DC820 /* MapCellHeader.xib */,
@@ -493,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41AC845E223868630052AA78 /* GuessOutcome.swift in Sources */,
+				418F49362598EFBC007602EF /* ChooseGroupedMapViewController.swift in Sources */,
 				4168DBE522375142006C57A8 /* PracticeScoreViewController.swift in Sources */,
 				410A3C9823EE3F2800847452 /* MapCell.swift in Sources */,
 				41DC571B22607FA0004FB17F /* ScoreViewController.swift in Sources */,

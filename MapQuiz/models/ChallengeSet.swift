@@ -9,7 +9,12 @@
 import UIKit
 import MapKit
 
-class ChallengeSet: Hashable {
+protocol ChooseGameTableDisplayable {
+    var title: String { get }
+    var tableCellImage: UIImage { get }
+}
+
+class ChallengeSet: Hashable, ChooseGameTableDisplayable {
     let slug: String
     let title: String
     let pickerImage: UIImage
@@ -48,12 +53,29 @@ class ChallengeSet: Hashable {
     }
 }
 
+// A collection of challenge sets that sit under a single table section
 class ChallengeSetCollection {
     let header: String
+    let challengeSets: [ChooseGameTableDisplayable]
+
+    init(header: String, challengeSets: [ChooseGameTableDisplayable]) {
+        self.header = header
+        self.challengeSets = challengeSets
+    }
+}
+
+// A collection of closely-related challenge sets, logically grouped together
+// to prevent their enclosing table section from getting too large
+class GroupedChallengeSetCollection: ChooseGameTableDisplayable {
+    let title: String
+    let description: String
+    let tableCellImage: UIImage
     let challengeSets: [ChallengeSet]
 
-    init(header: String, challengeSets: [ChallengeSet]) {
-        self.header = header
+    init(title: String, description: String, tableCellImage: UIImage, challengeSets: [ChallengeSet]) {
+        self.title = title
+        self.description = description
+        self.tableCellImage = tableCellImage
         self.challengeSets = challengeSets
     }
 }
@@ -68,26 +90,26 @@ class ChallengeSets {
     static let AF =           ChallengeSet("AF",           "Africa",                            img("pickAfrica"),       img("africa"),       "countries",                          region(10, 22, 100),   54*6,  ["AF"])
     static let WORLD =        ChallengeSet("WORLD",        "World",                             img("pickWorld"),        img("worldIcon"),    "countries, islands and city states", region(0, 0, 100),     200*6, ["NA", "SA", "AS", "EU", "OC", "AF"])
     static let US_STATES =    ChallengeSet("US_STATES",    "US States & Territories",           img("pickUsStates"),     img("usStates"),     "states & territories",               region(39, -106, 100), 50*6,  ["US_STATES"])
-    static let EN_COUNTIES =  ChallengeSet("EN_COUNTIES",  "English Counties (Ceremonial)",     img("pickUsStates"),     img("england"),     "ceremonial counties",                region(53, -2, 10),    48*6,  ["englandCounties"])
-    static let SC_COUNTIES =  ChallengeSet("SC_COUNTIES",  "Scottish Counties (Ceremonial)",    img("pickUsStates"),     img("england"),     "ceremonial counties",                region(56, -4, 10),    35*6,  ["scotlandCounties"])
-    static let WA_COUNTIES =  ChallengeSet("WA_COUNTIES",  "Welsh Counties (Ceremonial)",       img("pickUsStates"),     img("england"),     "ceremonial counties",                region(52, -3.5, 5),   8*6,   ["walesCounties"])
-    static let GBR_COUNTIES = ChallengeSet("GBR_COUNTIES", "All British Counties (Ceremonial)", img("pickUsStates"),     img("england"),     "ceremonial counties",                region(55, -3, 12),    91*6,  ["englandCounties", "scotlandCounties", "walesCounties"])
-    static let LONDON =       ChallengeSet("LONDON",       "Boroughs of London",                img("pickUsStates"),     img("england"),     "boroughs",                region(51.5, -0.12, 1),           30*6,  ["london"])
+    static let EN_COUNTIES =  ChallengeSet("EN_COUNTIES",  "English Counties (Ceremonial)",     img("pickUsStates"),     img("england"),      "ceremonial counties",                region(53, -2, 10),    48*6,  ["englandCounties"])
+    static let SC_COUNTIES =  ChallengeSet("SC_COUNTIES",  "Scottish Counties (Ceremonial)",    img("pickUsStates"),     img("england"),      "ceremonial counties",                region(56, -4, 10),    35*6,  ["scotlandCounties"])
+    static let WA_COUNTIES =  ChallengeSet("WA_COUNTIES",  "Welsh Counties (Ceremonial)",       img("pickUsStates"),     img("england"),      "ceremonial counties",                region(52, -3.5, 5),   8*6,   ["walesCounties"])
+    static let GBR_COUNTIES = ChallengeSet("GBR_COUNTIES", "All British Counties (Ceremonial)", img("pickUsStates"),     img("england"),      "ceremonial counties",                region(55, -3, 12),    91*6,  ["englandCounties", "scotlandCounties", "walesCounties"])
+    static let LONDON =       ChallengeSet("LONDON",       "Boroughs of London",                img("pickUsStates"),     img("england"),      "boroughs",                           region(51.5,-0.12, 1), 30*6,  ["london"])
+
+    static let UK_COUNTIES = GroupedChallengeSetCollection(title: "UK Counties", description: "Counties of the United Kingdom", tableCellImage: img("england"), challengeSets: [EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, GBR_COUNTIES])
 
     static let all = [
         ChallengeSetCollection(header: "Countries of the World", challengeSets: [NA, SA, AS, EU, OC, AF, WORLD]),
-        ChallengeSetCollection(header: "United Kingdom", challengeSets: [LONDON, EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, GBR_COUNTIES]),
+        ChallengeSetCollection(header: "United Kingdom", challengeSets: [LONDON, UK_COUNTIES]),
         ChallengeSetCollection(header: "United States", challengeSets: [US_STATES]),
     ]
 
-    static let flattened = [NA, SA, AS, EU, OC, AF, WORLD, US_STATES, EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, GBR_COUNTIES]
+    static let flattened = [NA, SA, AS, EU, OC, AF, WORLD, US_STATES, EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, GBR_COUNTIES, LONDON]
 
     static func from(slug: String) -> ChallengeSet? {
-        for collection in self.all {
-            for cs in collection.challengeSets {
-                if cs.slug == slug {
-                    return cs
-                }
+        for cs in flattened {
+            if cs.slug == slug {
+                return cs
             }
         }
         return nil

@@ -1,23 +1,15 @@
 //
-//  ChooseMapViewController.swift
+//  ChooseGroupedMapViewController.swift
 //  MapQuiz
 //
-//  Created by Rohan Pethiyagoda on 8/2/20.
+//  Created by Rohan Pethiyagoda on 27/12/20.
 //  Copyright © 2020 Phosphorous Labs. All rights reserved.
 //
 
 import UIKit
 
-class ChooseMapViewController: UITableViewController {
-    // MARK: Actions
-    @IBAction func showScores(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScoreTabBarController") as! UITabBarController
-        self.present(vc, animated: true, completion: nil)
-    }
-    @IBAction func showSettings(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        self.present(vc, animated: true, completion: nil)
-    }
+class ChooseGroupedMapViewController: UITableViewController {
+    var group: GroupedChallengeSetCollection!
 
     // MARK: Lifecycle methods
     override func viewDidLoad(){
@@ -34,16 +26,15 @@ class ChooseMapViewController: UITableViewController {
     }
 
     // MARK: Tableview Delegates
-    override func numberOfSections(in tableView: UITableView) -> Int { return ChallengeSets.all.count }
+    override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ChallengeSets.all[section].challengeSets.count
+        return group.challengeSets.count
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60)
-        let title = ChallengeSets.all[section].header
-        return MapCellHeader(frame: frame, title: title)
+        return MapCellHeader(frame: frame, title: group.title)
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -59,14 +50,12 @@ class ChooseMapViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let collection = ChallengeSets.all[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell") as! MapCell
-        cell.set(displayItem: collection.challengeSets[indexPath.row])
+        cell.set(displayItem: group.challengeSets[indexPath.row])
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         self.tableView.deselectRow(at: indexPath, animated: true)
 
         let backItem = UIBarButtonItem()
@@ -78,19 +67,8 @@ class ChooseMapViewController: UITableViewController {
         )
         UIConstants.set(attrs: attrs, forAllStatesOn: backItem)
         navigationItem.backBarButtonItem = backItem
-
-        let item = ChallengeSets.all[indexPath.section].challengeSets[indexPath.row]
-        switch item {
-        case let cs as ChallengeSet:
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
-            vc.challengeSet = cs
-            self.navigationController?.pushViewController(vc, animated: true)
-        case let group as GroupedChallengeSetCollection:
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseGroupedMapViewController") as! ChooseGroupedMapViewController
-            vc.group = group
-            self.navigationController?.pushViewController(vc, animated: true)
-        default:
-            fatalError("Unknown entity subscribed to ChooseGameTableDisplayable protocol")
-        }
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "ChooseModeViewController") as! ChooseModeViewController
+        vc.challengeSet = group.challengeSets[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
