@@ -55,15 +55,11 @@ class BoundaryDB {
                     }
                 }()
 
-                let annotPtStr = (obj["centroid"] as! String).components(separatedBy: ",")
-                let annotationPoint = CLLocationCoordinate2D(latitude: Double(annotPtStr[0])!, longitude: Double(annotPtStr[1])!)
-
                 return BoundedItem(
                     name: obj["name"]! as! String,
                     boundary: boundary,
                     boundaryPointsCount: boundaryPointsCount,
-                    geojsonFormat: boundaryType,
-                    annotation_point: annotationPoint
+                    geojsonFormat: boundaryType
                 )
             }
 

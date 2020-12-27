@@ -64,7 +64,7 @@ class World {
         if let radius = smallIsland(name: item.name) {
             // perform match based on proximity
             let givenLocation = CLLocation(latitude: coords.latitude, longitude: coords.longitude)
-            let atnPoint = item.annotation_point
+            let atnPoint = item.centroid()
             let approxIslandLocation = CLLocation(latitude: atnPoint.latitude, longitude: atnPoint.longitude)
             return givenLocation.distance(from: approxIslandLocation) < radius
         } else {

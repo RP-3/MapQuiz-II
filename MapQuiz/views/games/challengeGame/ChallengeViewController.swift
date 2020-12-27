@@ -49,12 +49,12 @@ class ChallengeViewController: UIViewController {
 
         session.remainingCountries().forEach { (item: BoundedItem) -> Void in
             for landArea in (item.boundary) {
-                let overlay = CustomPolygon(guessed: false, lat_long: item.annotation_point, coords: landArea, numberOfPoints: landArea.count )
+                let overlay = CustomPolygon(guessed: false, lat_long: item.centroid(), coords: landArea, numberOfPoints: landArea.count )
                 overlay.title = item.name
                 worldMap.addOverlay(overlay)
             }
             if let radius = World.smallIsland(name: item.name) {
-                let circle = MKCircle(center: item.annotation_point, radius: radius)
+                let circle = MKCircle(center: item.centroid(), radius: radius)
                 worldMap.addOverlay(circle)
             }
         }
