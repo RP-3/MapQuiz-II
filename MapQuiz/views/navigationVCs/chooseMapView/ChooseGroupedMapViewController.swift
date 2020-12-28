@@ -19,9 +19,7 @@ class ChooseGroupedMapViewController: UITableViewController {
         RegistrationClient.registerDevice()
 
         let nib = UINib.init(nibName: "MapCell", bundle: nil)
-        let headerNib = UINib.init(nibName: "MapCellHeader", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "MapCell")
-        self.tableView.register(headerNib, forCellReuseIdentifier: "MapCellHeader")
     }
 
     override func viewWillAppear(_ animated: Bool) {
