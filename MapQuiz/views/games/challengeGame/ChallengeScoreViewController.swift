@@ -35,19 +35,20 @@ class ChallengeScoreViewController: UIViewController {
         let itemCount = endState.itemCount
         let timeDifference = Int(session.endTime!.timeIntervalSince(session.startTime!))
         let timing = UIConstants.format(time: timeDifference)
+        let units = session.challengeSet.collectionDescriptor
 
         if endState.itemsHandled == endState.itemCount {
             winLoseImage.image = UIImage(named: "mountain")
-            winLoseMessage.text = "You made it! You got all \(itemCount) countries in \(timing)!"
+            winLoseMessage.text = "You made it! You got all \(itemCount) \(units) in \(timing)!"
             StoreReviewController.markChallengeCompleted()
         }
         else if endState.livesRemaining <= 0 { // ran out of lives
             winLoseImage.image = UIImage(named: "wrong")
-            winLoseMessage.text = "All your lives are gone! You got \(endState.itemsHandled) countries out of \(itemCount) in \(timing) minutes"
+            winLoseMessage.text = "All your lives are gone! You got \(endState.itemsHandled) \(units) out of \(itemCount) in \(timing) minutes"
         }
         else { // ran out of time
             winLoseImage.image = UIImage(named: "wrong")
-            winLoseMessage.text = "Time up! You got \(endState.itemsHandled) countries out of \(itemCount)"
+            winLoseMessage.text = "Time up! You got \(endState.itemsHandled) \(units) out of \(itemCount)"
         }
     }
 
