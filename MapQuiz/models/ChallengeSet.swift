@@ -96,20 +96,20 @@ class ChallengeSets {
     static let SC_COUNTIES =  ChallengeSet("SC_COUNTIES",  "Scotland",                img("scotland"),         img("scotland"),        "ceremonial counties",                region(56, -4, 10),    35*6,  ["scotlandCounties"])
     static let WA_COUNTIES =  ChallengeSet("WA_COUNTIES",  "Wales",                   img("wales"),            img("wales"),           "ceremonial counties",                region(52, -3.5, 5),   8*6,   ["walesCounties"])
     static let NI_COUNTIES =  ChallengeSet("NI_COUNTIES",  "Northern Ireland",        img("northernIreland"),  img("northernIreland"), "counties",                           region(54.6,-6.5,3.5), 6*6,   ["niCounties"])
-    static let GBR_COUNTIES = ChallengeSet("GBR_COUNTIES", "UK (combined)",           img("uk"),               img("uk"),              "ceremonial counties",                region(55, -3, 12),    91*6,  ["englandCounties", "scotlandCounties", "walesCounties", "niCounties"])
+    static let UK_COUNTIES =  ChallengeSet("UK_COUNTIES", "UK (combined)",           img("uk"),               img("uk"),              "ceremonial counties",                region(55, -3, 12),    91*6,  ["englandCounties", "scotlandCounties", "walesCounties", "niCounties"])
 
     static let LONDON =       ChallengeSet("LONDON",       "London Boroughs",         img("london"),           img("london"),          "boroughs",                           region(51.5,-0.12, 1), 30*6,  ["london"])
 
-    // Groups
-    static let UK_COUNTIES = GroupedChallengeSetCollection(title: "UK Counties", description: "Counties of the United Kingdom", tableCellImage: img("uk"), challengeSets: [EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, NI_COUNTIES, GBR_COUNTIES])
+    // Groups (bundled together in theor own sub-page of the parent tableview)
+    static let UK_COUNTIES_GROUP = GroupedChallengeSetCollection(title: "UK Counties", description: "Counties of the United Kingdom", tableCellImage: img("uk"), challengeSets: [EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, NI_COUNTIES, UK_COUNTIES])
 
     static let all = [
         ChallengeSetCollection(header: "Countries of the World", challengeSets: [NA, SA, AS, EU, OC, AF, WORLD]),
-        ChallengeSetCollection(header: "United Kingdom", challengeSets: [LONDON, UK_COUNTIES]),
+        ChallengeSetCollection(header: "United Kingdom", challengeSets: [LONDON, UK_COUNTIES_GROUP]),
         ChallengeSetCollection(header: "United States", challengeSets: [US_STATES]),
     ]
 
-    static let flattened = [NA, SA, AS, EU, OC, AF, WORLD, US_STATES, EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, NI_COUNTIES, GBR_COUNTIES, LONDON]
+    static let flattened = [NA, SA, AS, EU, OC, AF, WORLD, US_STATES, EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, NI_COUNTIES, UK_COUNTIES, LONDON]
 
     static func from(slug: String) -> ChallengeSet? {
         for cs in flattened {

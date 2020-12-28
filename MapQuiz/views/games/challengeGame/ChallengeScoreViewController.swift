@@ -53,7 +53,11 @@ class ChallengeScoreViewController: UIViewController {
     }
 
     @objc func back(sender: UIBarButtonItem) {
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-        self.navigationController!.popToViewController(viewControllers[0], animated: true)
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: ChooseModeViewController.self) {
+                _ =  self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
     }
 }
