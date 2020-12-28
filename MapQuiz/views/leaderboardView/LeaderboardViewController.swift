@@ -112,7 +112,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let monthIndex = pickerView.selectedRow(inComponent: 0)
         let year = yearPicks[pickerView.selectedRow(inComponent: 1)]
         let selected = startOfMonth(year: year, month: monthIndex + 1)
-        let challengeSet = ChallengeSets.flattened[pickerView.selectedRow(inComponent: 2) % ChallengeSets.all.count]
+        let challengeSet = ChallengeSets.flattened[pickerView.selectedRow(inComponent: 2) % ChallengeSets.flattened.count]
 
         let currentYear = Calendar.current.component(.year, from: Date())
         let currentMonth = Calendar.current.component(.month, from: Date())
@@ -158,7 +158,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         switch component {
         case 0: return monthPicks[row]
         case 1: return String(yearPicks[row])
-        default: return ChallengeSets.flattened[row % ChallengeSets.all.count].slug
+        default: return ChallengeSets.flattened[row % ChallengeSets.flattened.count].slug
         }
     }
 
@@ -173,7 +173,7 @@ extension LeaderboardViewController: UIPickerViewDataSource, UIPickerViewDelegat
         let contentFrame = CGRect(x: 0, y: 0, width: width/3, height: height)
 
         if component == 2 {
-            let challengeSet = ChallengeSets.flattened[row % ChallengeSets.all.count]
+            let challengeSet = ChallengeSets.flattened[row % ChallengeSets.flattened.count]
             let imageView = UIImageView(frame: contentFrame)
             imageView.contentMode = .scaleAspectFit
             imageView.image = challengeSet.pickerImage
