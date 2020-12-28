@@ -16,7 +16,6 @@ class ChooseGroupedMapViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIConstants.amaticBold(size: 24)]
-        self.title = "MapQuiz"
         RegistrationClient.registerDevice()
 
         let nib = UINib.init(nibName: "MapCell", bundle: nil)
@@ -25,20 +24,16 @@ class ChooseGroupedMapViewController: UITableViewController {
         self.tableView.register(headerNib, forCellReuseIdentifier: "MapCellHeader")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = group.title
+    }
+
     // MARK: Tableview Delegates
     override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return group.challengeSets.count
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60)
-        return MapCellHeader(frame: frame, title: group.title)
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -59,7 +54,7 @@ class ChooseGroupedMapViewController: UITableViewController {
         self.tableView.deselectRow(at: indexPath, animated: true)
 
         let backItem = UIBarButtonItem()
-        backItem.title = "MapQuiz"
+        backItem.title = group.title
         let attrs = UIConstants.attributedText(
             font: UIConstants.amaticBold(size: 24),
             color: UIColor(named: "textColour")!,

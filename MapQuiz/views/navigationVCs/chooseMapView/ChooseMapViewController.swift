@@ -70,13 +70,13 @@ class ChooseMapViewController: UITableViewController {
         self.tableView.deselectRow(at: indexPath, animated: true)
 
         let backItem = UIBarButtonItem()
-        backItem.title = "MapQuiz"
         let attrs = UIConstants.attributedText(
             font: UIConstants.amaticBold(size: 24),
             color: UIColor(named: "textColour")!,
             kern: 0
         )
         UIConstants.set(attrs: attrs, forAllStatesOn: backItem)
+        backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
 
         let item = ChallengeSets.all[indexPath.section].challengeSets[indexPath.row]
