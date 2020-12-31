@@ -10,7 +10,13 @@ import MapKit
 
 class MapViewDelegate: NSObject, MKMapViewDelegate {
 
-    let beigeColor = UIColor(red: 0.99, green: 0.93, blue: 0.9, alpha: 1.0)
+    let fillColor: UIColor
+    let strokeColor: UIColor
+
+    init(fill: UIColor, stroke: UIColor) {
+        self.fillColor = fill
+        self.strokeColor = stroke
+    }
 
     //render the polygon to the map
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -18,7 +24,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         if overlay is MKCircle {
             let circle = overlay as! MKCircle
             let renderer = MKCircleRenderer(circle: circle)
-            renderer.fillColor = beigeColor
+            renderer.fillColor = UIConstants.mapBeige
             renderer.alpha = 0.1
             renderer.lineDashPattern = [2, 5];
             renderer.strokeColor = .black
@@ -30,9 +36,9 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
             let polygonView = MKPolygonRenderer(overlay: custom)
             polygonView.lineWidth = 0.75
             polygonView.alpha = 0.9
-            polygonView.strokeColor = UIColor(red: 0.15, green: 0.1, blue: 0.01, alpha: 1.0)
+            polygonView.strokeColor = strokeColor // UIColor(red: 0.15, green: 0.1, blue: 0.01, alpha: 1.0)
             if custom.userGuessed == false {
-                polygonView.fillColor = beigeColor
+                polygonView.fillColor = fillColor
             } else {
                 polygonView.fillColor = .clear
             }
@@ -57,13 +63,25 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
             aView = av
         }
         let lbl: UILabel = (aView.viewWithTag(20) as! UILabel)
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.addConstraint(
+            NSLayoutConstraint(
+                item: lbl,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: 21
+            )
+        )
         lbl.layer.masksToBounds = true
-        lbl.layer.cornerRadius = 4
+        lbl.layer.cornerRadius = 3
         lbl.textAlignment = .center
         lbl.text = " \(annotation.title!!) "
-        lbl.font = UIConstants.amatic(size: 16)
+        lbl.font = UIConstants.josefinSansRegular(size: 15)
         lbl.textColor = .black
-        lbl.backgroundColor = beigeColor
+        lbl.backgroundColor = UIConstants.mapBeige
         lbl.sizeToFit()
         return aView
     }

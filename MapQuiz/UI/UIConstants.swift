@@ -10,6 +10,10 @@ import UIKit
 
 class UIConstants {
 
+    public static let mapBeige = UIColor(red: 0.99, green: 0.93, blue: 0.9, alpha: 1.0)
+    public static let mapRed = UIColor(red: 222.0/255.0, green: 83.0/255.0, blue: 83.0/255.0, alpha: 1.0)
+    public static let mapStroke = UIColor(red: 0.15, green: 0.1, blue: 0.01, alpha: 1.0)
+
     public static func amatic(size: CGFloat) -> UIFont {
         return UIFont(name: "AmaticSC-Regular", size: size)!
     }

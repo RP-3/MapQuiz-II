@@ -7,25 +7,77 @@
 //
 
 import UIKit
+import MapKit
 
 class PracticeScoreViewController: UIViewController {
 
     public var session: PracticeSession!
-    @IBOutlet weak var correctCount: UILabel!
-    @IBOutlet weak var wrongCount: UILabel!
-    @IBOutlet weak var revealedCount: UILabel!
-    @IBOutlet weak var correct: UILabel!
-    @IBOutlet weak var wrong: UILabel!
-    @IBOutlet weak var revealed: UILabel!
+    private let delegate = MapViewDelegate(fill: UIConstants.mapRed, stroke: UIConstants.mapStroke)
+
+    @IBOutlet weak var worldMap: MKMapView!
     @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let state = session.currentGameState()
-        correctCount.text = "\(state.itemsHandled - state.revealed)"
-        wrongCount.text = "\(state.misses)"
-        revealedCount.text = "\(state.revealed)"
-        summaryLabel.text = "Out of \(state.itemCount) \(session.challengeSet.collectionDescriptor), you got:"
+        setupMessaging()
+
+        session.itemsMishandled.forEach { (name: String, item: BoundedItem) -> Void in
+            for landArea in (item.boundary) {
+                let overlay = CustomPolygon(guessed: false, lat_long: item.centroid(), coords: landArea, numberOfPoints: landArea.count )
+                overlay.title = item.name
+                worldMap.addOverlay(overlay)
+            }
+            if let radius = World.smallIsland(name: item.name) {
+                let circle = MKCircle(center: item.centroid(), radius: radius)
+                worldMap.addOverlay(circle)
+            }
+        }
+
+        worldMap.overlays.forEach { (overlay: MKOverlay) -> Void in
+            guard let overlay = overlay as? CustomPolygon else { return }
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = overlay.annotation_point
+            annotation.title = overlay.title!
+            worldMap.addAnnotation(annotation)
+        }
+    }
+
+    func setupMessaging() {
+        let correct = session.itemsHandled.count
+        let wrong = session.itemsMishandled.count
+        let fraction = "\(correct) / \(correct + wrong)"
+
+        if correct == 0 {
+            summaryLabel.text = "Whups, you got \(fraction)."
+            detailLabel.text = "Gotta start somewhere! Take a few seconds to learn just one or two you got wrong"
+        }
+        else if wrong < 3 {
+            summaryLabel.text = "Congrats 🎉 You got \(fraction)!"
+            detailLabel.text = "You know this one pretty well. Ready for a challenge?"
+        }
+        else {
+            let score = (Float(correct) / Float(correct + wrong)) * 100
+            switch score {
+            case 0..<20:
+                summaryLabel.text = "Good start! You got \(fraction)"
+                detailLabel.text = "Take a minute to learn a few more that you missed"
+            case 20..<50:
+                summaryLabel.text = "Solid! You got \(fraction) 🙌"
+                detailLabel.text = "Keep up the momentum and study a few more"
+            case 50..<70:
+                summaryLabel.text = "Getting there! You got \(fraction)."
+                detailLabel.text = "Learn, test, rinse, repeat 🤩"
+            default:
+                summaryLabel.text = "Impressive! You got \(fraction)"
+                detailLabel.text = "You're almost ready for a challenge! Keep it up 🥳"
+            }
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        worldMap.setRegion(session.challengeSet.region, animated: true)
     }
 
     override func viewDidLoad() {
@@ -39,9 +91,7 @@ class PracticeScoreViewController: UIViewController {
             for: .normal
         )
 
-        [correctCount, wrongCount, revealedCount].forEach { $0?.font = UIConstants.amaticBold(size: 40) }
-        [correct, wrong, revealed].forEach { $0.font = UIConstants.amaticBold(size: 28) }
-        summaryLabel.font = UIConstants.amaticBold(size: 28)
+        worldMap.delegate = delegate
     }
 
     @objc func back(sender: UIBarButtonItem) {

@@ -11,8 +11,6 @@ import MapKit
 struct PracticeGameState {
     let itemCount: Int
     let itemsHandled: Int
-    let revealed: Int
-    let misses: Int
     let currentItemName: String?
 }
 
@@ -20,28 +18,21 @@ class PracticeSession {
 
     private let totalItems: Int
     public let challengeSet: ChallengeSet
-    private var revealed: Int
-    private var misses: Int
-
-    private var itemsHandled: [BoundedItem]
+    private(set) public var itemsHandled: Dictionary<String, BoundedItem> = Dictionary()
+    private(set) public var itemsMishandled: Dictionary<String, BoundedItem> = Dictionary()
     private var itemsRemaining: [BoundedItem]
 
     init(challengeSet: ChallengeSet) {
         let itemList = BoundaryDB.boundedItems(inChallengeSet: challengeSet)
         self.challengeSet = challengeSet
         totalItems = itemList.count
-        revealed = 0
-        misses = 0
-        itemsHandled = []
         itemsRemaining = World.shuffle(countries: itemList)
     }
 
     public func currentGameState() -> PracticeGameState {
         return PracticeGameState(
             itemCount: totalItems,
-            itemsHandled: itemsHandled.count,
-            revealed: revealed,
-            misses: misses,
+            itemsHandled: itemsHandled.count + itemsMishandled.count,
             currentItemName: itemsRemaining.last?.name
         )
     }
@@ -54,13 +45,16 @@ class PracticeSession {
         guard let currentItem = itemsRemaining.last else { return (nil, .fatFingered) }
         // guessed correctly
         if World.coordinates(coords, inItem: currentItem) {
-            itemsHandled.append(itemsRemaining.popLast()!)
+            let guessedItem = itemsRemaining.popLast()!
+            if itemsMishandled[guessedItem.name] == nil { // if never screwed this one up
+                itemsHandled[guessedItem.name] = guessedItem // mark as correct
+            }
             return (currentItem, .correct)
         }
         // guessed incorrectly
         for item in itemsRemaining {
             if World.coordinates(coords, inItem: item) {
-                misses += 1
+                itemsMishandled[currentItem.name] = currentItem
                 return (nil, .wrong)
             }
         }
@@ -74,8 +68,7 @@ class PracticeSession {
 
     public func reveal(){
         guard let itemToReveal = itemsRemaining.popLast() else { return }
-        itemsHandled.append(itemToReveal)
-        revealed += 1
+        itemsMishandled[itemToReveal.name] = itemToReveal
     }
 
 }

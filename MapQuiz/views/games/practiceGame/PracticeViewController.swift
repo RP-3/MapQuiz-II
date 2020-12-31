@@ -14,7 +14,7 @@ class PracticeViewController: UIViewController {
     public var challengeSet: ChallengeSet!
 
     private weak var session: PracticeSession!
-    private let mapDelegate = MapViewDelegate()
+    private let mapDelegate = MapViewDelegate(fill: UIConstants.mapBeige, stroke: UIConstants.mapStroke)
     private var gestureRecognizer: UITapGestureRecognizer?
     private var allRevealed = false
 
