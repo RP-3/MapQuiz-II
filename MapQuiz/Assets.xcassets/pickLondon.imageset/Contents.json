@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "world-table-light-mode.png",
+      "filename" : "london.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "world-dark.png",
+      "filename" : "london-dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "world-table-light-mode@2x.png",
+      "filename" : "london@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,12 +28,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "world-dark@2x.png",
+      "filename" : "london-dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "world-table-light-mode@3x.png",
+      "filename" : "london@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -44,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "world-dark@3x.png",
+      "filename" : "london-dark@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

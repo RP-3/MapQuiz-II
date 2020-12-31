@@ -92,13 +92,13 @@ class ChallengeSets {
 
     static let US_STATES =    ChallengeSet("US_STATES",    "US States & Territories", img("pickUsStates"),     img("usStates"),        "states & territories",               region(39, -106, 100), 50*6,  ["US_STATES"])
 
-    static let EN_COUNTIES =  ChallengeSet("EN_COUNTIES",  "England",                 img("england"),          img("england"),         "ceremonial counties",                region(53, -2, 10),    48*6,  ["englandCounties"])
-    static let SC_COUNTIES =  ChallengeSet("SC_COUNTIES",  "Scotland",                img("scotland"),         img("scotland"),        "ceremonial counties",                region(56, -4, 10),    35*6,  ["scotlandCounties"])
-    static let WA_COUNTIES =  ChallengeSet("WA_COUNTIES",  "Wales",                   img("wales"),            img("wales"),           "ceremonial counties",                region(52, -3.5, 5),   8*6,   ["walesCounties"])
-    static let NI_COUNTIES =  ChallengeSet("NI_COUNTIES",  "Northern Ireland",        img("northernIreland"),  img("northernIreland"), "counties",                           region(54.6,-6.5,3.5), 6*6,   ["niCounties"])
-    static let UK_COUNTIES =  ChallengeSet("UK_COUNTIES", "UK (combined)",           img("uk"),               img("uk"),              "ceremonial counties",                region(55, -3, 12),    91*6,  ["englandCounties", "scotlandCounties", "walesCounties", "niCounties"])
+    static let EN_COUNTIES =  ChallengeSet("EN_COUNTIES",  "England",                 img("pickEngland"),      img("england"),         "ceremonial counties",                region(53, -2, 10),    48*6,  ["englandCounties"])
+    static let SC_COUNTIES =  ChallengeSet("SC_COUNTIES",  "Scotland",                img("pickScotland"),     img("scotland"),        "ceremonial counties",                region(56, -4, 10),    35*6,  ["scotlandCounties"])
+    static let WA_COUNTIES =  ChallengeSet("WA_COUNTIES",  "Wales",                   img("pickWales"),        img("wales"),           "ceremonial counties",                region(52, -3.5, 5),   8*6,   ["walesCounties"])
+    static let NI_COUNTIES =  ChallengeSet("NI_COUNTIES",  "Northern Ireland",        img("pickNI"),           img("northernIreland"), "counties",                           region(54.6,-6.5,3.5), 6*6,   ["niCounties"])
+    static let UK_COUNTIES =  ChallengeSet("UK_COUNTIES", "UK (combined)",            img("pickUK"),           img("uk"),              "ceremonial counties",                region(55, -3, 12),    91*6,  ["englandCounties", "scotlandCounties", "walesCounties", "niCounties"])
 
-    static let LONDON =       ChallengeSet("LONDON",       "London Boroughs",         img("london"),           img("london"),          "boroughs",                           region(51.5,-0.12, 1), 30*6,  ["london"])
+    static let LONDON =       ChallengeSet("LONDON",       "London Boroughs",         img("pickLondon"),       img("london"),          "boroughs",                           region(51.5,-0.12, 1), 30*6,  ["london"])
 
     // Groups (bundled together in theor own sub-page of the parent tableview)
     static let UK_COUNTIES_GROUP = GroupedChallengeSetCollection(title: "UK Counties", description: "Counties of the United Kingdom", tableCellImage: img("uk"), challengeSets: [EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, NI_COUNTIES, UK_COUNTIES])
