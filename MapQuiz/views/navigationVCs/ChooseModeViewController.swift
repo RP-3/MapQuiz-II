@@ -116,20 +116,16 @@ class ChooseModeViewController: UIViewController {
             self.currentRankLabel.isHidden = false
 
             // everything worked; also display the latest game summary from localstorage
-            self.setLatestScore(using: RankCache.shared.fetchGameSummary(for: self.challengeSet))
+            if let summary = RankCache.shared.fetchGameSummary(for: self.challengeSet) {
+                self.lastChallengeTiming.text = UIConstants.format(milliseconds: summary.lengthInMs)
+                self.lastScoreHeart1.alpha = summary.livesRemaining < 3 ? 0.2 : 1.0
+                self.lastScoreHeart2.alpha = summary.livesRemaining < 2 ? 0.2 : 1.0
+            } else { // unless there isn't one, in which case fall back to the best score
+                self.lastChallengeTiming.text = UIConstants.format(milliseconds: ranking.lengthInMs)
+                self.bestScoreHeart1.alpha = ranking.livesRemaining < 3 ? 0.2 : 1.0
+                self.bestScoreHeart2.alpha = ranking.livesRemaining < 2 ? 0.2 : 1.0
+            }
         })
-    }
-
-    private func setLatestScore(using summary: ChallengeSessionSummary?) {
-        if let summary = summary {
-            self.lastChallengeTiming.text = UIConstants.format(milliseconds: summary.lengthInMs)
-            self.lastScoreHeart1.alpha = summary.livesRemaining < 3 ? 0.2 : 1.0
-            self.lastScoreHeart2.alpha = summary.livesRemaining < 2 ? 0.2 : 1.0
-        } else {
-            self.lastChallengeTiming.text = ""
-            self.lastScoreHeart1.alpha =  0.2
-            self.lastScoreHeart2.alpha = 0.2
-        }
     }
 
     private func setFont(){
