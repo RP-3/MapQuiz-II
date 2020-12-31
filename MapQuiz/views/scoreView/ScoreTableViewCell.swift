@@ -20,7 +20,7 @@ class ScoreTableViewCell: UITableViewCell {
     public func setup(ranking: Ranking, challengeSet: ChallengeSet){
         thirdLife.alpha = ranking.livesRemaining < 3 ? 0.2 : 1.0
         secondLife.alpha = ranking.livesRemaining < 2 ? 0.2 : 1.0
-        timeLabel.text = ranking.formattedLength()
+        timeLabel.text = UIConstants.format(milliseconds: ranking.lengthInMs)
         qualifyingPlayers.text = "(\(ranking.total) qualifying players)"
         title.text = "\(challengeSet.title)"
         let formatter = NumberFormatter()

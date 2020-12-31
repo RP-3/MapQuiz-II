@@ -41,11 +41,34 @@ class UIConstants {
         }
     }
 
-    public static func format(time: Int) -> String {
-        let minutes = time / 60
-        let seconds = time % 60
+    public static func format(seconds: Int) -> String {
+        let minutes = seconds / 60
+        let seconds = seconds % 60
         let minutesString = minutes > 0 ? "\(minutes)" : "0"
         let secondsString = (seconds) > 9 ? "\(seconds)" : "0\(seconds)"
         return "\(minutesString):\(secondsString)"
+    }
+
+    public static func format(milliseconds: Int) -> String{
+        let minutes = (milliseconds / 1000) / 60
+        let seconds = (milliseconds / 1000) - (minutes * 60)
+        let remainingMilliseconds = milliseconds % 1000
+        let minuteString: String = {
+            if minutes == 0 { return "00" }
+            if minutes < 10 { return "0\(String(minutes))"}
+            return String(minutes)
+        }()
+        let secondString: String = {
+            if seconds == 0 { return "00" }
+            if seconds < 10 { return "0\(String(seconds) )"}
+            return String(seconds)
+        }()
+        let msString: String = {
+            if remainingMilliseconds == 0 { return "000" }
+            if remainingMilliseconds < 10 { return "00\(String(remainingMilliseconds))"}
+            if remainingMilliseconds < 100 { return "0\(String(remainingMilliseconds))"}
+            return String(remainingMilliseconds)
+        }()
+        return "\(minuteString):\(secondString).\(msString)"
     }
 }

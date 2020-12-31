@@ -7,8 +7,15 @@
 //
 
 import Foundation
+/*
+ RankRache stores the latest rankings for all challengesets you've completed
+ for viewing in the "my Top Scores" tab of the leaderbord.
+ TODO:
+    - Create another one of these to store your latest score locally (only)
+    - Write to this local store immediately when a challenge is completed or failed
+    - 
+ */
 class RankCache {
-
     public static let shared = RankCache()
     private init(){} // enforced singleton
 
@@ -45,21 +52,23 @@ class RankCache {
         return nil
     }
 
-    public func save(ranking: LocalRanking, forChallenge challengeSet: ChallengeSet){
-        let (lengthKey, livesKey) = self.localRankingKeys(for: challengeSet)
-        UserDefaults.standard.set(ranking.lengthInMs, forKey: lengthKey)
-        UserDefaults.standard.set(ranking.livesRemaining, forKey: livesKey)
+    public func saveSummary(for challengeSession: ChallengeSession){
+        guard challengeSession.completed() else { return }
+        let (lengthKey, livesKey) = self.mostRecentGameSummaryKeys(for: challengeSession.challengeSet)
+        let summary = challengeSession.summary()
+        UserDefaults.standard.set(summary.lengthInMs, forKey: lengthKey)
+        UserDefaults.standard.set(summary.livesRemaining, forKey: livesKey)
     }
 
-    public func fetchRanking(for challengeSet: ChallengeSet) -> LocalRanking? {
-        let (lengthKey, livesKey) = self.localRankingKeys(for: challengeSet)
+    public func fetchGameSummary(for challengeSet: ChallengeSet) -> ChallengeSessionSummary? {
+        let (lengthKey, livesKey) = self.mostRecentGameSummaryKeys(for: challengeSet)
         let length = UserDefaults.standard.integer(forKey: lengthKey)
         let lives = UserDefaults.standard.integer(forKey: livesKey)
         if length == 0 || lives == 0 { return nil }
-        return LocalRanking(livesRemaining: lives, lengthInMs: length)
+        return ChallengeSessionSummary(livesRemaining: lives, lengthInMs: length)
     }
 
-    private func localRankingKeys(for challengeSet: ChallengeSet) -> (String, String) {
-        return ("local_ranking_\(challengeSet.slug)_timing", "local_ranking_\(challengeSet.slug)_lives")
+    private func mostRecentGameSummaryKeys(for challengeSet: ChallengeSet) -> (String, String) {
+        return ("most_recent_game_timing_\(challengeSet.slug)", "most_recent_game_lives_\(challengeSet.slug)")
     }
 }

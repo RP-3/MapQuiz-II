@@ -11,7 +11,6 @@ import UIKit
 class ChooseModeViewController: UIViewController {
 
     public var challengeSet: ChallengeSet!
-    private var localScoreExists = false
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var practiceButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -75,15 +74,13 @@ class ChooseModeViewController: UIViewController {
         self.title = challengeSet.title
         self.titleLabel.text = challengeSet.title
         self.titleImage.image = challengeSet.tableCellImage
-        self.localScoreExists = false // set up a deliberate race. If the score exists locally this will be set to true
-        // otherwise we'll use the asynchronously fetched one
 
         let count = String(BoundaryDB.boundedItems(inChallengeSet: challengeSet).count)
         let description = "There are \(count) \(challengeSet.collectionDescriptor) in this quiz."
         self.challengeDescriptionLine1.text = description
         self.emptyLabel.text = "We're just fetching your scores..."
 
-        RegistrationClient.registerDevice()
+        RegistrationClient.registerDevice() // fire and forget. No-op if already happened.
 
         RankCache.shared.fetchLatestScores(andExecute: { success in
             self.activityIndicator.stopAnimating()
@@ -105,7 +102,7 @@ class ChooseModeViewController: UIViewController {
             self.nullOrErrorStateView.isHidden = true
             self.dataStateView.isHidden = false
             self.qualifyingPlayersLabel.text = "\(String(ranking.total)) Qualifying Players"
-            self.bestChallengeTiming.text = ranking.formattedLength()
+            self.bestChallengeTiming.text = UIConstants.format(milliseconds: ranking.lengthInMs)
             self.bestScoreHeart1.alpha = ranking.livesRemaining < 3 ? 0.2 : 1.0
             self.bestScoreHeart2.alpha = ranking.livesRemaining < 2 ? 0.2 : 1.0
             self.currentRankLabel.attributedText = NSAttributedString(
@@ -118,24 +115,21 @@ class ChooseModeViewController: UIViewController {
             )
             self.currentRankLabel.isHidden = false
 
-            if !self.localScoreExists {
-                self.setLatestScore(using: LocalRanking(
-                    livesRemaining: ranking.livesRemaining,
-                    lengthInMs: ranking.lengthInMs)
-                )
-            }
+            // everything worked; also display the latest game summary from localstorage
+            self.setLatestScore(using: RankCache.shared.fetchGameSummary(for: self.challengeSet))
         })
-
-        if let localScore = RankCache.shared.fetchRanking(for: self.challengeSet) {
-            setLatestScore(using: localScore)
-            self.localScoreExists = true
-        }
     }
 
-    private func setLatestScore(using localScore: LocalRanking) {
-        self.lastChallengeTiming.text = localScore.formattedLength()
-        self.lastScoreHeart1.alpha = localScore.livesRemaining < 3 ? 0.2 : 1.0
-        self.lastScoreHeart2.alpha = localScore.livesRemaining < 2 ? 0.2 : 1.0
+    private func setLatestScore(using summary: ChallengeSessionSummary?) {
+        if let summary = summary {
+            self.lastChallengeTiming.text = UIConstants.format(milliseconds: summary.lengthInMs)
+            self.lastScoreHeart1.alpha = summary.livesRemaining < 3 ? 0.2 : 1.0
+            self.lastScoreHeart2.alpha = summary.livesRemaining < 2 ? 0.2 : 1.0
+        } else {
+            self.lastChallengeTiming.text = ""
+            self.lastScoreHeart1.alpha =  0.2
+            self.lastScoreHeart2.alpha = 0.2
+        }
     }
 
     private func setFont(){

@@ -87,5 +87,21 @@ class ChallengeSession {
         finished = true
         endTime = endTime ?? Date.init()
         ChallengeSessionRegistry.shared.enqueue(session: self)
+        RankCache.shared.saveSummary(for: self)
+    }
+
+    public func completed() -> Bool {
+        return self.livesRemaining > 0 && self.itemsRemaining.count == 0
+    }
+
+    public func summary() -> ChallengeSessionSummary {
+        let duration = Int(dangerousElapsedTimeInMs())
+        return ChallengeSessionSummary(livesRemaining: self.livesRemaining, lengthInMs: duration)
     }
 }
+
+struct ChallengeSessionSummary {
+    let livesRemaining: Int
+    let lengthInMs: Int
+}
+

@@ -34,7 +34,7 @@ class ChallengeScoreViewController: UIViewController {
 
         let itemCount = endState.itemCount
         let timeDifference = Int(session.endTime!.timeIntervalSince(session.startTime!))
-        let timing = UIConstants.format(time: timeDifference)
+        let timing = UIConstants.format(seconds: timeDifference)
         let units = session.challengeSet.collectionDescriptor
 
         if endState.itemsHandled == endState.itemCount {

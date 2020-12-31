@@ -128,7 +128,7 @@ class ChallengeViewController: UIViewController {
             })
             self.present(alert, animated: true, completion: nil)
         } else {
-            timeRemaining.text = UIConstants.format(time: secondsRemaining)
+            timeRemaining.text = UIConstants.format(seconds: secondsRemaining)
         }
     }
 
