@@ -36,7 +36,14 @@ class HTTPClient {
                     if resp.statusCode >= 400 {
                         if let data = data {
                             if let errorMessage = String(bytes: data, encoding: String.Encoding.utf8) {
+                                print("vvvvvvvvvvvvvvvvvvvvvvvv")
                                 print(errorMessage)
+                                print(url)
+                                print(body)
+                                print(request.httpBody as Any)
+                                print(request.allHTTPHeaderFields as Any)
+                                print(request.httpMethod as Any)
+                                print("^^^^^^^^^^^^^^^^^^^^^^^^")
                             }else{
                                 print("Failed to parse data in 400 response")
                             }
