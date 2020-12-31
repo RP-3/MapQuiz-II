@@ -105,8 +105,8 @@ class ChallengeSets {
 
     static let all = [
         ChallengeSetCollection(header: "Countries of the World", challengeSets: [NA, SA, AS, EU, OC, AF, WORLD]),
-        ChallengeSetCollection(header: "United Kingdom", challengeSets: [LONDON, UK_COUNTIES_GROUP]),
         ChallengeSetCollection(header: "United States", challengeSets: [US_STATES]),
+        ChallengeSetCollection(header: "United Kingdom", challengeSets: [LONDON, UK_COUNTIES_GROUP]),
     ]
 
     static let flattened = [NA, SA, AS, EU, OC, AF, WORLD, US_STATES, EN_COUNTIES, SC_COUNTIES, WA_COUNTIES, NI_COUNTIES, UK_COUNTIES, LONDON]

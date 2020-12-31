@@ -9,11 +9,9 @@
 import Foundation
 /*
  RankRache stores the latest rankings for all challengesets you've completed
- for viewing in the "my Top Scores" tab of the leaderbord.
- TODO:
-    - Create another one of these to store your latest score locally (only)
-    - Write to this local store immediately when a challenge is completed or failed
-    - 
+ for viewing in the "my Top Scores" tab of the leaderbord. It also includes
+ a simple persitent getter-setter mechanism to store the summary of the most
+ recently successfully completed challenge session. 
  */
 class RankCache {
     public static let shared = RankCache()
