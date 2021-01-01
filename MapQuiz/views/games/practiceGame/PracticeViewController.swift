@@ -58,6 +58,13 @@ class PracticeViewController: UIViewController {
             }
         }
 
+        var topIndex = worldMap.overlays.count
+        worldMap.overlays.forEach{ (overlay: MKOverlay) -> Void in
+            guard overlay is MKCircle else { return }
+            worldMap.insertOverlay(overlay, at: topIndex)
+            topIndex-=1
+        }
+
         gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapMap))
         self.view.addGestureRecognizer(gestureRecognizer!)
 
