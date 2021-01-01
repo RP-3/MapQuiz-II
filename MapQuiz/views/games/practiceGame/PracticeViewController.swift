@@ -88,7 +88,7 @@ class PracticeViewController: UIViewController {
             instructionLabel.text = "Find \(itemToFind)"
         }
         else if allRevealed {
-            instructionLabel.text = "All countries revealed"
+            instructionLabel.text = "All \(challengeSet.collectionDescriptor) revealed"
         }
 
         if session.finished() && !allRevealed {
