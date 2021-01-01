@@ -10,11 +10,13 @@ import MapKit
 
 class MapViewDelegate: NSObject, MKMapViewDelegate {
 
-    let fillColor: UIColor
+    let fillColourGuessed: UIColor
+    let fillColourNotGuessed: UIColor
     let strokeColor: UIColor
 
-    init(fill: UIColor, stroke: UIColor) {
-        self.fillColor = fill
+    init(guessed: UIColor, notGuessed: UIColor, stroke: UIColor) {
+        self.fillColourGuessed = guessed
+        self.fillColourNotGuessed = notGuessed
         self.strokeColor = stroke
     }
 
@@ -36,11 +38,11 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
             let polygonView = MKPolygonRenderer(overlay: custom)
             polygonView.lineWidth = 0.75
             polygonView.alpha = 0.9
-            polygonView.strokeColor = strokeColor // UIColor(red: 0.15, green: 0.1, blue: 0.01, alpha: 1.0)
+            polygonView.strokeColor = strokeColor
             if custom.userGuessed == false {
-                polygonView.fillColor = fillColor
+                polygonView.fillColor = fillColourNotGuessed
             } else {
-                polygonView.fillColor = .clear
+                polygonView.fillColor = fillColourGuessed
             }
             return polygonView
         }

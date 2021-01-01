@@ -14,7 +14,7 @@ class ChallengeViewController: UIViewController {
     public var challengeSet: ChallengeSet!
 
     private var session: ChallengeSession!
-    private let mapDelegate = MapViewDelegate(fill: UIConstants.mapBeige, stroke: UIConstants.mapStroke)
+    private let mapDelegate = MapViewDelegate(guessed: .clear, notGuessed: UIConstants.mapBeige, stroke: UIConstants.mapStroke)
     private var gestureRecognizer: UITapGestureRecognizer?
     private weak var timer: Timer?
 

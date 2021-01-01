@@ -12,7 +12,7 @@ import MapKit
 class PracticeScoreViewController: UIViewController {
 
     public var session: PracticeSession!
-    private let delegate = MapViewDelegate(fill: UIConstants.mapRed, stroke: UIConstants.mapStroke)
+    private let delegate = MapViewDelegate(guessed: .clear, notGuessed: UIConstants.mapRed, stroke: UIConstants.mapStroke)
     private let wrongThreshold = 3
 
     @IBOutlet weak var worldMap: MKMapView!
@@ -51,6 +51,18 @@ class PracticeScoreViewController: UIViewController {
         session.itemsMishandled.forEach { (name: String, item: BoundedItem) -> Void in
             for landArea in (item.boundary) {
                 let overlay = CustomPolygon(guessed: false, lat_long: item.centroid(), coords: landArea, numberOfPoints: landArea.count )
+                overlay.title = item.name
+                worldMap.addOverlay(overlay)
+            }
+            if let radius = World.smallIsland(name: item.name) {
+                let circle = MKCircle(center: item.centroid(), radius: radius)
+                worldMap.addOverlay(circle)
+            }
+        }
+
+        session.itemsHandled.forEach { (name: String, item: BoundedItem) -> Void in
+            for landArea in (item.boundary) {
+                let overlay = CustomPolygon(guessed: true, lat_long: item.centroid(), coords: landArea, numberOfPoints: landArea.count )
                 overlay.title = item.name
                 worldMap.addOverlay(overlay)
             }
