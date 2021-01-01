@@ -28,6 +28,9 @@ class World {
         "Malta": 50_000,
         "Vatican City": 50_000,
         "San Marino": 50_000,
+        "Monaco": 40_000,
+        "Liechtenstein": 40_000,
+        "Andorra": 40_000,
 
         // africa
         "Mauritius": 500_000,
@@ -54,6 +57,9 @@ class World {
         "Northern Mariana Islands": 80_000,
         "Guam": 80_000,
         "American Samoa": 80_000,
+
+        // UK Counties
+        "City and County of the City of London": 7_000,
     ]
 
     public static func smallIsland(name: String) -> CLLocationDistance? {
