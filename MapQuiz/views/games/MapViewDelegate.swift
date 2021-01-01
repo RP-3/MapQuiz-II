@@ -63,23 +63,11 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
             aView = av
         }
         let lbl: UILabel = (aView.viewWithTag(20) as! UILabel)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.addConstraint(
-            NSLayoutConstraint(
-                item: lbl,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: nil,
-                attribute: .notAnAttribute,
-                multiplier: 1,
-                constant: 21
-            )
-        )
         lbl.layer.masksToBounds = true
-        lbl.layer.cornerRadius = 3
+        lbl.layer.cornerRadius = 4
         lbl.textAlignment = .center
         lbl.text = " \(annotation.title!!) "
-        lbl.font = UIConstants.josefinSansRegular(size: 15)
+        lbl.font = UIConstants.amaticBold(size: 17)
         lbl.textColor = .black
         lbl.backgroundColor = UIConstants.mapBeige
         lbl.sizeToFit()
