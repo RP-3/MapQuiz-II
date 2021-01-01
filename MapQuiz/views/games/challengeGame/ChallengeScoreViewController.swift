@@ -43,11 +43,11 @@ class ChallengeScoreViewController: UIViewController {
             StoreReviewController.markChallengeCompleted()
         }
         else if endState.livesRemaining <= 0 { // ran out of lives
-            winLoseImage.image = UIImage(named: "wrong")
+            winLoseImage.image = UIImage(named: "skull")
             winLoseMessage.text = "All your lives are gone! You got \(endState.itemsHandled) \(units) out of \(itemCount) in \(timing) minutes"
         }
         else { // ran out of time
-            winLoseImage.image = UIImage(named: "wrong")
+            winLoseImage.image = UIImage(named: "skull")
             winLoseMessage.text = "Time up! You got \(endState.itemsHandled) \(units) out of \(itemCount)"
         }
     }
