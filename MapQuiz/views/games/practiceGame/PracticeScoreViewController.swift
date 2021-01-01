@@ -13,10 +13,36 @@ class PracticeScoreViewController: UIViewController {
 
     public var session: PracticeSession!
     private let delegate = MapViewDelegate(fill: UIConstants.mapRed, stroke: UIConstants.mapStroke)
+    private let wrongThreshold = 3
 
     @IBOutlet weak var worldMap: MKMapView!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var primaryActionBtn: UIButton!
+
+    @IBAction func primaryActionTapped(_ sender: Any) {
+        let navController = self.navigationController!
+        let storyboard = self.storyboard!
+        let shouldChallenge = session.itemsMishandled.count < wrongThreshold
+        let challengeSet = session.challengeSet
+
+        for controller in navController.viewControllers as Array {
+            if controller.isKind(of: ChooseModeViewController.self) {
+                _ =  self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
+
+        if shouldChallenge {
+            let vc = storyboard.instantiateViewController(withIdentifier: "ChallengeViewController") as! ChallengeViewController
+            vc.challengeSet = challengeSet
+            navController.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard.instantiateViewController(withIdentifier: "PracticeViewController") as! PracticeViewController
+            vc.challengeSet = challengeSet
+            navController.pushViewController(vc, animated: true)
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,19 +74,22 @@ class PracticeScoreViewController: UIViewController {
         let wrong = session.itemsMishandled.count
         let fraction = "\(correct) / \(correct + wrong)"
 
+        primaryActionBtn.setTitle("RETRY", for: .normal)
+
         if correct == 0 {
             summaryLabel.text = "Whups, you got \(fraction)."
             detailLabel.text = "Gotta start somewhere! Take a few seconds to learn just one or two you got wrong"
         }
-        else if wrong < 3 {
+        else if wrong < wrongThreshold {
             summaryLabel.text = "Congrats 🎉 You got \(fraction)!"
             detailLabel.text = "You know this one pretty well. Ready for a challenge?"
+            primaryActionBtn.setTitle("CHALLENGE ME", for: .normal)
         }
         else {
             let score = (Float(correct) / Float(correct + wrong)) * 100
             switch score {
             case 0..<20:
-                summaryLabel.text = "Good start! You got \(fraction)"
+                summaryLabel.text = "Good start! You got \(fraction) 👍"
                 detailLabel.text = "Take a minute to learn a few more that you missed"
             case 20..<50:
                 summaryLabel.text = "Solid! You got \(fraction) 🙌"
