@@ -37,6 +37,7 @@ class World {
         "Comoros": 500_000,
         "Seychelles": 500_000,
         "São Tomé and Príncipe": 500_000,
+        "Cape Verde": 500_000,
 
         // asia
         "Maldives": 200_000,
