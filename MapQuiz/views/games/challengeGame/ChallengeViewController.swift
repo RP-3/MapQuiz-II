@@ -66,6 +66,16 @@ class ChallengeViewController: UIViewController {
             topIndex-=1
         }
 
+        // remove unwanted gesture recognizers (e.g., double-tap to zoom)
+        for subview in worldMap.subviews {
+            guard let gestures = subview.gestureRecognizers else { continue }
+            for gesture in gestures {
+                if (gesture.isKind(of: UITapGestureRecognizer.classForCoder())){
+                    subview.removeGestureRecognizer(gesture)
+                }
+            }
+        }
+
         gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapMap))
         self.view.addGestureRecognizer(gestureRecognizer!)
 
